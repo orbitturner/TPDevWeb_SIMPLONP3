@@ -1,0 +1,68 @@
+/*
++======================={PROJECT - PRESENTATION}======================+
+|                                                                     |
+|Project Name    : ORBIT TECH SHOP                                    |
+|Categorie       : Dynamic Website                                    |
+|FrameWorks      : Bootstrap                                          |
+|Author          : OrbitTurner                                        |
+|Official Name   : Mohamed GUEYE                                      |
+|Version         : v.1.2                                              |
+|Created         : 01-Nov-2018                                        |
+|Last update     : 17-Fev-2019                                        |
+|Partie          : MAIN INDEX                                         | 
+|LANGAGE UTILISE : ANGLAIS - FRANCAIS                                 |
++=====================================================================+
+*/
+/*===========================>{ W E B   S T Y L E S }<===========================*/
+::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+	border-radius: 10px;
+	background-color: #CCCCCC;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #D62929;
+	background-image: -webkit-linear-gradient(90deg,
+											  transparent,
+											  rgba(0, 0, 0, 0.4) 50%,
+											  transparent,
+											  transparent)
+}
+
+/*SELECTION SET*/
+::selection{
+    background: crimson;
+    color: #fff;
+}
+
+/*===========================>{ E N D  OF  W E B   S T Y L E S }<===========================*/
+
+@font-face {
+	font-family: 'Azonix Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Azonix Regular'), url('Azonix.woff') format('woff');
+}
+
+html,
+body {
+	height: 100%;
+	font-family: 'Josefin Sans', sans-serif;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	/* background: url(/ORBITTECHSHOP/img/background/back14.jpg) no-repeat center center fixed; */
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
