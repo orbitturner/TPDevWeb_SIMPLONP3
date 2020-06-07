@@ -1,14 +1,26 @@
-# TP DEV WEB 1 : HTML / CSS - P3 SIMPLON DEV WEB
+<img src="icon.png" align="right" />
 
-<img src="https://github.com/orbitturner/TDPythonP3Simplon/blob/master/assets/logo-simplon.png?raw=true" align="right" />
+# 📖 TP1 DEV WEB FRONT - PRAIRIE P3 DEV-WEB [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome#readme)
+> Here are all the statements of exercises from TP1 😉
 
-# ⬇ ___REPOSITORY INFORMATIONS___ 🌐
-
-> ** This repository is not an active Project but just a means of follow-up on individual evolutions concerning HTML / CSS practical work from P3 Dev Web to SIMPLON  **
-
+Some exercises available in two versions are nested into one.
 
 ## Statements
+
 - [BRIEF SIMPLON LINE](https://github.com/orbitturner/TPDEVWEB1_SIMPLONP3/blob/master/assets/img/492a4303-55db-4eb7-89ef-46ad1286376a.png) - Vous devez reproduire cette page en utilisant les deux technologies suivantes : HTML et CSS.
+
+
+## Contribute
+
+Contributions are always welcome!
+Please read the [contribution guidelines](contributing.md) first.
+
+## License
+
+[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
+
+To the extent possible under law, [Matias Singers](https://mts.io) has waived all copyright and related or neighboring rights to this work.
+
 
 ______________________________________________________
 **❤ WITH LOVE BY ❤** : Mohamed GUEYE (OrbitTurner).

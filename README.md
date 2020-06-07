@@ -1,10 +1,10 @@
-# DEPOT TD PYTHON - P3 SIMPLON DEV WEB
+# DEPOT TP DEVWEB - P3 SIMPLON DEV WEB
 
 <img src="https://github.com/orbitturner/TDPythonP3Simplon/blob/master/assets/logo-simplon.png?raw=true" align="right" />
 
 # ⬇ ___REPOSITORY INFORMATIONS___ 🌐
 
-> ** This repository is not an active Project but just a means of follow-up on individual evolutions concerning PYTHON practical work from P3 Dev Web to SIMPLON  **
+> ** This repository is not an active Project but just a means of follow-up on individual evolutions concerning DEV WEB practical work from SIMPLON  P3**
 
 
 

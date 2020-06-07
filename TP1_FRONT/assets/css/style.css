@@ -1,14 +1,14 @@
 /*
 +======================={PROJECT - PRESENTATION}======================+
 |                                                                     |
-|Project Name    : ORBIT TECH SHOP                                    |
-|Categorie       : Dynamic Website                                    |
-|FrameWorks      : Bootstrap                                          |
+|Project Name    : TD DEVWEB 1 SIMPLON                                |
+|service       : Static  Website                                    |
+|FrameWorks      : NONE                                               |
 |Author          : OrbitTurner                                        |
 |Official Name   : Mohamed GUEYE                                      |
-|Version         : v.1.2                                              |
-|Created         : 01-Nov-2018                                        |
-|Last update     : 17-Fev-2019                                        |
+|Version         : v.0.Null                                           |
+|Created         : 06-Jun-2020                                        |
+|Last update     : 06-Jun-2020                                        |
 |Partie          : MAIN INDEX                                         | 
 |LANGAGE UTILISE : ANGLAIS - FRANCAIS                                 |
 +=====================================================================+
@@ -41,12 +41,13 @@
 
 /*SELECTION SET*/
 ::selection{
-    background: crimson;
+    background: rgb(20, 220, 193);
     color: #fff;
 }
 
 /*===========================>{ E N D  OF  W E B   S T Y L E S }<===========================*/
 
+/* ➖➖➖➖➖➖➖➖➖🔹 BASIC SETTINGS 🔹➖➖➖➖➖➖➖➖➖ */
 @font-face {
 	font-family: 'Azonix Regular';
 	font-style: normal;
@@ -54,15 +55,266 @@
 	src: local('Azonix Regular'), url('Azonix.woff') format('woff');
 }
 
-html,
-body {
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Noto+Sans+JP:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+:root{
+	--color:#736f83;
+	--branding-textLogoFont:'Josefin Sans', sans-serif;
+	--iconeColor:#64ad88;
+	--BodyBackground:#414150;
+}
+
+*{	
+	/* background: rgba(65, 65, 80, 0.53); */
+	text-align: center;
+	width:100%;
+}
+
+html,body {
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
 	height: 100%;
 	font-family: 'Josefin Sans', sans-serif;
 	font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
+	/* background-color: rgba(65, 65, 80, 0.7); */
 	/* background: url(/ORBITTECHSHOP/img/background/back14.jpg) no-repeat center center fixed; */
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	overflow:hidden;
 }
+/* ➖➖➖➖➖➖➖➖➖❌ END OF BASICS ❌➖➖➖➖➖➖➖➖➖ */
+
+/* ========================================================================== */
+
+/* ➖➖➖➖➖➖➖➖➖💠 MAIN CONTENT STYLING 💠➖➖➖➖➖➖➖➖➖ */
+
+.overlay{
+
+}
+
+header{
+    background: transparent;
+	display: inline-block;
+	width: 85%;
+	padding-top: 1%;
+	margin: 0;
+}
+
+.branding-text{
+    background:transparent;
+    color:white;
+    font-weight:bold;
+    font-family: var(--branding-textLogoFont);
+	margin: 0px;
+	margin-left: -35px;
+}
+
+.nav{
+    background:transparent;
+	margin: 0;
+	font-family: var(--branding-textLogoFont);
+	margin-left: 500px;
+}
+
+.nav a {
+	text-decoration:  none;
+    background:transparent;
+    color:white;
+	font-weight:bold;
+	padding-right: 35px;
+	padding-left: 0;
+    /* margin:0 7px; */
+}
+/* end header */
+
+/* start line  */
+.horizon{
+	width: 85%;
+	margin-top: 3.5%;
+    border: 1px solid var(--color);
+}
+/* end line  */
+
+
+/* start main part */
+main{
+	margin-top: 85px;
+    background:transparent;
+}
+
+h1{
+	color:white;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-weight: 600;
+	font-size:43px;
+	margin-top: 10%;
+	margin-left: -10px;
+	letter-spacing: 2px;
+	background:transparent;
+}
+
+.service{
+    display:flex;
+    align-items:center;
+    margin-left: 55px;
+    margin-top: 45px;
+	width:100%;
+	height: 50%;
+}
+
+
+.service .col-service h3{
+	font-family: var(--branding-textLogoFont);
+
+}
+
+.service .col-service h3{
+    color:white;
+    font-size:17px;
+    background:transparent;
+}
+
+
+.service .col-service p{
+    color:#a6a7b0;
+    margin-top: 10px;
+    font-size:13px;
+    font-weight:bold;
+    padding: 0;
+    background:transparent;
+}
+
+.service .col-service i{
+    color:var(--iconeColor);
+    font-size: 26px;
+}
+
+button{
+	margin-top: 4%;
+	font-size: 12px;
+	font-weight: 800;
+	text-align: center;
+	text-transform: uppercase;
+	color:#64ad88;
+	background:transparent;
+	width:170px;
+	margin-left: -1%;
+	border: 3px solid #64ad88;
+	padding: 10px 10px;
+	border-radius: 20px;
+}
+
+button:hover{
+	background-color: #64ad88;
+	color: #736f83;
+	transition: all ease-in-out 0.8s;
+}
+button:active{
+	border: 3px solid #0e3c3f;
+	background-color: #0e3c3f;
+	border-radius: 20px;
+
+}
+/* end main part */
+/* ➖➖➖➖➖➖➖➖➖❌ END OF MAIN STYLING ❌➖➖➖➖➖➖➖➖➖ */
+
+/* ========================================================================== */
+
+/* ➖➖➖➖➖➖➖➖➖💢 RESPONSIVE STYLING 💢➖➖➖➖➖➖➖➖➖ */
+/* large screen  */
+@media only screen and (min-width:1121px){
+
+    body{
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    /* start header */
+	header{
+        align-items: center;
+        display:flex;
+        margin-top: 25px;
+        width: 100%;
+    }
+    header .branding-text{
+        /* margin-left: -34px; */
+    }
+
+    /* end header */
+    
+    /* start span */
+    
+    .line{
+        margin-top: 70px;
+        margin-left: 62px;
+        width:90%;
+    }
+
+	.service{
+        align-items:center;
+        display:flex;
+        background:transparent;
+        margin-top: 45px;
+        margin-left: -12px;
+        width:100%;
+    }
+    
+    .service .col-service i,h3,p{
+        background:transparent;
+    }
+    
+    .service .col-service{
+        background:transparent;
+        padding: 12px 12px;
+    }
+    
+    .service .col-service i{
+        color:#64ad88;
+        font-size: 32px;
+    }
+
+    main .service .middle{
+        border-left: 2px solid var(--color);
+        border-right: 2px solid var(--color);
+    }
+    
+    
+    
+    /* end main */
+} 
+/* when screen is between 768 and 767px  */
+
+@media only screen and (min-width:768px) and (max-width:1120px){
+ 
+
+}
+
+
+
+
+/* smartphones screen less than or equal to 590px */
+
+@media only screen and (max-width:590px){
+    
+}
+
+/* when the screen is between 667 and 767px */
+@media only screen and (min-width:668px) and (max-width:767px){
+    
+}
+
+/* small tablet screen */
+@media only screen and (min-width:591px) and (max-width:667px){
+    
+}
+
+
+
+    
+/* ➖➖➖➖➖➖➖➖➖❌ END OF RESPONSIVE STYLING ❌➖➖➖➖➖➖➖➖➖ */
