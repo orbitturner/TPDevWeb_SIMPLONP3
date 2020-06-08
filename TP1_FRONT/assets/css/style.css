@@ -65,10 +65,12 @@
 	--BodyBackground:#414150;
 }
 
+
 *{	
 	/* background: rgba(65, 65, 80, 0.53); */
 	text-align: center;
 	width:100%;
+	/* background: transparent; */
 }
 
 html,body {
@@ -81,12 +83,13 @@ html,body {
 	font-family: 'Josefin Sans', sans-serif;
 	font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
+	background: transparent;
 	/* background-color: rgba(65, 65, 80, 0.7); */
 	/* background: url(/ORBITTECHSHOP/img/background/back14.jpg) no-repeat center center fixed; */
-	-webkit-background-size: cover;
+	/* -webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	background-size: cover;
+	background-size: cover; */
 	overflow:hidden;
 }
 /* ➖➖➖➖➖➖➖➖➖❌ END OF BASICS ❌➖➖➖➖➖➖➖➖➖ */
@@ -96,8 +99,17 @@ html,body {
 /* ➖➖➖➖➖➖➖➖➖💠 MAIN CONTENT STYLING 💠➖➖➖➖➖➖➖➖➖ */
 
 .overlay{
-
+	width: 100%;
+	height: 100%;
+	background: url(/TP1_FRONT/assets/img/111.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	overflow:hidden;
+	/* z-index: -5; */
 }
+
 
 header{
     background: transparent;
@@ -217,12 +229,14 @@ button:hover{
 	transition: all ease-in-out 0.8s;
 }
 button:active{
-	border: 3px solid #0e3c3f;
+	/* border: 3px solid #0e3c3f; */
 	background-color: #0e3c3f;
-	border-radius: 20px;
-
+	transition: all ease-in-out 0.3s;
+	/* border-radius: 20px; */
 }
-/* end main part */
+button:focus, button:hover, button:active{
+	outline: none;
+}
 /* ➖➖➖➖➖➖➖➖➖❌ END OF MAIN STYLING ❌➖➖➖➖➖➖➖➖➖ */
 
 /* ========================================================================== */
