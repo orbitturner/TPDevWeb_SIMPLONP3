@@ -1,0 +1,18 @@
+create table operation(
+    id_Operation int not null primary key auto_increment,
+    numOperation varchar(50) unique not null,
+    typeOperation int not null,
+    operDate date not null,
+    montantOper float not null,
+    state int not null,
+    fromAccount int not null,
+    toAccount int not null,
+    idEmpCreator int not null,
+    comments varchar(255),
+    agence varchar(100),
+    foreign key (typeOperation) references typeOper(id_type),
+    foreign key (state) references etats(id_etat),
+    foreign key (fromAccount) references compte(id_compte),
+    foreign key (toAccount) references compte(id_compte),
+    foreign key (idEmpCreator) references employee(id_employee),
+    foreign key (agence) references agency(numAgency));
