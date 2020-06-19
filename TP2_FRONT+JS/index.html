@@ -46,6 +46,9 @@
                 <div class="card-heading">
                     <h2 class="title">FORMULAIRE DE CREATION DE CLIENT</h2>
                 </div>
+                <!-- TODO : Controls -->
+                <!-- DONE : DESIGN-->
+                <!-- STARTING : CLIENT FORM -->
                 <div class="card-body">
                     <form method="POST" action="" id="creationClientForm" name="creationClientForm">
                         <!-- 👨🏾‍💼CLIENT INFOS💼 -->
@@ -180,7 +183,10 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- ENDING : FORM CLIENT -->
 
+                        <!-- TODO : Design & Controls -->
+                        <!-- STARTING : COMPTE BLOCK -->
                         <!-- 🔐COMPTE BANCAIRE DU CLIENT💰 -->
                         <div class="block-title p-b-30">
                             <h1>Informations du Compte</h1>
@@ -208,6 +214,7 @@
                         <div class="form-row">
                             <div class="name">Subject</div>
                             <div class="value">
+                                <!-- BUG -->
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
                                         <select name="subject">
@@ -221,7 +228,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row p-t-20">
+                        <div class="form-row p-t-20 choices">
                             <label class="label label--block">Are you an existing customer?</label>
                             <div class="p-t-15">
                                 <label class="radio-container m-r-55">Yes
@@ -234,7 +241,10 @@
                                 </label>
                             </div>
                         </div>
-                        <div>
+                        <!-- ENDING : BLOCK COMPTE -->
+
+                        <!-- TODO : VALIDATE FORM -->
+                        <div class="btn--centered">
                             <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
                         </div>
                     </form>
@@ -254,3 +264,14 @@
 
 </html>
 <!-- end document-->
+<!--
+TODO: Ouverture de compte
+Les informations du compte sont saisies par le responsable des comptes. Il enregistre les informations du compte à savoir le numéro de compte précédé du numéro de l’agence, suivi de la clé Rib et les informations du client.
+Lors d’une première ouverture le responsable doit aussi enregistrer les informations sur le client. Les informations sont entre autres : nom, prénom, adresse, email (optionnel),  téléphone, salaire actuel (si travailleur), profession (optionnel), les informations de l’employeur si travailleur et un numéro d’identification.
+Il existe différents types de compte :
+Compte épargne simple et xeewel : frais d’ouverture obligatoire. Ce type de compte est rémunéré annuellement.
+Compte courant pour les salariés : pas de frais d’ouverture, agios à retirer tous les trois mois.
+Compte bloqué : frais d’ouverture obligatoire. Le délai de blocage doit faire minimum un an. Ce type de compte est rémunéré annuellement. A la date d’échéance le compte est fermé moyennant un montant sur le dépôt initial.
+Pour le compte courant il faut les informations de l’employeur (raison social, adresse, nom employeur, et un numéro d’identification).
+Un compte peut avoir différents états : Actif, Fermé (dans ce cas on l’archive pendant trois mois avant de le supprimer), bloqué (impossible de faire des retraits avant la date échéance. A la date d’échéance son état passe à Actif. Cas d’un compte bloqué). Pour les comptes d’épargne simple et de xeewel, le client peut demander qu’on gèle le  compte jusqu’à une date donné et dans ce cas il est impossible de faire des retraits ou des dépôts sur le compte, après cette date l’état du compte passe à actif.
+-->

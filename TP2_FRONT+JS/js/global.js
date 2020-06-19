@@ -19,6 +19,8 @@ var formOk = false;
 // ==================================================================================
 // ---💠 SETUP OF THE FORM 💠 ---
 // ==================================================================================
+// FIXME
+// PENDING
 function initFormSet() {
     // test
     console.log("THE FORM IS LOADED SUCCESSFULLY");
@@ -27,9 +29,12 @@ function initFormSet() {
     formOk = true;
 }
 
+
 // ==================================================================================
 // --- 🔘 RADIO BUTTONS 🔘 ---
 // ==================================================================================
+// DONE 
+// FIXME
 var statutProRadios = document.getElementsByName("statutPro");
 var oldVal = null;
 for (var i = 0; i < statutProRadios.length; i++) {
@@ -49,6 +54,7 @@ for (var i = 0; i < statutProRadios.length; i++) {
 // ==================================================================================
 // --- 🧱 BRIQUE-FUNCS 🧱 ---
 // ==================================================================================
+// DONE
 function toogleWorkBlocks(option) {
     option = parseInt(option);
     let blockInfosPro = document.getElementById("infoPro");
