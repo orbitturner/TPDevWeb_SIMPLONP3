@@ -101,7 +101,7 @@ html,body {
 .overlay{
 	width: 100%;
 	height: 100%;
-	background: url(/TP1_FRONT/assets/img/111.jpg) no-repeat center center fixed;
+	background: url(../img/bgFinal.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -173,10 +173,10 @@ h1{
 }
 
 .service{
-    display:flex;
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
     align-items:center;
-    margin-left: 55px;
-    margin-top: 45px;
 	width:100%;
 	height: 50%;
 }
@@ -184,10 +184,6 @@ h1{
 
 .service .col-service h3{
 	font-family: var(--branding-textLogoFont);
-
-}
-
-.service .col-service h3{
     color:white;
     font-size:17px;
     background:transparent;
@@ -225,7 +221,7 @@ button{
 
 button:hover{
 	background-color: #64ad88;
-	color: #736f83;
+	color: #fff;
 	transition: all ease-in-out 0.8s;
 }
 button:active{
@@ -252,13 +248,14 @@ button:focus, button:hover, button:active{
     /* start header */
 	header{
         align-items: center;
-        display:flex;
+		display:flex;
+		flex-direction: row;
         margin-top: 25px;
         width: 100%;
     }
-    header .branding-text{
-        /* margin-left: -34px; */
-    }
+    /*header .branding-text{
+         margin-left: -34px; 
+    }*/
 
     /* end header */
     
@@ -298,37 +295,193 @@ button:focus, button:hover, button:active{
         border-right: 2px solid var(--color);
     }
     
-    
-    
-    /* end main */
 } 
-/* when screen is between 768 and 767px  */
+/* BETWEEN 768 and 767px  */
 
 @media only screen and (min-width:768px) and (max-width:1120px){
  
-
+	h1{
+		font-size: 35px;
+	}
+	header{
+		align-items: center;
+		display:flex;
+		flex-direction: row;
+		margin-top: 25px;
+		width: 100%;
+    }
+	.branding-text{
+    background:transparent;
+    color:white;
+    font-weight:bold;
+    font-family: var(--branding-textLogoFont);
+	margin: 0px;
+	margin-left: -5%;
+	}
+	.nav{
+    background:transparent;
+	margin: 0;
+	font-family: var(--branding-textLogoFont);
+	margin-left: 0%;
+	}
+	main{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding : 0 !important;
+		margin : 0 !important;
+	}
 }
 
 
 
 
-/* smartphones screen less than or equal to 590px */
+/* Less than or Equal to 590px */
 
 @media only screen and (max-width:590px){
-    
+	h1{
+		font-size: 35px;
+	}
+	header{
+		align-items: center;
+		display:flex;
+		flex-direction: row;
+		margin-top: 25px;
+		width: 100%;
+    }
+	.branding-text{
+    background:transparent;
+    color:white;
+    font-weight:bold;
+    font-family: var(--branding-textLogoFont);
+	margin: 0px;
+	margin-left: -5%;
+	}
+	.nav{
+    background:transparent;
+	margin: 0;
+	font-family: var(--branding-textLogoFont);
+	margin-left: 0%;
+	}
+	main{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding : 0 !important;
+		margin : 0 !important;
+	}
+	.service{
+		flex-direction: column;
+	}
+	.col-service{
+		padding-bottom : 3%;
+	}
+	.col-service i {
+		font-size : 45px !important;
+	}
 }
 
-/* when the screen is between 667 and 767px */
+/*Between 667 and 767px */
 @media only screen and (min-width:668px) and (max-width:767px){
-    
+	h1{
+		font-size: 35px;
+	}
+	header{
+		align-items: center;
+		display:flex;
+		flex-direction: row;
+		margin-top: 25px;
+		width: 100%;
+    }
+	.branding-text{
+    background:transparent;
+    color:white;
+    font-weight:bold;
+    font-family: var(--branding-textLogoFont);
+	margin: 0px;
+	margin-left: -5%;
+	}
+	.nav{
+    background:transparent;
+	margin: 0;
+	font-family: var(--branding-textLogoFont);
+	margin-left: 0%;
+	}
+	main{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding : 0 !important;
+		margin : 0 !important;
+	}
+	.service{
+		flex-direction: column;
+	}
+	.col-service{
+		padding-bottom : 3%;
+	}
+	.col-service i {
+		font-size : 45px !important;
+	}
 }
 
-/* small tablet screen */
+/*Tablet screen */
 @media only screen and (min-width:591px) and (max-width:667px){
-    
+	h1{
+		font-size: 35px;
+	}
+	header{
+		align-items: center;
+		display:flex;
+		flex-direction: row;
+		margin-top: 25px;
+		width: 100%;
+    }
+	.branding-text{
+    background:transparent;
+    color:white;
+    font-weight:bold;
+    font-family: var(--branding-textLogoFont);
+	margin: 0px;
+	margin-left: -5%;
+	}
+	.nav{
+    background:transparent;
+	margin: 0;
+	font-family: var(--branding-textLogoFont);
+	margin-left: 0%;
+	}
+	main{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding : 0 !important;
+		margin : 0 !important;
+	}
+	.service{
+		flex-direction: column;
+	}
+	.col-service{
+		padding-bottom : 3%;
+	}
+	.col-service i {
+		font-size : 45px !important;
+	}
 }
 
-
+@media only screen and (min-width:100px) and (max-width:425px){
+	.nav a{
+		margin: 0 !important;
+		padding-right: 1px !important;
+	}
+	h1{
+		font-size: 23px;
+	}
+}
 
     
 /* ➖➖➖➖➖➖➖➖➖❌ END OF RESPONSIVE STYLING ❌➖➖➖➖➖➖➖➖➖ */

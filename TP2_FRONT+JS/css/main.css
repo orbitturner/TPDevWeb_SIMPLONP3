@@ -1,4 +1,51 @@
+/*
++======================={PROJECT - PRESENTATION}======================+
+|                                                                     |
+|Project Name    : TD DEVWEB 2 SIMPLON                                |
+|service       :   Semi-Static  Website                               |
+|FrameWorks      : NONE                                               |
+|Author          : OrbitTurner                                        |
+|Official Name   : Mohamed GUEYE                                      |
+|Version         : v.0.Null                                           |
+|Created         : 14-Jun-2020                                        |
+|Last update     : 18-Jun-2020                                        |
+|Partie          : MAIN CSS                                           | 
+|LANGAGE UTILISE : ANGLAIS - FRANCAIS                                 |
++=====================================================================+
+*/
+/*===========================>{ W E B   S T Y L E S }<===========================*/
+::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+	border-radius: 10px;
+	background-color: #CCCCCC;
+}
 
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #29c2d6;
+	background-image: -webkit-linear-gradient(90deg,
+											  transparent,
+											  rgba(0, 0, 0, 0.4) 50%,
+											  transparent,
+											  transparent)
+}
+
+/*SELECTION SET*/
+::selection{
+    background: rgb(20, 220, 193);
+    color: #fff;
+}
+
+/*===========================>{ E N D  OF  W E B   S T Y L E S }<===========================*/
 /* ==========================================================================
    #FONT
    ========================================================================== */
@@ -55,6 +102,7 @@
   width: calc((100% - 30px) / 2);
 }
 
+
 @media (max-width: 767px) {
   .col-2 {
     width: 100%;
@@ -106,12 +154,13 @@
 }
 
 .col-3,
-.col-9 {
+.col-9, .col-4 {
   padding: 0 15px;
   position: relative;
   width: 100%;
   min-height: 1px;
 }
+
 
 .col-3 {
   -webkit-box-flex: 0;
@@ -121,6 +170,12 @@
   flex: 0 0 25%;
   max-width: 25%;
 }
+
+/* .col-4 {
+  width: -webkit-calc((100% - 270px) / 2);
+  width: -moz-calc((100% - 270px) / 2);
+  width: calc((100% - 270px) / 2);
+} */
 
 @media (max-width: 767px) {
   .col-3 {
@@ -133,6 +188,20 @@
   }
 }
 
+.col-4 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 33.33%;
+  -moz-box-flex: 0;
+  -ms-flex: 0 0 33.33%;
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+}
+.col-4:first-child{
+  padding-left: 0;
+}
+.col-4:last-child{
+  padding-right: 0;
+}
 .col-9 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 75%;
@@ -305,6 +374,10 @@ h6 {
 /* ==========================================================================
    #SPACING
    ========================================================================== */
+.p-t-0 {
+  padding-top: 0;
+}
+
 .p-t-100 {
   padding-top: 100px;
 }
@@ -337,6 +410,10 @@ h6 {
   padding-top: 30px;
 }
 
+.p-b-30 {
+  padding-bottom: 30px;
+}
+
 .p-b-100 {
   padding-bottom: 100px;
 }
@@ -357,6 +434,26 @@ h6 {
   margin-bottom: 55px;
 }
 
+.m-b-90 {
+  margin-bottom: 90px;
+}
+
+.m-b-100 {
+  margin-bottom: 100px;
+}
+
+.m-t-0 {
+  margin-top: 0;
+}
+
+.m-t-55 {
+  margin-top: 55px;
+}
+
+.m-t-80 {
+  margin-top: 80px;
+}
+
 /* ==========================================================================
    #WRAPPER
    ========================================================================== */
@@ -369,7 +466,7 @@ h6 {
 }
 
 .wrapper--w790 {
-  max-width: 790px;
+  max-width: 80%;
 }
 
 .wrapper--w780 {
@@ -439,56 +536,6 @@ h6 {
 
 .btn--red:hover {
   background: #eb3746;
-}
-
-/* ==========================================================================
-   #DATE PICKER
-   ========================================================================== */
-td.active {
-  background-color: #2c6ed5;
-}
-
-input[type="date" i] {
-  padding: 14px;
-}
-
-.table-condensed td, .table-condensed th {
-  font-size: 14px;
-  font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
-  font-weight: 400;
-}
-
-.daterangepicker td {
-  width: 40px;
-  height: 30px;
-}
-
-.daterangepicker {
-  border: none;
-  -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
-  display: none;
-  border: 1px solid #e0e0e0;
-  margin-top: 5px;
-}
-
-.daterangepicker::after, .daterangepicker::before {
-  display: none;
-}
-
-.daterangepicker thead tr th {
-  padding: 10px 0;
-}
-
-.daterangepicker .table-condensed th select {
-  border: 1px solid #ccc;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  font-size: 14px;
-  padding: 5px;
-  outline: none;
 }
 
 /* ==========================================================================
@@ -622,6 +669,23 @@ input {
   left: 0;
 }
 
+.choices{
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.choices>.label{
+  text-transform: uppercase;
+}
+
+/* .choices>*{
+  align-items: center;
+} */
+.prefilled{
+  color: #555;
+}
 /* ==========================================================================
    #SELECT2
    ========================================================================== */
@@ -726,6 +790,22 @@ input {
   color: #fff;
 }
 
+.block-title{
+  text-align: center;
+  margin: 4% 0 15px 0;
+}
+
+.block-title >h1{
+  font-weight: 600;
+  padding-bottom: 15px;
+}
+
+.block-title >hr{
+  height: 4px;
+  background-color: #e5e5e5;
+  border-radius: 50%;
+  border-color: #e5e5e5;
+}
 /* ==========================================================================
    #CARD
    ========================================================================== */
@@ -758,7 +838,7 @@ input {
 }
 
 .card-5 .card-body {
-  padding: 52px 85px;
+  padding: 0px 85px;
   padding-bottom: 73px;
 }
 

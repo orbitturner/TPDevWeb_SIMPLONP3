@@ -1,70 +1,69 @@
-(function ($) {
-    'use strict';
-    /*==================================================================
-        [ Daterangepicker ]*/
-    try {
-        $('.js-datepicker').daterangepicker({
-            "singleDatePicker": true,
-            "showDropdowns": true,
-            "autoUpdateInput": false,
-            locale: {
-                format: 'DD/MM/YYYY'
-            },
-        });
-    
-        var myCalendar = $('.js-datepicker');
-        var isClick = 0;
-    
-        $(window).on('click',function(){
-            isClick = 0;
-        });
-    
-        $(myCalendar).on('apply.daterangepicker',function(ev, picker){
-            isClick = 0;
-            $(this).val(picker.startDate.format('DD/MM/YYYY'));
-    
-        });
-    
-        $('.js-btn-calendar').on('click',function(e){
-            e.stopPropagation();
-    
-            if(isClick === 1) isClick = 0;
-            else if(isClick === 0) isClick = 1;
-    
-            if (isClick === 1) {
-                myCalendar.focus();
-            }
-        });
-    
-        $(myCalendar).on('click',function(e){
-            e.stopPropagation();
-            isClick = 1;
-        });
-    
-        $('.daterangepicker').on('click',function(e){
-            e.stopPropagation();
-        });
-    
-    
-    } catch(er) {console.log(er);}
-    /*[ Select 2 Config ]
-        ===========================================================*/
-    
-    try {
-        var selectSimple = $('.js-select-simple');
-    
-        selectSimple.each(function () {
-            var that = $(this);
-            var selectBox = that.find('select');
-            var selectDropdown = that.find('.select-dropdown');
-            selectBox.select2({
-                dropdownParent: selectDropdown
-            });
-        });
-    
-    } catch (err) {
-        console.log(err);
-    }
-    
+/*
++======================={PROJECT - PRESENTATION}======================+
+|                                                                     |
+|Project Name    : TD DEVWEB 2 SIMPLON                                |
+|service       :   Semi-Static  Website                               |
+|FrameWorks      : NONE                                               |
+|Author          : OrbitTurner                                        |
+|Official Name   : Mohamed GUEYE                                      |
+|Version         : v.0.Null                                           |
+|Created         : 14-Jun-2020                                        |
+|Last update     : 18-Jun-2020                                        |
+|Partie          : MAIN JS                                            | 
+|LANGAGE UTILISE : ANGLAIS - FRANCAIS                                 |
++=====================================================================+
+*/
+// --- 🔆 GLOBALS 🔆 ---
+var formOk = false;
 
-})(jQuery);
+// ==================================================================================
+// ---💠 SETUP OF THE FORM 💠 ---
+// ==================================================================================
+function initFormSet() {
+    // test
+    console.log("THE FORM IS LOADED SUCCESSFULLY");
+    // Hiding Blocks
+    toogleWorkBlocks(1);
+    formOk = true;
+}
+
+// ==================================================================================
+// --- 🔘 RADIO BUTTONS 🔘 ---
+// ==================================================================================
+var statutProRadios = document.getElementsByName("statutPro");
+var oldVal = null;
+for (var i = 0; i < statutProRadios.length; i++) {
+    statutProRadios[i].addEventListener('change', function() {
+        // TESTING VALUES
+            // SI OldVal exist
+            /*(oldVal) ? console.log("oldV "+oldVal.value): null;
+            if (this !== oldVal) {
+                oldVal = this;
+            }
+            console.log("New "+this.value);*/
+        // FUNCTION STEPS
+        this.value === "isWorking" ? toogleWorkBlocks(2) : toogleWorkBlocks(1);
+    });
+}
+
+// ==================================================================================
+// --- 🧱 BRIQUE-FUNCS 🧱 ---
+// ==================================================================================
+function toogleWorkBlocks(option) {
+    option = parseInt(option);
+    let blockInfosPro = document.getElementById("infoPro");
+    let blockInfosEmp = document.getElementById("infoEmployeur");
+    if(option === 1) {
+        // var statutPro = document.getElementById("statutPro");
+    
+        // Defining the Style
+        blockInfosPro.style.display = "none";
+        blockInfosEmp.style.display = "none";
+    }else if (option === 2) {
+        blockInfosPro.style.display = "";
+        blockInfosEmp.style.display = "";
+    }else{
+        alert("OPTION ERROR IN THE FUNCTION ToogleWB at Line 29 !\n\n REFRESH THE PAGE OR CONTACT ADMIN !!!");
+        document.getElementById("creationClientForm").style.display = "none";
+    }
+}
