@@ -2,7 +2,7 @@
 +======================={PROJECT - PRESENTATION}======================+
 |                                                                     |
 |Project Name    : TD DEVWEB 2 SIMPLON                                |
-|service       :   Semi-Static  Website                               |
+|service       :   S  Website                               |
 |FrameWorks      : NONE                                               |
 |Author          : OrbitTurner                                        |
 |Official Name   : Mohamed GUEYE                                      |
@@ -13,7 +13,12 @@
 |LANGAGE UTILISE : ANGLAIS - FRANCAIS                                 |
 +=====================================================================+
 */
+// ==================================================================================
 // --- 🔆 GLOBALS 🔆 ---
+// ==================================================================================
+// STARTING MAIN: Global Script Timer
+var scriptStartTime = new Date();
+console.log("Global Script Started at : " + scriptStartTime.getHours() + "h : "+scriptStartTime.getMinutes() + "m : " + scriptStartTime.getSeconds() + "s");
 var formOk = false;
 
 // ==================================================================================
@@ -73,3 +78,13 @@ function toogleWorkBlocks(option) {
         document.getElementById("creationClientForm").style.display = "none";
     }
 }
+
+
+// ==================================================================================
+// --- 🔆 END 🔆 ---
+// ==================================================================================
+// ENDING MAIN: Global Script Timer 
+var scriptEndTime = new Date();
+scriptTimingMs = parseFloat(scriptEndTime.getTime() - scriptStartTime.getTime());
+console.log("Global Script ENDED at : " + scriptEndTime.getHours() + "h : "+scriptEndTime.getMinutes() + "m : " + scriptEndTime.getSeconds() + "s");
+console.log("Le script a mis " + scriptTimingMs/1000 + " secondes.");
