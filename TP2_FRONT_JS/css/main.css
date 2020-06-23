@@ -224,6 +224,37 @@
 }
 
 /* ==========================================================================
+   #ICON
+   ========================================================================== */
+.optionIcon{
+  font-size: 3em;
+  align-self: center;
+  text-align: center;
+  padding-left: 2%;
+  /* color: #08aeea; */
+  color: #e5e5e5;
+  background-color: transparent;
+}
+
+/* .optionIcon .defaultIcon{
+  color: #e5e5e5 !important;
+  border-color: #4272d7;
+} */
+
+.optionIcon:hover{
+  color: #4272d7;
+  transition: all ease-in-out 0.7s;
+}
+
+.optionIcon:active{
+  color: #4dae3c;
+}
+
+.optionIcon-onUse{
+  color: #4272d7 !important;
+  transition: all ease-in-out 0.7s;
+}
+/* ==========================================================================
    #BOX-SIZING
    ========================================================================== */
 /**
@@ -520,7 +551,12 @@ h6 {
 }
 
 .btn--green:hover {
-  background: #4dae3c;
+  background: #000;
+  color: #4dae3c;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  transition: all ease-in-out 0.8s;
 }
 
 .btn--blue {
@@ -699,7 +735,31 @@ input {
 /* ==========================================================================
    #SELECT2
    ========================================================================== */
-.select--no-search .select2-search {
+select{
+  outline: none;
+  margin: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  width: 100%;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: transparent;
+}
+
+.orbit-select{
+  background: #e5e5e5;
+  line-height: 50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0 22px;
+  font-size: 16px;
+  color: #555;
+}
+
+   /* .select--no-search .select2-search {
   display: none !important;
 }
 
@@ -721,12 +781,14 @@ input {
 }
 
 .rs-select2 .select2-container {
-  width: 100% !important;
-  outline: none;
   background: #e5e5e5;
+  line-height: 50px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  padding: 0 22px;
+  font-size: 16px;
+  color: #555;
 }
 
 .rs-select2 .select2-container .select2-selection--single {
@@ -787,7 +849,7 @@ input {
   -ms-transform: rotate(-180deg);
   -o-transform: rotate(-180deg);
   transform: rotate(-180deg);
-}
+} */
 
 /* ==========================================================================
    #TITLE

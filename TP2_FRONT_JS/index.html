@@ -18,25 +18,25 @@
 
 <head>
     <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="TP2 - DEVWEB - P3 - FRONT END JS">
-    <meta name="author" content="Orbit Turner; Mohamed GUEYE">
-    <meta name="keywords" content="SIMPLON; AUF; DAKAR; P3">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="TP2 - DEVWEB - P3 - FRONT END JS"/>
+    <meta name="author" content="Orbit Turner; Mohamed GUEYE"/>
+    <meta name="keywords" content="SIMPLON; AUF; DAKAR; P3"/>
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <!-- Title Page-->
     <title>TP2 - BANQUE DU PEUPLE | CREATION CLIENT</title>
 
     <!-- Icons font CSS-->
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all"/>
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all"/>
     <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet"/>
 
 
     <!-- Main CSS-->
-    <link href="css/main.css" rel="stylesheet" media="all">
+    <link href="css/main.css" rel="stylesheet" media="all"/>
 </head>
 
 <body onload="initFormSet();">
@@ -56,131 +56,169 @@
                             <h1>Informations du Client</h1>
                             <hr/>
                         </div>
-
-                        <div class="form-row m-b-55">
-                            <div class="name">Nom du Client</div>
-                            <div class="value">
-                                <div class="row row-space">
-                                    <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="prenomClient" type="text" name="prenomClient" required>
-                                            <label class="label--desc">Prenom</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="nomClient" type="text" name="nomClient" required>
-                                            <label class="label--desc">Nom de Famille</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="name">Email</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="name">Autre Infos</div>
-                            <div class="value">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="cniClient" type="text" name="cniClient" required>
-                                            <label class="label--desc">CNI</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="telClient" type="tel" name="telClient" required>
-                                            <label class="label--desc">Numero de Téléphone</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="adresseClient" type="text" name="adresseClient" required>
-                                            <label class="label--desc">Adresse</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5 prefilled" value="BP-CL-DK-2552" id="numeroIdClient" type="text" name="numeroIdClient" disabled required>
-                                            <label class="label--desc">Numero d'Identification Client</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row p-t-20 choices">
-                            <label class="label label--block">statut professionnel</label>
+                        <!-- // BUG -->
+                        <!-- STARTING : FORM CHOOSER -->
+                        <div class="form-row p-t-10 choices" id="formChooser">
+                            <label class="label label--block">QUEL TYPE DE CLIENT VOULEZ-VOUS CREER ?</label>
                             <div class="p-t-15">
-                                <label class="radio-container m-r-55">Travailleur
-                                    <input type="radio" name="statutPro" value="isWorking" required>
+                                <label class="radio-container m-r-55">CLIENT PHYSIQUE
+                                    <input type="radio" checked="checked" name="formChooser" value="physique">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="radio-container">Non Travailleur
-                                    <input type="radio" checked="checked" id="statutPro" name="statutPro" value="notWorking" required>
+                                <label class="radio-container">CLIENT MORAL
+                                    <input type="radio" name="formChooser" value="moral">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                         </div>
-
-                        <div class="form-row" id="infoPro">
-                            <div class="name">Infos professionnel</div>
-                            <div class="value">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="salaireClient" type="text" name="salaireClient">
-                                            <label class="label--desc">Salaire Actuel</label>
+                        <!-- STARTING : CLIENT FORM  -->
+                        <div id="clientForm">
+                            <div class="form-row m-b-55">
+                                <div class="name">Nom du Client</div>
+                                <div class="value">
+                                    <div class="row row-space">
+                                        <div class="col-2">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="prenomClient" type="text" name="prenomClient" required>
+                                                <label class="label--desc">Prenom</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="profession" type="tel" name="profession">
-                                            <label class="label--desc">Profession</label>
+                                        <div class="col-2">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="nomClient" type="text" name="nomClient" required>
+                                                <label class="label--desc">Nom de Famille</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="form-row m-b-90" id="infoEmployeur" hidden>
-                            <div class="name">Infos Employeur</div>
-                            <div class="value">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="raisonSocial" type="text" name="raisonSocial">
-                                            <label class="label--desc">Raison Social</label>
-                                        </div>
+                            
+                            <div class="form-row">
+                                <div class="name">Email</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input class="input--style-5" type="email" name="email">
                                     </div>
-                                    <div class="col-3">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="nomEmployeur" type="tel" name="nomEmployeur">
-                                            <label class="label--desc">Nom Employeur</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="name">Autre Infos</div>
+                                <div class="value">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="cniClient" type="text" name="cniClient" required>
+                                                <label class="label--desc">CNI</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="adresseEmployeur" type="tel" name="adresseEmployeur">
-                                            <label class="label--desc">Adresse de l'Employeur</label>
+                                        <div class="col-3">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="telClient" type="tel" name="telClient" required>
+                                                <label class="label--desc">Numero de Téléphone</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-3">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" id="numIdentEmp" type="tel" name="numIdentEmp">
-                                            <label class="label--desc">Numero d'Identification</label>
+                                        <div class="col-3">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="adresseClient" type="text" name="adresseClient" required>
+                                                <label class="label--desc">Adresse</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5 prefilled" value="BP-CL-DK-2552" id="numeroIdClient" type="text" name="numeroIdClient" disabled required>
+                                                <label class="label--desc">Numero d'Identification Client</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            
+                            <div class="form-row p-t-20 choices">
+                                <label class="label label--block">statut professionnel</label>
+                                <div class="p-t-15">
+                                    <label class="radio-container m-r-55">Salarié
+                                        <input type="radio" name="statutPro" value="isWorking" required>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container">Non Salarié
+                                        <input type="radio" checked="checked" id="statutPro" name="statutPro" value="notWorking" required>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                                <!-- STARTING : INFO PROFESSIONNES -->
+                            <div class="form-row" id="infoPro">
+                                <div class="name">Infos professionnel</div>
+                                <div class="value">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="salaireClient" type="text" name="salaireClient">
+                                                <label class="label--desc">Salaire Actuel</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="profession" type="tel" name="profession">
+                                                <label class="label--desc">Profession</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- STARTING : INFOS EMPLOYEUR -->
+                            <div class="form-row" id="infoEmployeur">
+                                <div class="name" style="padding-right: 8px;">Infos Employeur</div>
+                                <div class="value" style="display: flex;">
+                                    <div class="input-group" style="width: 90% !important;">
+                                        <div class="rs-select2 js-select-simple select--no-search orbit-select">
+                                            <select name="employeur">
+                                                <option disabled="disabled" selected="selected">CHOISISSEZ UN EMPLOYEUR</option>
+                                                <option>SIMPLON.CO</option>
+                                                <option>AUF - DAKAR</option>
+                                                <option>Next Cyber Vision</option>
+                                                <option>Orbit Law Tech</option>
+                                            </select>
+                                            <div class="select-dropdown"></div>
+                                        </div>
+                                    </div>
+                                    <i class="fa fa-plus-circle optionIcon"  id="addEmpBtn" title="AJOUTER UN EMPLOYEUR" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <!-- STARTING : CREATE EMPLOYEUR -->
+                            <div class="form-row m-b-90" id="creerEmployeur">
+                                <div class="name">Créer Employeur</div>
+                                <div class="value">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="nomEmployeur" type="tel" name="nomEmployeur">
+                                                <label class="label--desc">Nom Employeur</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="raisonSocial" type="text" name="raisonSocial">
+                                                <label class="label--desc">Raison Social</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="adresseEmployeur" type="tel" name="adresseEmployeur">
+                                                <label class="label--desc">Adresse de l'Employeur</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="input-group-desc">
+                                                <input class="input--style-5" id="numIdentEmp" type="tel" name="numIdentEmp">
+                                                <label class="label--desc">Numero d'Identification</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn--pill btn--green m-t-55" id="submitNewEmployeur">Ajouter</button>
                             </div>
                         </div>
                         <!-- ENDING : FORM CLIENT -->
@@ -192,60 +230,108 @@
                             <h1>Informations du Compte</h1>
                             <hr/>
                         </div>
-                        <div class="form-row m-b-55" id="infosCompte">
-                            <div class="name">Phone</div>
-                            <div class="value">
-                                <div class="row row-refine">
-                                    <div class="col-3">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="area_code">
-                                            <label class="label--desc">Area Code</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="phone">
-                                            <label class="label--desc">Phone Number</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="form-row">
-                            <div class="name">Subject</div>
+                            <div class="name">Type de Compte</div>
                             <div class="value">
-                                <!-- BUG -->
                                 <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                            <option disabled="disabled" selected="selected">Choose option</option>
-                                            <option>Subject 1</option>
-                                            <option>Subject 2</option>
-                                            <option>Subject 3</option>
+                                    <div class="rs-select2 js-select-simple select--no-search orbit-select">
+                                        <select  id="selectTypeCompte" name="typeAccount">
+                                            <option disabled="disabled"  value="null" selected="selected">CHOISISSEZ UN TYPE DE COMPTE</option>
+                                            <option value="cesp">Compte épargne simple et xeewel</option>
+                                            <option value="cc">Compte courant pour les salariés</option>
+                                            <option value="cb">Compte bloqué </option>
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row p-t-20 choices">
-                            <label class="label label--block">Are you an existing customer?</label>
-                            <div class="p-t-15">
-                                <label class="radio-container m-r-55">Yes
-                                    <input type="radio" checked="checked" name="exist">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container">No
-                                    <input type="radio" name="exist">
-                                    <span class="checkmark"></span>
-                                </label>
+                        <!-- STARTING : INFOS COMPTE FOR ALL TYPES -->
+                        <div class="form-row m-b-55" id="infosCompte">
+                            <div class="name">INFOS COMPTE</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="cleRIB">
+                                            <label class="label--desc">Cle RIB</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="number" name="soldeAccount">
+                                            <label class="label--desc">SOLDE</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // FRAIS D'OUVERTURE DE COMPTE & NUMERO DE COMPTE -->
+                        <div class="form-row" id="accountFeeAndNumbBlock">
+                            <div class="name">Identification Compte</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    <div class="col-9">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="accountNumber" value="CSB-856-DK-655" readonly>
+                                            <label class="label--desc">Numéro du Compte</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="number" name="accountCreationFee" value="5200.00" readonly>
+                                            <label class="label--desc">Frais d'Ouverture</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- STARTING : INFOS COMPTE FOR XEEWEL SIMPLE -->
+                        <!-- IMPLEMENT IT -->
+                        <div class="form-row" id="remunBlock">
+                            <div class="name">Prochaine Rémunération</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="date" name="nextRemunDate" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- STARTING :  INFOS COMPTE FOR COURANT -->
+                        <!-- // PENDING -->
+                        <div class="form-row" id="agiosBlock">
+                            <div class="name">AGIOS</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="number" name="agios" value="8700.00" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- STARTING : INFOS COMPTE BLOQUE -->
+                        <div class="form-row" id="dateEcheanceBlock">
+                            <div class="name">Date d'Echeance</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="number" name="accountCreationFee" value="5200.00" readonly>
+                                            <label class="label--desc">Délai de Blocage</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="date" name="echeanceDateCptB" value="2005-10-10" readonly>
+                                            <label class="label--desc">Date d'Echéance</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- ENDING : BLOCK COMPTE -->
 
                         <!-- TODO : VALIDATE FORM -->
-                        <div class="btn--centered">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
+                        <div class="btn--centered" id="submitCreateClient" name="submitCreateClient">
+                            <!-- <button class="btn btn--radius-2 btn--blue" type="submit">Register</button> -->
                         </div>
                     </form>
                 </div>

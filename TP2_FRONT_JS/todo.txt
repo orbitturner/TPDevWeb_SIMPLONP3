@@ -1,0 +1,13 @@
+TODO: Ouverture de compte
+Les informations du compte sont saisies par le responsable des comptes. Il enregistre les informations du compte à savoir le numéro de compte précédé du numéro de l’agence, suivi de la clé Rib et les informations du client.
+
+Lors d’une première ouverture le responsable doit aussi enregistrer les informations sur le client. Les informations sont entre autres : nom, prénom, adresse, email (optionnel),  téléphone, salaire actuel (si travailleur), profession (optionnel), les informations de l’employeur si travailleur et un numéro d’identification.
+
+Il existe différents types de compte :
+Compte épargne simple et xeewel : frais d’ouverture obligatoire. Ce type de compte est rémunéré annuellement.
+Compte courant pour les salariés : pas de frais d’ouverture, agios à retirer tous les trois mois.
+Compte bloqué : frais d’ouverture obligatoire. Le délai de blocage doit faire minimum un an. Ce type de compte est rémunéré annuellement. A la date d’échéance le compte est fermé moyennant un montant sur le dépôt initial.
+Pour le compte courant il faut les informations de l’employeur (raison social, adresse, nom employeur, et un numéro d’identification).
+
+Un compte peut avoir différents états : Actif, Fermé (dans ce cas on l’archive pendant trois mois avant de le supprimer), bloqué (impossible de faire des retraits avant la date échéance. A la date d’échéance son état passe à Actif. Cas d’un compte bloqué). Pour les comptes d’épargne simple et de xeewel, le client peut demander qu’on gèle le  compte jusqu’à une date donné et dans ce cas il est impossible de faire des retraits ou des dépôts sur le compte, après cette date l’état du compte passe à actif.
+-->
