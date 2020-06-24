@@ -9,7 +9,9 @@ Some exercises available in two versions are nested into one.
 
 - [BRIEF SIMPLON LINE](https://github.com/orbitturner/TPDEVWEB1_SIMPLONP3/blob/master/assets/img/492a4303-55db-4eb7-89ef-46ad1286376a.png) - Vous devez reproduire cette page en utilisant les deux technologies suivantes : HTML et CSS. /*Create a static and adaptable web user interface based on the given one*/.
 
-## SCREENSHOT / DEMO OF THE CURRENT PROJECT
+
+## SNEAK PEEK / DEMO OF THE CURRENT PROJECT
+<img src="assets/sneakPeekTP1.png" align="right" />
 
 
 ## Contribute
