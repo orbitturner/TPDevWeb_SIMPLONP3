@@ -11,7 +11,8 @@ Some exercises available in two versions are nested into one.
 
 
 ## SNEAK PEEK / DEMO OF THE CURRENT PROJECT
-<img src="assets/seakPeek.png" align="right" />
+<img src="assets/sneakPeek.png" align="right" />
+
 
 
 ## Contribute
