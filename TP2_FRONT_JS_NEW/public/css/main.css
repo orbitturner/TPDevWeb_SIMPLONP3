@@ -1,0 +1,210 @@
+/*
++======================={PROJECT - PRESENTATION}======================+
+|                                                                     |
+|Project Name    : TD DEVWEB 2 SIMPLON                                |
+|service       :   Semi-Static  Website                               |
+|FrameWorks      : NONE                                               |
+|Author          : OrbitTurner                                        |
+|Official Name   : Mohamed GUEYE                                      |
+|Version         : v.0.Null                                           |
+|Created         : 14-Jun-2020                                        |
+|Last update     : 18-Jun-2020                                        |
+|Partie          : MAIN CSS                                           | 
+|LANGAGE UTILISE : ANGLAIS - FRANCAIS                                 |
++=====================================================================+
+*/
+
+/*===========================>{ W E B   S T Y L E S }<===========================*/
+::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+	border-radius: 10px;
+	background-color: #CCCCCC;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #29c2d6;
+	background-image: -webkit-linear-gradient(90deg,
+											  transparent,
+											  rgba(0, 0, 0, 0.4) 50%,
+											  transparent,
+											  transparent)
+}
+
+/*SELECTION SET*/
+::selection{
+    background: #1b4f72;
+    color: #29c2d6;
+}
+
+/*===========================>{ E N D  OF  W E B   S T Y L E S }<===========================*/
+
+/* ==========================================================================
+   #FONT
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+/* ==========================================================================
+   #DEFAULT SET
+   ========================================================================== */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+   background-color: #f3f5f9;
+}
+
+a {
+  color : #1b4f72;
+}
+
+/* ==========================================================================
+   # NAV
+   ========================================================================== */
+.next_nav{
+  display: flex;
+  flex-direction: row;
+}
+
+.display_header{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.nav{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.next_nav ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.next_nav ul li{
+  padding-left: 5%;
+}
+/* ==========================================================================
+   #SIDEBAR SET
+   ========================================================================== */
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .sidebar{
+  width: 200px;
+  height: 100%;
+  background: #1b4f72;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2{
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}    
+
+.wrapper .sidebar ul li a{
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #2874a6;
+}
+    
+.wrapper .sidebar ul li:hover a{
+  color: #fff;
+}
+ 
+.wrapper .sidebar .extra_option{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.wrapper .sidebar .extra_option a{
+  display: block;
+  width: 40px;
+  background: #21618c;
+  height: 40px;
+  line-height: 45px;
+  text-align: center;
+  margin: 0 5px;
+  color: #bdb8d7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wrapper .main_content{
+  width: 100%;
+  margin-left: 200px;
+}
+
+.wrapper .main_content .header{
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+  margin-bottom: 20px;
+}
+
+.sidebar .active{
+  background-color: #2874a6;
+}
+
+.sidebar .active a{
+  color: #fff !important;
+}
+/* ==========================================================================
+   #img
+   ========================================================================== */
+
+/* ==========================================================================
+   #❌ E N D ❌
+   ========================================================================== */

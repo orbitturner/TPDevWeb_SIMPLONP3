@@ -29,7 +29,7 @@ var formOk = false;
 // PENDING
 function initFormSet() {
     // test
-    console.log("THE FORM IS LOADED SUCCESSFULLY");
+    // console.log("THE FORM IS LOADED SUCCESSFULLY");
     // Hiding Blocks
     hideAllAccountBlocks();
     toogleWorkBlocks(1);
@@ -127,6 +127,7 @@ function hideAllAccountBlocks() {
     document.getElementById("agiosBlock").style.display = "none";
     document.getElementById("dateEcheanceBlock").style.display = "none";
     document.getElementById("submitCreateClient").innerHTML = '<button class="btn btn--radius-2 btn--blue" type="submit">Register</button>';
+
     return true;
 }
 
