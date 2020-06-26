@@ -21,6 +21,7 @@ var scriptStartTime = new Date();
 console.log("ADD ACCOUNT Form Script Started at : " + scriptStartTime.getHours() + "h : "+scriptStartTime.getMinutes() + "m : " + scriptStartTime.getSeconds() + "s");
 var formOk = false;
 var theAccountForm = document.getElementById("addAccountForm");
+var typeAccountForm = null;
 
 // STARTING : [INIT FUNCTIONS]
 // ==================================================================================
@@ -57,14 +58,17 @@ selectAccountType.onchange = function() {
         // CASE CPT EPARGNE XEEWEL SIMPLE
         hideAllAccountBlocks();
         toogleXeewelBlocks(2);
+        typeAccountForm = 1;
     }else if (this.selectedIndex === 2 && optionValue.value == "cc") {
         // CASE CPT COURANT
         hideAllAccountBlocks();
         toogleCourantBlocks(2);
+        typeAccountForm = 2;
     }else if (this.selectedIndex === 3 && optionValue.value == "cb") {
         // COMPTE BLOCKED
         hideAllAccountBlocks();
         toogleCptBlBlocks(2);
+        typeAccountForm = 3;
     }else {
         alert("<h1>VIOLATION OF FORM - REFRESH THE PAGE</h1>");
         document.getElementById("creationClientForm").style.display = "none";
@@ -178,11 +182,23 @@ theAccountForm.addEventListener("submit", function(orbit) {
 function validateForm() {
     var formInputs = theAccountForm.getElementsByTagName("input");
     console.log(formInputs);
-    for (var i = 0, formInputs; formInputs = formInputs[i++];) {
-        if (formInputs  .value === ""){
-            formInputs.style.backgroundColor = "yellow";
+    // PARCOURIR LES INPUTS
+    for (let i = 0; i < formInputs.length; i++) {
+        if (formInputs[i].value === ""){
+            formInputs[i].style.backgroundColor = "yellow";
             alert("it's an empty textfield");
         }
+    }
+    if ((typeAccountForm) && typeAccountForm === 1) {
+        
+    }else if ((typeAccountForm) && typeAccountForm === 2) {
+        
+    }else if ((typeAccountForm) && typeAccountForm === 3) {
+        
+    }else{
+        alert("THE FORM HAS BEEN OVERRIDED");
+        alert("\n REFRESH THE PAGE OR CONTACT ADMIN !!!\n\nln 200 - addaccountform");
+        document.getElementById("addAccountForm").style.display = "none";
     }
 }
 // ==================================================================================
@@ -193,3 +209,7 @@ var scriptEndTime = new Date();
 scriptTimingMs = parseFloat(scriptEndTime.getTime() - scriptStartTime.getTime());
 console.log("ADD ACCOUNT Script ENDED at : " + scriptEndTime.getHours() + "h : "+scriptEndTime.getMinutes() + "m : " + scriptEndTime.getSeconds() + "s");
 console.log("Le script a mis " + scriptTimingMs/1000 + " secondes.");
+
+/* TODO :
+- Implement each control
+- Take each input by block and make the control*/
