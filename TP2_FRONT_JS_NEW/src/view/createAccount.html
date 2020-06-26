@@ -9,7 +9,7 @@
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 
-<body>
+<body onload="initFormSet()">
   <!-- STARTING : CONTAINER GENERAL -->
   <div class="wrapper">
     <!-- STARTING : SIDEBAR -->
@@ -35,7 +35,7 @@
         <div class="next_nav">
           <!-- MENU HAUT - PARTIE GAUCHE -->
           <div class="display_header">
-            <h2>BANQUE DU PEUPLE <span class="breadcrumb">>> Creation Compte</span></h2>
+            <h4>BANQUE DU PEUPLE <span class="breadcrumb">>> Creation Compte</span></h4>
           </div>
           <!-- MENU HAUT - PARTIE DROITE -->
           <ul class="nav">
@@ -59,7 +59,112 @@
       </div>
       <!-- // CONTENU CENTRAL :  -->
       <div class="info">
-        <h1>Formulaire Compte</h1>
+        <!-- TODO : Design & Controls -->
+                        <!-- STARTING : COMPTE BLOCK -->
+                        <!-- 🔐COMPTE BANCAIRE DU CLIENT💰 -->
+                        <div class="block-title p-b-30">
+                          <h1>Informations du Compte</h1>
+                          <hr/>
+                      </div>
+
+                      <div class="form-row">
+                          <div class="name">Type de Compte</div>
+                          <div class="value">
+                              <div class="input-group">
+                                  <div class="rs-select2 js-select-simple select--no-search orbit-select">
+                                      <select  id="selectTypeCompte" name="typeAccount">
+                                          <option disabled="disabled"  value="null" selected="selected">CHOISISSEZ UN TYPE DE COMPTE</option>
+                                          <option value="cesp">Compte épargne simple et xeewel</option>
+                                          <option value="cc">Compte courant pour les salariés</option>
+                                          <option value="cb">Compte bloqué </option>
+                                      </select>
+                                      <div class="select-dropdown"></div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- STARTING : INFOS COMPTE FOR ALL TYPES -->
+                      <div class="form-row m-b-55" id="infosCompte">
+                          <div class="name">INFOS COMPTE</div>
+                          <div class="value">
+                              <div class="row row-refine">
+                                  <div class="col-3">
+                                      <div class="input-group-desc">
+                                          <input class="input--style-5" type="text" name="cleRIB">
+                                          <label class="label--desc">Cle RIB</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-9">
+                                      <div class="input-group-desc">
+                                          <input class="input--style-5" type="number" name="soldeAccount">
+                                          <label class="label--desc">SOLDE</label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- // FRAIS D'OUVERTURE DE COMPTE & NUMERO DE COMPTE -->
+                      <div class="form-row" id="accountFeeAndNumbBlock">
+                          <div class="name">Identification Compte</div>
+                          <div class="value">
+                              <div class="row row-refine">
+                                  <div class="col-9">
+                                      <div class="input-group-desc">
+                                          <input class="input--style-5" type="text" name="accountNumber" value="CSB-856-DK-655" readonly>
+                                          <label class="label--desc">Numéro du Compte</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-3">
+                                      <div class="input-group-desc">
+                                          <input class="input--style-5" type="number" name="accountCreationFee" value="5200.00" readonly>
+                                          <label class="label--desc">Frais d'Ouverture</label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- STARTING : INFOS COMPTE FOR XEEWEL SIMPLE -->
+                      <!-- IMPLEMENT IT -->
+                      <div class="form-row" id="remunBlock">
+                          <div class="name">Prochaine Rémunération</div>
+                          <div class="value">
+                              <div class="input-group">
+                                  <input class="input--style-5" type="date" name="nextRemunDate" readonly>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- STARTING :  INFOS COMPTE FOR COURANT -->
+                      <!-- // PENDING -->
+                      <div class="form-row" id="agiosBlock">
+                          <div class="name">AGIOS</div>
+                          <div class="value">
+                              <div class="input-group">
+                                  <input class="input--style-5" type="number" name="agios" value="8700.00" readonly>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- STARTING : INFOS COMPTE BLOQUE -->
+                      <div class="form-row" id="dateEcheanceBlock">
+                          <div class="name">Date d'Echeance</div>
+                          <div class="value">
+                              <div class="row row-refine">
+                                  <div class="col-3">
+                                      <div class="input-group-desc">
+                                          <input class="input--style-5" type="number" name="accountCreationFee" value="5200.00" readonly>
+                                          <label class="label--desc">Délai de Blocage</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-9">
+                                      <div class="input-group-desc">
+                                          <input class="input--style-5" type="date" name="echeanceDateCptB" value="2005-10-10" readonly>
+                                          <label class="label--desc">Date d'Echéance</label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- ENDING : BLOCK COMPTE -->
+
       </div>
       <!-- FIN CONTENU CENTRAL -->
     </div>
@@ -69,6 +174,7 @@
       
     <!-- Main JS -->
     <script src="../../public/js/global.js"></script>
+    <script src="../../public/js/addAccountForm.js"></script>
 </body>
 
 </html>

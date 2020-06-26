@@ -13,3 +13,22 @@
 |LANGAGE UTILISE : ANGLAIS - FRANCAIS                                 |
 +=====================================================================+
 */
+// ==================================================================================
+// --- 🔆 GLOBALS 🔆 ---
+// ==================================================================================
+// STARTING MAIN: ACCOUNT Script Timer
+var scriptStartTime = new Date();
+console.log("GLOBAL Script Started at : " + scriptStartTime.getHours() + "h : "+scriptStartTime.getMinutes() + "m : " + scriptStartTime.getSeconds() + "s");
+var formOk = false;
+
+
+
+
+// ==================================================================================
+// --- 🔆 END 🔆 ---
+// ==================================================================================
+// ENDING MAIN: ACCOUNT Script Timer 
+var scriptEndTime = new Date();
+scriptTimingMs = parseFloat(scriptEndTime.getTime() - scriptStartTime.getTime());
+console.log("GLOBAL Script ENDED at : " + scriptEndTime.getHours() + "h : "+scriptEndTime.getMinutes() + "m : " + scriptEndTime.getSeconds() + "s");
+console.log("Le script a mis " + scriptTimingMs/1000 + " secondes.");
