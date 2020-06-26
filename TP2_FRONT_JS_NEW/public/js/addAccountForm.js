@@ -20,6 +20,7 @@
 var scriptStartTime = new Date();
 console.log("ADD ACCOUNT Form Script Started at : " + scriptStartTime.getHours() + "h : "+scriptStartTime.getMinutes() + "m : " + scriptStartTime.getSeconds() + "s");
 var formOk = false;
+var theAccountForm = document.getElementById("addAccountForm");
 
 // STARTING : [INIT FUNCTIONS]
 // ==================================================================================
@@ -88,7 +89,7 @@ function hideAllAccountBlocks() {
     document.getElementById("remunBlock").style.display = "none";
     document.getElementById("agiosBlock").style.display = "none";
     document.getElementById("dateEcheanceBlock").style.display = "none";
-    document.getElementById("submitCreateClient").innerHTML = '<button class="btn btn--radius-2 btn--blue" type="submit">Register</button>';
+    document.getElementById("submitAccountForm").innerHTML = '<button class="btn btn--radius-2 btn--blue" type="submit">Register</button>';
 
     return true;
 }
@@ -157,6 +158,33 @@ function toogleCptBlBlocks(option) {
 }
 
 // ENDING : [MANAGING REUSABLE FUNCTIONS]
+
+// ==================================================================================
+// --- 🧱 VALIDATIONS 🧱 ---
+// ==================================================================================
+theAccountForm.addEventListener("submit", function(orbit) {
+    orbit.preventDefault();
+
+    if (validateForm()){
+        return true;
+    }else{
+        return false;
+    }
+});
+
+// BUG WITH COLOR
+// FIXME
+// PENDING
+function validateForm() {
+    var formInputs = theAccountForm.getElementsByTagName("input");
+    console.log(formInputs);
+    for (var i = 0, formInputs; formInputs = formInputs[i++];) {
+        if (formInputs  .value === ""){
+            formInputs.style.backgroundColor = "yellow";
+            alert("it's an empty textfield");
+        }
+    }
+}
 // ==================================================================================
 // --- 🔆 END 🔆 ---
 // ==================================================================================

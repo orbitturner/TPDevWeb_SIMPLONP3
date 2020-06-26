@@ -20,6 +20,15 @@
 var scriptStartTime = new Date();
 console.log("ADD CLIENT Script Started at : " + scriptStartTime.getHours() + "h : "+scriptStartTime.getMinutes() + "m : " + scriptStartTime.getSeconds() + "s");
 var formOk = false;
+var theClientForm = document.getElementById("addClientForm");
+theClientForm.addEventListener("submit", function(orbit) {
+    orbit.preventDefault();
+
+    alert('THERE IS A MISTAKE');
+
+    validateForm();
+});
+
 
 // STARTING : [INIT FUNCTIONS]
 // ==================================================================================
@@ -190,6 +199,16 @@ function loadClientMoralForm() {
     xhr.send();
 }
 
+// STARTING : [FORM VALIDATION]
+// ==================================================================================
+// --- 🧱 VALIDATION 🧱 ---
+// ==================================================================================
+function validateForm() {
+    let formInputs = theClientForm.getElementsByTagName("input");
+    formInputs.forEach(element => {
+        console.log(element);
+    });
+}
 // ENDING : [MANAGING REUSABLE FUNCTIONS]
 // ==================================================================================
 // --- 🔆 END 🔆 ---
