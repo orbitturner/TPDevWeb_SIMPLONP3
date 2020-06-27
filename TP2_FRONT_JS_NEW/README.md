@@ -11,7 +11,7 @@ Some exercises available in two versions are nested into one.
 
 
 ## SNEAK PEEK / DEMO OF THE CURRENT PROJECT
-<img src="public/assets/etatdAvancement.gif" align="right" />
+<video src="public/assets/etatdAvancement2.mp4" align="right" />
 
 
 
