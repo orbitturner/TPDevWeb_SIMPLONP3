@@ -21,22 +21,20 @@ var scriptStartTime = new Date();
 console.log("ADD CLIENT Script Started at : " + scriptStartTime.getHours() + "h : "+scriptStartTime.getMinutes() + "m : " + scriptStartTime.getSeconds() + "s");
 var formOk = false;
 var theClientForm = document.getElementById("addClientForm");
-theClientForm.addEventListener("submit", function(orbit) {
-    orbit.preventDefault();
-
-    alert('THERE IS A MISTAKE');
-
-    validateForm();
-});
+var typeClientForm = 0;
 
 
 // STARTING : [INIT FUNCTIONS]
 // ==================================================================================
 // ---💠 SETUP OF THE FORM 💠 ---
 // ==================================================================================
+// TRIGGER THE FORM SETUP WHEN THE PAGE IS FULLY LOADED
+document.addEventListener("DOMContentLoaded", function() {
+    initFormClientSetup();
+});
 // FIXME
 // PENDING
-function initFormSet() {
+function initFormClientSetup() {
     // test
     // console.log("THE FORM IS LOADED SUCCESSFULLY");
     // Hiding Blocks
@@ -180,7 +178,7 @@ function toogleAddEmpBlocks(option, objet=null) {
         formPlace.innerHTML = this.response;
     };
 
-    xhr.open('GET', './view/addPhysique.html', true);
+    xhr.open('GET', './src/view/client/addPhysique.html', true);
     xhr.send();
 }*/
 
@@ -195,19 +193,34 @@ function loadClientMoralForm() {
         formPlace.innerHTML = this.response;
     };
 
-    xhr.open('GET', './client/addMoral.html', true);
+    xhr.open('GET', './src/view/client/addMoral.html', true);
     xhr.send();
 }
 
 // STARTING : [FORM VALIDATION]
 // ==================================================================================
-// --- 🧱 VALIDATION 🧱 ---
+// --- ✅ VALIDATIONS ✅ ---
 // ==================================================================================
+// ON SUBMIT OFF THE FORM
+theClientForm.addEventListener("submit", function(orbit) {
+    orbit.preventDefault();
+
+    if (validateForm()) {
+        alert("YOUPIIIII");
+        theClientForm.submit();
+        return true;
+    } else {
+        return false;
+    }
+    
+});
+
 function validateForm() {
-    let formInputs = theClientForm.getElementsByTagName("input");
-    formInputs.forEach(element => {
-        console.log(element);
-    });
+    // let formInputs = theClientForm.getElementsByTagName("input");
+    // formInputs.forEach(element => {
+    //     console.log(element);
+    // });
+    return true;
 }
 // ENDING : [MANAGING REUSABLE FUNCTIONS]
 // ==================================================================================

@@ -1,37 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>TEST | BANQUE DU PEUPLE | IN SYSTEM</title>
-    <link rel="stylesheet" href="../../public/css/main.css">
-    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-</head>
-
-<body onload="initFormSet()">
-    <!-- STARTING : CONTAINER GENERAL -->
-    <div class="wrapper">
-        <!-- STARTING : SIDEBAR -->
-        <div class="sidebar">
-            <h2><img class="sidebar_logo" src="../../public/img/BP-LOGO-SVG-WHITE.svg" alt="LOGO BANQUE DU PEUPLE"
-                    title="Vous d'Abord"></h2>
-            <ul>
-                <li><a href="../../index.html"><i class="fas fa-home"></i>Accueil</a></li>
-                <li class="active"><a href="#"><i class="fas fa-user-tie"></i>Creer un Client</a></li>
-                <li><a href="createAccount.html"><i class="fas fa-address-card"></i>Creer un Compte</a></li>
-                <li><a href="#"><i class="fas fa-exchange-alt"></i>Faire un Virement</a></li>
-            </ul>
-            <div class="extra_option">
-                <a href="javascript:return false;" title="Changer de Langue"><i class="fas fa-language"></i></a>
-                <a href="javascript:return false;" title="Afficher Aide"><i class="fas fa-question-circle"></i></a>
-                <a href="javascript:return false;" title="Se Déconnecter"><i class="fas fa-power-off"></i></a>
-            </div>
-        </div>
-        <!-- ENDING : SIDEBAR -->
-
         <!-- STARTING : MAIN CONTENT -->
-        <div class="main_content">
+        <div class="main_content" >
             <div class="header">
                 <div class="next_nav">
                     <!-- MENU HAUT - PARTIE GAUCHE -->
@@ -66,7 +34,7 @@
                     <h1>Informations du Client</h1>
                     <hr />
                 </div>
-                <form method="POST" action="" id="addClientForm" name="addClientForm">
+                <form method="POST" action="<?=getProjectPath()?>controller/addClientController.php" id="addClientForm" name="addClientForm">
                     <!-- // BUG -->
                     <!-- STARTING : FORM CHOOSER -->
                     <div class="form-row p-t-10 choices" id="formChooser">
@@ -255,13 +223,4 @@
             <!-- FIN CONTENU CENTRAL -->
         </div>
         <!-- ENDING MAIN CONTENT -->
-    </div>
-    <!-- ENDING CONTAINER GENERAL -->
-
-    <!-- Main JS -->
-    <script src="../../public/js/global.js"></script>
-    <script src="../../public/js/addClientForm.js"></script>
-
-</body>
-
-</html>
+    <!-- <script src="public/js/addClientForm.js"></script> -->

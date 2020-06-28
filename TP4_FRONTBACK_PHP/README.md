@@ -1,7 +1,7 @@
 <img src="public/assets/icon.png" align="right" />
 
-# 📖 TP2 NEW_VERSION DEV WEB FRONT - PRAIRIE P3 DEV-WEB [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome#readme)
-> Here are all the statements of exercises from TP2 NEW_VERSION😉
+# 📖 TP4 PHP DEV WEB FRONT - PRAIRIE P3 DEV-WEB [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome#readme)
+> Here are all the statements of exercises from TP4 PHP😉
 
 Some exercises available in two versions are nested into one.
 
@@ -11,7 +11,7 @@ Some exercises available in two versions are nested into one.
 
 
 ## SNEAK PEEK / DEMO OF THE CURRENT PROJECT
-<video src="public/assets/etatdAvancement2.mp4" align="right" />
+<img src="public/assets/etatdAvancement2.gif" align="right" />
 
 
 

@@ -27,11 +27,16 @@ var typeAccountForm = 0;
 // ==================================================================================
 // ---💠 SETUP OF THE FORM 💠 ---
 // ==================================================================================
+// TRIGGER THE FORM SETUP WHEN THE PAGE IS FULLY LOADED
+document.addEventListener("DOMContentLoaded", function() {
+    initFormAccountSetup();
+});
 // FIXME
 // PENDING
-function initFormSet() {
+function initFormAccountSetup() {
     // test
     // console.log("THE FORM IS LOADED SUCCESSFULLY");
+    // alert("COMPTE FORM LOADED");
     // Hiding Blocks
     hideAllAccountBlocks();
 
@@ -164,7 +169,7 @@ function toogleCptBlBlocks(option) {
 // ENDING : [MANAGING REUSABLE FUNCTIONS]
 
 // ==================================================================================
-// --- 🧱 VALIDATIONS 🧱 ---
+// --- ✅ VALIDATIONS ✅ ---
 // ==================================================================================
 theAccountForm.addEventListener("submit", function (orbit) {
     orbit.preventDefault();
@@ -172,7 +177,9 @@ theAccountForm.addEventListener("submit", function (orbit) {
     // console.log("submitted");
     // validateForm();
     if (validateForm()) {
-        alert("YOUPIIIII");
+        let warningSubmit = confirm("ATTENTION LE FORMULAIRE VA ETRE ENVOYER!");
+        // FIXME : RETURN
+        (warningSubmit) ? theAccountForm.submit() : return false;
         return true;
     } else {
         return false;
@@ -279,7 +286,7 @@ function validateForm() {
 }
 
 // ==================================================================================
-// --- 🔆 TRASH 🔆 ---
+// --- 🗑🚮 TRASH 🚮🗑 ---
 // ==================================================================================
 // var formInputs = theAccountForm.getElementsByTagName("input");
 // PARCOURIR LES INPUTS
