@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>TEST | BANQUE DU PEUPLE | IN SYSTEM</title>
+  <link rel="stylesheet" href="../../public/css/main.css">
+  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+
+<body onload="initFormSet()">
+  <!-- STARTING : CONTAINER GENERAL -->
+  <div class="wrapper">
+    <!-- STARTING : SIDEBAR -->
+    <div class="sidebar">
+      <h2><img class="sidebar_logo" src="../../public/img/BP-LOGO-SVG-WHITE.svg" alt="LOGO BANQUE DU PEUPLE"
+          title="Vous d'Abord"></h2>
+      <ul>
+        <li><a href="../../index.html"><i class="fas fa-home"></i>Accueil</a></li>
+        <li class=""><a href="createClient.html"><i class="fas fa-user-tie"></i>Creer un Client</a></li>
+        <li class="active"><a href="#"><i class="fas fa-address-card"></i>Creer un Compte</a></li>
+        <li><a href="#"><i class="fas fa-exchange-alt"></i>Faire un Virement</a></li>
+      </ul>
+      <div class="extra_option">
+        <a href="javascript:return false;" title="Changer de Langue"><i class="fas fa-language"></i></a>
+        <a href="javascript:return false;" title="Afficher Aide"><i class="fas fa-question-circle"></i></a>
+        <a href="javascript:return false;" title="Se Déconnecter"><i class="fas fa-power-off"></i></a>
+      </div>
+    </div>
+    <!-- ENDING : SIDEBAR -->
+
+    <!-- STARTING : MAIN CONTENT -->
+    <div class="main_content">
+      <div class="header">
+        <div class="next_nav">
+          <!-- MENU HAUT - PARTIE GAUCHE -->
+          <div class="display_header">
+            <h4>BANQUE DU PEUPLE <span class="breadcrumb">>> Creation Compte</span></h4>
+          </div>
+          <!-- MENU HAUT - PARTIE DROITE -->
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-clock" aria-hidden="true"></i> <span class="">Time / Date</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-comments" aria-hidden="true"></i> <span class="">Support</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="">
+                <i class="fas fa-user" aria-hidden="true"></i> <span class="">Account</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- // CONTENU CENTRAL :  -->
+      <div class="info">
+        <!-- TODO : Design & Controls -->
+        <!-- STARTING : COMPTE BLOCK -->
+        <!-- 🔐COMPTE BANCAIRE DU CLIENT💰 -->
+        <div class="block-title p-b-30">
+          <h1>Informations du Compte</h1>
+          <hr />
+        </div>
+        <form method="POST" action="" id="addAccountForm">
+          <div class="form-row">
+            <div class="name">Type de Compte</div>
+            <div class="value">
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search orbit-select">
+                  <select id="selectTypeCompte" name="typeAccount">
+                    <option disabled="disabled" value="0" selected="selected">CHOISISSEZ UN TYPE DE COMPTE</option>
+                    <option value="cesp">Compte épargne simple et xeewel</option>
+                    <option value="cc">Compte courant pour les salariés</option>
+                    <option value="cb">Compte bloqué </option>
+                  </select>
+                  <div class="select-dropdown"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- STARTING : INFOS COMPTE FOR ALL TYPES -->
+          <div class="form-row m-b-55" id="infosCompte">
+            <div class="name">INFOS COMPTE</div>
+            <div class="value">
+              <div class="row row-refine">
+                <div class="col-3">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="text" name="cleRIB">
+                    <label class="label--desc">Cle RIB</label>
+                  </div>
+                </div>
+                <div class="col-9">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="number" name="soldeAccount">
+                    <label class="label--desc">SOLDE</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- // FRAIS D'OUVERTURE DE COMPTE & NUMERO DE COMPTE -->
+          <div class="form-row" id="accountFeeAndNumbBlock">
+            <div class="name">Identification Compte</div>
+            <div class="value">
+              <div class="row row-refine">
+                <div class="col-9">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="text" name="accountNumber" value="CSB-856-DK-655" readonly>
+                    <label class="label--desc">Numéro du Compte</label>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="number" name="accountCreationFee" value="5200.00" readonly>
+                    <label class="label--desc">Frais d'Ouverture</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- STARTING : INFOS COMPTE FOR XEEWEL SIMPLE -->
+          <!-- IMPLEMENT IT -->
+          <div class="form-row" id="remunBlock">
+            <div class="name">Prochaine Rémunération</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="date" name="nextRemunDate" readonly>
+              </div>
+            </div>
+          </div>
+          <!-- STARTING :  INFOS COMPTE FOR COURANT -->
+          <!-- // PENDING -->
+          <div class="form-row" id="agiosBlock">
+            <div class="name">AGIOS</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-5" type="number" name="agios" value="8700.00" readonly>
+              </div>
+            </div>
+          </div>
+          <!-- STARTING : INFOS COMPTE BLOQUE -->
+          <div class="form-row" id="dateEcheanceBlock">
+            <div class="name">Date d'Echeance</div>
+            <div class="value">
+              <div class="row row-refine">
+                <div class="col-3">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="number" name="accountCreationFee" value="5200.00" readonly>
+                    <label class="label--desc">Délai de Blocage</label>
+                  </div>
+                </div>
+                <div class="col-9">
+                  <div class="input-group-desc">
+                    <input class="input--style-5" type="date" name="echeanceDateCptB" value="2005-10-10" readonly>
+                    <label class="label--desc">Date d'Echéance</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ENDING : BLOCK COMPTE -->
+          <div class="btn--centered" id="submitAccountForm" name="submitAccountForm">
+            <!-- <button class="btn btn--radius-2 btn--blue" type="submit">Register</button> -->
+          </div>
+        </form>
+      </div>
+      <!-- FIN CONTENU CENTRAL -->
+    </div>
+    <!-- ENDING MAIN CONTENT -->
+  </div>
+  <!-- ENDING CONTAINER GENERAL -->
+
+  <!-- Main JS -->
+  <script src="../../public/js/global.js"></script>
+  <script src="../../public/js/addAccountForm.js"></script>
+</body>
+
+</html>
