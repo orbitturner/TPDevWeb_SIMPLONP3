@@ -166,7 +166,7 @@ DROP TABLE IF EXISTS `employee`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `employee` (
-  `id_employee` int(11) NOT NULL,
+  `id_employee` int(11) NOT NULL AUTO_INCREMENT,
   `numEmployee` varchar(100) NOT NULL,
   `telephone` varchar(15) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
@@ -326,7 +326,7 @@ UNLOCK TABLES;
 -- Table structure for table `optionclient`
 --
 
-DROP TABLE IF EXISTS `optionclient`;
+DROP TABLE IF EXISTS `optionClient`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `optionclient` (
@@ -357,7 +357,7 @@ DROP TABLE IF EXISTS `profil`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `profil` (
-  `id_profil` int(11) NOT NULL,
+  `id_profil` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(100) DEFAULT NULL,
   `description` varchar(100) DEFAULT NULL,
   `state` int(11) NOT NULL,

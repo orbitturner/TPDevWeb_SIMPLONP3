@@ -179,7 +179,7 @@ theAccountForm.addEventListener("submit", function (orbit) {
     if (validateForm()) {
         let warningSubmit = confirm("ATTENTION LE FORMULAIRE VA ETRE ENVOYER!");
         // FIXME : RETURN
-        (warningSubmit) ? theAccountForm.submit() : return false;
+        (warningSubmit) ? theAccountForm.submit() : null;
         return true;
     } else {
         return false;

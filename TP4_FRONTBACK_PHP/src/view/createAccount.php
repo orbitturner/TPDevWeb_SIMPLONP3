@@ -1,6 +1,6 @@
     <!-- STARTING : MAIN CONTENT -->
     <div class="main_content" id="pageCreateAccount">
-    <!-- onload="initFormAccountSetup();" -->
+      <!-- onload="initFormAccountSetup();" -->
       <div class="header">
         <div class="next_nav">
           <!-- MENU HAUT - PARTIE GAUCHE -->
@@ -36,19 +36,35 @@
           <h1>Informations du Compte</h1>
           <hr />
         </div>
-        <form method="POST" action="<?=getProjectPath()?>controller/addCompteController.php" id="addAccountForm">
+        <form method="POST" action="<?= getProjectPath() ?>controller/addCompteController.php" id="addAccountForm">
           <div class="form-row">
-            <div class="name">Type de Compte</div>
+            <div class="name">Type & Owner</div>
             <div class="value">
-              <div class="input-group">
-                <div class="rs-select2 js-select-simple select--no-search orbit-select">
-                  <select id="selectTypeCompte" name="typeAccount">
-                    <option disabled="disabled" value="0" selected="selected">CHOISISSEZ UN TYPE DE COMPTE</option>
-                    <option value="cesp">Compte épargne simple et xeewel</option>
-                    <option value="cc">Compte courant pour les salariés</option>
-                    <option value="cb">Compte bloqué </option>
-                  </select>
-                  <div class="select-dropdown"></div>
+              <div class="row row-refine">
+                <div class="col-3">
+                  <div class="input-group">
+                    <div class="rs-select2 js-select-simple select--no-search orbit-select">
+                      <select id="selectTypeCompte" name="typeAccount">
+                        <option disabled="disabled" value="0" selected="selected">CHOISISSEZ UN TYPE DE COMPTE</option>
+                        <option value="cesp">Compte épargne simple et xeewel</option>
+                        <option value="cc">Compte courant pour les salariés</option>
+                        <option value="cb">Compte bloqué </option>
+                      </select>
+                      <div class="select-dropdown"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-9">
+                <div class="input-group">
+                    <div class="rs-select2 js-select-simple select--no-search orbit-select">
+                      <select id="selectOwnerCompte" name="ownerCompte">
+                        <option disabled="disabled" value="0" selected="selected">CHOISISSEZ LE CLIENT</option>
+                        <option value="1">Client 1 Will be Generated After</option>
+                        <option value="2">Client 2 Will be Generated After</option>
+                      </select>
+                      <div class="select-dropdown"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -60,13 +76,13 @@
               <div class="row row-refine">
                 <div class="col-3">
                   <div class="input-group-desc">
-                    <input class="input--style-5" type="text" name="cleRIB">
+                    <input class="input--style-5" type="number" name="cleRIB" min="01" max="98">
                     <label class="label--desc">Cle RIB</label>
                   </div>
                 </div>
                 <div class="col-9">
                   <div class="input-group-desc">
-                    <input class="input--style-5" type="number" name="soldeAccount">
+                    <input class="input--style-5" type="number" name="soldeAccount" min="2000" max="100000000" step="0.0001">
                     <label class="label--desc">SOLDE</label>
                   </div>
                 </div>
@@ -99,7 +115,7 @@
             <div class="name">Prochaine Rémunération</div>
             <div class="value">
               <div class="input-group">
-                <input class="input--style-5" type="date" name="nextRemunDate" readonly>
+                <input class="input--style-5" type="date" name="nextRemunDate" value="2020-12-12" readonly>
               </div>
             </div>
           </div>
@@ -133,6 +149,7 @@
               </div>
             </div>
           </div>
+          <input type="hidden" name="FormAddAccountVALIDATOR" value="true">
           <!-- ENDING : BLOCK COMPTE -->
           <div class="btn--centered" id="submitAccountForm" name="submitAccountForm">
             <!-- <button class="btn btn--radius-2 btn--blue" type="submit">Register</button> -->
