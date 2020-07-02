@@ -37,9 +37,10 @@ if (isset($_POST['FormAddAccountVALIDATOR']) && !(empty($_POST['typeAccount'])) 
 
     if ($row > 0) {
         // var_dump($row);
-        header('location:'.getProjectRoot().'newaccount');
+        header('location:'.getProjectRoot().'newaccountFSS');
     }else {
-        echo "ERROR IN THE FORM";
+        // echo "ERROR IN THE FORM";
+        header('location:'.getProjectRoot().'newaccountFSE');
     }
 }else {
         echo "<h1 align='center'>ERREUR FORMULAIRE! </h1>";

@@ -28,8 +28,8 @@
             </div>
             <div class="col-3">
                 <div class="input-group-desc">
-                    <input class="input--style-5" id="telClient" type="tel" name="telClient" required>
-                    <label class="label--desc">Numero de Téléphone</label>
+                    <input class="input--style-5" id="telClient" type="tel" name="telClient" pattern="([0-9]{2} )[0-9]{7}" title="DOIT ETRE DE LA FORME [77 XXXXXXX]" required>
+                    <label class="label--desc">Numero de Téléphone - SN:[+221]</label>
                 </div>
             </div>
             <div class="col-3">
@@ -40,7 +40,7 @@
             </div>
             <div class="col-3">
                 <div class="input-group-desc">
-                    <input class="input--style-5 prefilled" value="BP-CL-DK-2552" id="numeroIdClient" type="text" name="numeroIdClient" disabled required>
+                    <input class="input--style-5 prefilled" value="BP-CL-DK-2552" id="numeroIdClient" type="text" name="numeroIdClient" required>
                     <label class="label--desc">Numero d'Identification Entreprise</label>
                 </div>
             </div>

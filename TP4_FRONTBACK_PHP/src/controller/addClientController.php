@@ -40,10 +40,11 @@ if (isset($_POST['FormAddClientVALIDATOR']) && !(empty($_POST['formChooser']))) 
         $row = persistClientPhysique($numIdCli,strtoupper($nomClient), $prenomClient, $email, $cniClient, $adresseClient, $sexeClient, $dateNaiss, $features, $isSalarie);
         if ($row > 0) {
             // var_dump($row);
-            header('location:'.getProjectRoot().'newclient');
+            header('location:'.getProjectRoot().'newclientFSS');
         }else {
-            var_dump($row);
-            echo "ERROR IN THE FORM";
+            // var_dump($row);
+            // echo "ERROR IN THE FORM";
+            header('location:'.getProjectRoot().'newclientFSE');
         }
     } elseif($formChooser == "moral"){
         // CAS D'UN CLIENT MORAL

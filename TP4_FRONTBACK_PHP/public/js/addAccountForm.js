@@ -1,3 +1,14 @@
+/* === WELCOME TO THE CODE ===
+ *                     
+ *	  By :
+ *
+ *     ██████╗ ██████╗ ██████╗ ██╗████████╗    ████████╗██╗   ██╗██████╗ ███╗   ██╗███████╗██████╗ 
+ *    ██╔═══██╗██╔══██╗██╔══██╗██║╚══██╔══╝    ╚══██╔══╝██║   ██║██╔══██╗████╗  ██║██╔════╝██╔══██╗
+ *    ██║   ██║██████╔╝██████╔╝██║   ██║          ██║   ██║   ██║██████╔╝██╔██╗ ██║█████╗  ██████╔╝
+ *    ██║   ██║██╔══██╗██╔══██╗██║   ██║          ██║   ██║   ██║██╔══██╗██║╚██╗██║██╔══╝  ██╔══██╗
+ *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
+ *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
+ */ 
 /*
 +======================={PROJECT - PRESENTATION}======================+
 |                                                                     |
@@ -22,6 +33,16 @@ console.log("ADD ACCOUNT Form Script Started at : " + scriptStartTime.getHours()
 var formOk = false;
 var theAccountForm = document.getElementById("addAccountForm");
 var typeAccountForm = 0;
+var isClientChoosed = false;
+
+var infoPreviousInsert = document.getElementById("breadcrumbInfo");
+if(typeof infoPreviousInsert !== 'undefined') {
+    setTimeout(function() {
+        // $('.custom-select-sm').val(10).change();
+        infoPreviousInsert.style.color = "#29c2d6";
+        infoPreviousInsert.innerText = ">>> Creation Client ";
+    }, 3500);
+}
 
 // STARTING : [INIT FUNCTIONS]
 // ==================================================================================
@@ -57,6 +78,8 @@ function initFormAccountSetup() {
 // --- 🔽 SELECT OPTIONS 🔽 ---
 // ==================================================================================
 var selectAccountType = document.getElementById("selectTypeCompte");
+var selectOwnerAcc = document.getElementById("selectOwnerCompte");
+
 selectAccountType.onchange = function () {
     let optionValue = this.options[this.selectedIndex];
     if (this.selectedIndex === 1 && optionValue.value == "cesp") {
@@ -80,6 +103,15 @@ selectAccountType.onchange = function () {
     }
 }
 
+selectOwnerAcc.onchange = function () {
+    let optionValue = this.options[this.selectedIndex];
+    if (optionValue.value === "0") {
+        isClientChoosed = false;
+    }else{
+        isClientChoosed = true;
+    }
+}
+
 // ==================================================================================
 // --- 🔘 RADIO BUTTONS 🔘 ---
 // ==================================================================================
@@ -94,10 +126,14 @@ selectAccountType.onchange = function () {
 // ==================================================================================
 // HIDE ALL ACCOUNT INFOS
 function hideAllAccountBlocks() {
+    document.getElementById("accountFeeAndNumbBlock").querySelector('input').disabled = true;
     document.getElementById("accountFeeAndNumbBlock").style.display = "none";
     document.getElementById("remunBlock").style.display = "none";
+    document.getElementById("remunBlock").querySelector('input').disabled = true;
     document.getElementById("agiosBlock").style.display = "none";
+    document.getElementById("agiosBlock").querySelector('input').disabled = true;
     document.getElementById("dateEcheanceBlock").style.display = "none";
+    document.getElementById("dateEcheanceBlock").querySelector('input').disabled = true;
     document.getElementById("submitAccountForm").innerHTML = '<button class="btn btn--radius-2 btn--blue" type="submit">Register</button>';
 
     return true;
@@ -113,12 +149,16 @@ function toogleXeewelBlocks(option) {
     if (option === 1) {
         // Defining the Style
         blockAccountFeeNumb.style.display = "none";
+        blockAccountFeeNumb.querySelector('input').disabled = true;
         blockRemun.style.display = "none";
+        blockRemun.querySelector('input').disabled = true;
 
     } else if (option === 2) {
         // Show:
         blockAccountFeeNumb.style.display = "";
+        blockAccountFeeNumb.querySelector('input').disabled = false;
         blockRemun.style.display = "";
+        blockRemun.querySelector('input').disabled = false;
     } else {
         alert("OPTION ERROR IN THE FUNCTION ToogleWB at Line 29 !\n\n REFRESH THE PAGE OR CONTACT ADMIN !!!");
         document.getElementById("creationClientForm").style.display = "none";
@@ -134,10 +174,12 @@ function toogleCourantBlocks(option) {
     if (option === 1) {
         // hide
         blockAgios.style.display = "none";
+        blockAgios.querySelector('input').disabled = true;
 
     } else if (option === 2) {
         // Show:
         blockAgios.style.display = "";
+        blockAgios.querySelector('input').disabled = false;
     } else {
         alert("OPTION ERROR IN THE FUNCTION ToogleWB at Line 29 !\n\n REFRESH THE PAGE OR CONTACT ADMIN !!!");
         document.getElementById("creationClientForm").style.display = "none";
@@ -154,12 +196,16 @@ function toogleCptBlBlocks(option) {
     if (option === 1) {
         // hide
         blockAccountFeeNumb.style.display = "none";
+        blockAccountFeeNumb.querySelector('input').disabled = true;
         dateEchBlock.style.display = "none";
+        dateEchBlock.querySelector('input').disabled = true;
 
     } else if (option === 2) {
         // Show:
         blockAccountFeeNumb.style.display = "";
+        blockAccountFeeNumb.querySelector('input').disabled = false;
         dateEchBlock.style.display = "";
+        dateEchBlock.querySelector('input').disabled = false;
     } else {
         alert("OPTION ERROR IN THE FUNCTION ToogleWB at Line 29 !\n\n REFRESH THE PAGE OR CONTACT ADMIN !!!");
         document.getElementById("creationClientForm").style.display = "none";
@@ -203,6 +249,12 @@ function validateForm() {
             isVide = true;
         }
         
+    }
+    if (isClientChoosed === true) {
+        isVide = false;
+    }else{
+        alert("VEUILLEZ CHOISIR UN CLIENT");
+        isVide = true;
     }
 
     // CONTROL BLOCK BY BLOCK SELON LE TYPE DE COMPTE

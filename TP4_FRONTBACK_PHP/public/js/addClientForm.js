@@ -1,3 +1,14 @@
+/* === WELCOME TO THE CODE ===
+ *                     
+ *	  By :
+ *
+ *     ██████╗ ██████╗ ██████╗ ██╗████████╗    ████████╗██╗   ██╗██████╗ ███╗   ██╗███████╗██████╗ 
+ *    ██╔═══██╗██╔══██╗██╔══██╗██║╚══██╔══╝    ╚══██╔══╝██║   ██║██╔══██╗████╗  ██║██╔════╝██╔══██╗
+ *    ██║   ██║██████╔╝██████╔╝██║   ██║          ██║   ██║   ██║██████╔╝██╔██╗ ██║█████╗  ██████╔╝
+ *    ██║   ██║██╔══██╗██╔══██╗██║   ██║          ██║   ██║   ██║██╔══██╗██║╚██╗██║██╔══╝  ██╔══██╗
+ *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
+ *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
+ */
 /*
 +======================={PROJECT - PRESENTATION}======================+
 |                                                                     |
@@ -18,18 +29,25 @@
 // ==================================================================================
 // STARTING MAIN: CLIENT Script Timer
 var scriptStartTime = new Date();
-console.log("ADD CLIENT Script Started at : " + scriptStartTime.getHours() + "h : "+scriptStartTime.getMinutes() + "m : " + scriptStartTime.getSeconds() + "s");
+console.log("ADD CLIENT Script Started at : " + scriptStartTime.getHours() + "h : " + scriptStartTime.getMinutes() + "m : " + scriptStartTime.getSeconds() + "s");
 var formOk = false;
 var theClientForm = document.getElementById("addClientForm");
 var typeClientForm = 0;
 
-
+var infoPreviousInsert = document.getElementById("breadcrumbInfo");
+if (typeof infoPreviousInsert !== 'undefined') {
+    setTimeout(function () {
+        // $('.custom-select-sm').val(10).change();
+        infoPreviousInsert.style.color = "#29c2d6";
+        infoPreviousInsert.innerText = ">>> Creation Client ";
+    }, 3500);
+}
 // STARTING : [INIT FUNCTIONS]
 // ==================================================================================
 // ---💠 SETUP OF THE FORM 💠 ---
 // ==================================================================================
 // TRIGGER THE FORM SETUP WHEN THE PAGE IS FULLY LOADED
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     initFormClientSetup();
 });
 // FIXME
@@ -40,7 +58,7 @@ function initFormClientSetup() {
     // Hiding Blocks
     toogleWorkBlocks(1);
     toogleAddEmpBlocks(2);
-    formOk = true; 
+    formOk = true;
 }
 // ENDING : INIT FUNCTIONS
 
@@ -53,9 +71,34 @@ function initFormClientSetup() {
 var addNewEmpBtn = document.getElementById("addEmpBtn");
 addNewEmpBtn.onclick = function () {
     // Test
-        // alert("Hello Foreigner!!!");
-        // alert(this.classList);
+    // alert("Hello Foreigner!!!");
+    // alert(this.classList);
     toogleAddEmpBlocks(1, this);
+}
+
+var submitNewEmployeur = document.getElementById("submitNewEmployeur");
+submitNewEmployeur.onclick = function () {
+    // Testfunction submitFormAjax() {
+    /*let xmlhttp = window.XMLHttpRequest ?
+            new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200)
+                alert(this.responseText); // Here is the response
+        }
+
+        let name = document.getElementById('name').innerHTML;
+        let email = document.getElementById('email').innerHTML;
+
+        xmlhttp.open("GET", "your_url.php?name=" + name + "&email=" + email, true);
+        xmlhttp.send();
+    }
+    This example is using GET, but you could also use POST:
+
+        xmlhttp.open("POST", "your_url.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("name=" + name + "&email=" + email);*/
+
 }
 // STARTING [GESTION DES TYPES DE COMPTES]
 // ==================================================================================
@@ -73,14 +116,14 @@ addNewEmpBtn.onclick = function () {
 var statutProRadios = document.getElementsByName("statutPro");
 var oldVal = null;
 for (var i = 0; i < statutProRadios.length; i++) {
-    statutProRadios[i].addEventListener('change', function() {
+    statutProRadios[i].addEventListener('change', function () {
         // TESTING VALUES
-            // SI OldVal exist
-            /*(oldVal) ? console.log("oldV "+oldVal.value): null;
-            if (this !== oldVal) {
-                oldVal = this;
-            }
-            console.log("New "+this.value);*/
+        // SI OldVal exist
+        /*(oldVal) ? console.log("oldV "+oldVal.value): null;
+        if (this !== oldVal) {
+            oldVal = this;
+        }
+        console.log("New "+this.value);*/
         // FUNCTION STEPS
         this.value === "isWorking" ? toogleWorkBlocks(2) : toogleWorkBlocks(1);
         toogleAddEmpBlocks(2);
@@ -93,7 +136,7 @@ for (var i = 0; i < statutProRadios.length; i++) {
 var formChooserRadios = document.getElementsByName("formChooser");
 var oldVal = null;
 for (var i = 0; i < formChooserRadios.length; i++) {
-    formChooserRadios[i].addEventListener('change', function() {
+    formChooserRadios[i].addEventListener('change', function () {
         // Refresh If It was Moral
         (oldVal) && oldVal.value == "moral" ? reloadFormChooser() : null;
         // BUG IN EVENTS NOT COMMING
@@ -119,49 +162,56 @@ function toogleWorkBlocks(option) {
     let blockInfosPro = document.getElementById("infoPro");
     let blockInfosEmp = document.getElementById("infoEmployeur");
     // Toogle Options
-    if(option === 1) {
+    if (option === 1) {
         // var statutPro = document.getElementById("statutPro");
-    
+
         // Defining the Style
         blockInfosPro.style.display = "none";
+        blockInfosPro.querySelector('input').disabled = true;
         blockInfosEmp.style.display = "none";
-    
-    }else if (option === 2) {
+        blockInfosEmp.querySelector('input').disabled = true;
+
+    } else if (option === 2) {
         // Show:
         blockInfosEmp.style.display = "";
         blockInfosPro.style.display = "";
-    }else{
+        blockInfosPro.querySelector('input').disabled = false;
+        blockInfosEmp.querySelector('input').disabled = false;
+    } else {
         alert("OPTION ERROR IN THE FUNCTION ToogleWB at Line 29 !\n\n REFRESH THE PAGE OR CONTACT ADMIN !!!");
         document.getElementById("creationClientForm").style.display = "none";
     }
 }
 
 // SHOWS OR HIDES CREATE EMPLOYEUR BLOCK
-function toogleAddEmpBlocks(option, objet=null) {
+function toogleAddEmpBlocks(option, objet = null) {
     // Recuperation
     option = parseInt(option);
-    let blockCreerEmp = document.getElementById("creerEmployeur"); 
+    let blockCreerEmp = document.getElementById("creerEmployeur");
 
     // Toogle Switcher
-     if(option === 1) {
-            if (blockCreerEmp.style.display != "none") {
-                blockCreerEmp.style.display = "none";
-                if (objet) {
-                    objet.classList.remove("optionIcon-onUse");
-                    objet.classList.remove("fa-times");
-                    objet.classList.add("fa-plus-circle");
-                }
-            }else{
-                blockCreerEmp.style.display = "";
-                if (objet) {
-                    objet.classList.remove("fa-plus-circle");
-                    objet.classList.add("fa-times");
-                    objet.classList.add("optionIcon-onUse");
-                }
+    if (option === 1) {
+        if (blockCreerEmp.style.display != "none") {
+            blockCreerEmp.querySelector('input').disabled = true;
+            blockCreerEmp.style.display = "none";
+            if (objet) {
+                objet.classList.remove("optionIcon-onUse");
+                objet.classList.remove("fa-times");
+                objet.classList.add("fa-plus-circle");
             }
-     } else {
+        } else {
+            blockCreerEmp.style.display = "";
+            blockCreerEmp.querySelector('input').disabled = false;
+            if (objet) {
+                objet.classList.remove("fa-plus-circle");
+                objet.classList.add("fa-times");
+                objet.classList.add("optionIcon-onUse");
+            }
+        }
+    } else {
         blockCreerEmp.style.display = "none";
-     }
+        blockCreerEmp.querySelector('input').disabled = true;
+    }
 }
 
 
@@ -202,7 +252,7 @@ function loadClientMoralForm() {
 // --- ✅ VALIDATIONS ✅ ---
 // ==================================================================================
 // ON SUBMIT OFF THE FORM
-theClientForm.addEventListener("submit", function(orbit) {
+theClientForm.addEventListener("submit", function (orbit) {
     orbit.preventDefault();
 
     if (validateForm()) {
@@ -212,7 +262,7 @@ theClientForm.addEventListener("submit", function(orbit) {
     } else {
         return false;
     }
-    
+
 });
 
 function validateForm() {
@@ -229,5 +279,5 @@ function validateForm() {
 // ENDING MAIN: ACCOUNT_CLIENT Script Timer 
 var scriptEndTime = new Date();
 scriptTimingMs = parseFloat(scriptEndTime.getTime() - scriptStartTime.getTime());
-console.log("ADD CLIENT Script ENDED at : " + scriptEndTime.getHours() + "h : "+scriptEndTime.getMinutes() + "m : " + scriptEndTime.getSeconds() + "s");
-console.log("Le script a mis " + scriptTimingMs/1000 + " secondes.");
+console.log("ADD CLIENT Script ENDED at : " + scriptEndTime.getHours() + "h : " + scriptEndTime.getMinutes() + "m : " + scriptEndTime.getSeconds() + "s");
+console.log("Le script a mis " + scriptTimingMs / 1000 + " secondes.");

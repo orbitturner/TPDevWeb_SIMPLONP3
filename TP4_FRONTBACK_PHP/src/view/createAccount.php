@@ -1,3 +1,4 @@
+
     <!-- STARTING : MAIN CONTENT -->
     <div class="main_content" id="pageCreateAccount">
       <!-- onload="initFormAccountSetup();" -->
@@ -5,7 +6,19 @@
         <div class="next_nav">
           <!-- MENU HAUT - PARTIE GAUCHE -->
           <div class="display_header">
-            <h4>BANQUE DU PEUPLE <span class="breadcrumb">>> Creation Compte</span></h4>
+            <h4>BANQUE DU PEUPLE 
+              <?php
+                  if (isset($_GET['formState']) && !(empty($_GET['formState'])) ) {
+                    if ($_GET['formState'] == 'error') {
+                        echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #dc143c;">>> ERREUR : COMPTE PRECEDENT NON INSERE !</span>';
+                      }else {
+                        echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #00FF00;">>> INFO : COMPTE CREE AVEC SUCCES !</span>';
+                      }
+                    }else {
+                      echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #29c2d6;">>> Creation Compte </span>';
+                  }
+              ?>
+            </h4>
           </div>
           <!-- MENU HAUT - PARTIE DROITE -->
           <ul class="nav">
@@ -44,7 +57,7 @@
                 <div class="col-3">
                   <div class="input-group">
                     <div class="rs-select2 js-select-simple select--no-search orbit-select">
-                      <select id="selectTypeCompte" name="typeAccount">
+                      <select id="selectTypeCompte" name="typeAccount" required>
                         <option disabled="disabled" value="0" selected="selected">CHOISISSEZ UN TYPE DE COMPTE</option>
                         <option value="cesp">Compte épargne simple et xeewel</option>
                         <option value="cc">Compte courant pour les salariés</option>
@@ -57,7 +70,7 @@
                 <div class="col-9">
                 <div class="input-group">
                     <div class="rs-select2 js-select-simple select--no-search orbit-select">
-                      <select id="selectOwnerCompte" name="ownerCompte">
+                      <select id="selectOwnerCompte" name="ownerCompte" required>
                         <option disabled="disabled" value="0" selected="selected">CHOISISSEZ LE CLIENT</option>
                         <option value="1">Client 1 Will be Generated After</option>
                         <option value="2">Client 2 Will be Generated After</option>
@@ -136,7 +149,7 @@
               <div class="row row-refine">
                 <div class="col-3">
                   <div class="input-group-desc">
-                    <input class="input--style-5" type="number" name="accountCreationFee" value="5200.00" readonly>
+                    <input class="input--style-5" type="number" name="accountCreationFee" value="">
                     <label class="label--desc">Délai de Blocage</label>
                   </div>
                 </div>
