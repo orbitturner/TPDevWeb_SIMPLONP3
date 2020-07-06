@@ -22,11 +22,19 @@ RewriteRule ^home$ src/view/mainindex.php?page=accueil
 RewriteRule ^operations$ src/view/mainindex.php?page=gOperation
 # New-Operation Page
 RewriteRule ^newoperation$ src/view/mainindex.php?page=newOperation
-# Account(COMPTE) Managing Page
-RewriteRule ^accounts$ src/view/mainindex.php?page=gCompte
 # New Account(COMPTE) Page
-RewriteRule ^newaccount$ src/view/mainindex.php?page=newAccount
+RewriteRule ^newaccount src/view/mainindex.php?page=newAccount
+# New Account with Error On the Previous Insertion (COMPTE) Page
+RewriteRule ^newaccountFSE$ src/view/mainindex.php?page=newAccount&formState=error
+# New Account with SUCCESS On the Previous Insertion (COMPTE) Page
+RewriteRule ^newaccountFSS$ src/view/mainindex.php?page=newAccount&formState=success
 # Client Managing Page
 RewriteRule ^clients$ src/view/mainindex.php?page=gClient
 # New Client Page
 RewriteRule ^newclient$ src/view/mainindex.php?page=newClient
+# New CLIENT with Error On the Previous Insertion (COMPTE) Page
+RewriteRule ^newclientFSE$ src/view/mainindex.php?page=newClient&formState=error
+# New CLIENT with SUCCESS On the Previous Insertion (COMPTE) Page
+RewriteRule ^newclientFSS$ src/view/mainindex.php?page=newClient&formState=success
+# New Client Page
+RewriteRule ^newclient/add$ src/view/mainindex.php?page=newClient/add

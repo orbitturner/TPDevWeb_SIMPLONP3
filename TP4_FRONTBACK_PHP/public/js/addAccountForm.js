@@ -40,7 +40,7 @@ if(typeof infoPreviousInsert !== 'undefined') {
     setTimeout(function() {
         // $('.custom-select-sm').val(10).change();
         infoPreviousInsert.style.color = "#29c2d6";
-        infoPreviousInsert.innerText = ">>> Creation Client ";
+        infoPreviousInsert.innerText = ">>> Creation Compte ";
     }, 3500);
 }
 

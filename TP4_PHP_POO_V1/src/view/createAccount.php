@@ -5,7 +5,19 @@
         <div class="next_nav">
           <!-- MENU HAUT - PARTIE GAUCHE -->
           <div class="display_header">
-            <h4>BANQUE DU PEUPLE <span class="breadcrumb">>> Creation Compte</span></h4>
+            <h4>BANQUE DU PEUPLE 
+            <?php
+                  if (isset($_GET['formState']) && !(empty($_GET['formState'])) ) {
+                    if ($_GET['formState'] == 'error') {
+                        echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #dc143c;">>> ERREUR : COMPTE PRECEDENT NON INSERE !</span>';
+                      }else {
+                        echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #00FF00;">>> INFO : COMPTE CREE AVEC SUCCES !</span>';
+                      }
+                    }else {
+                      echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #29c2d6;">>> Creation Compte </span>';
+                  }
+              ?>
+            </h4>
           </div>
           <!-- MENU HAUT - PARTIE DROITE -->
           <ul class="nav">

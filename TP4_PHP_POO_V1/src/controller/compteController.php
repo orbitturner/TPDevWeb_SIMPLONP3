@@ -17,6 +17,7 @@ class CompteController extends Controller
 
     public function add()
     {
+        $accountTypesValidate = array("cesp", "cc", "cb");
         // ===================[ NOUVEAU COMPTE EPARGNE XEEWEUL SIMPLE ]===================
         if (isset($_POST['FormAddAccountVALIDATOR']) && !(empty($_POST['typeAccount'])) && in_array($_POST['typeAccount'], $accountTypesValidate) == true && $_POST['typeAccount'] == 'cesp') {
 
@@ -65,5 +66,6 @@ class CompteController extends Controller
                 ["nextRemunDate"]=> string(10) "2020-12-12" 
                 ["agios"]=> string(7) "8700.00" 
                 ["echeanceDateCptB"]=> string(10) "2005-10-10" }
-                ["FormAddAccountVALIDATOR"]=> string(4) "true" }
-                $accountTypesValidate = array("cesp", "cc", "cb");*/
+                ["FormAddAccountVALIDATOR"]=> string(4) "true" }*/
+                
+?>

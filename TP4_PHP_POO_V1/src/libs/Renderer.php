@@ -26,7 +26,7 @@ class Renderer {
         ob_start();
         require('../view/' . $viewPath . '.php');
         $pageContent = ob_get_clean();
-        $_GET['page'] = 'accueil';
+        // $_GET['page'] = 'accueil';
         
         require('../view/templates/layout.html.php');
     }

@@ -4,7 +4,19 @@
                 <div class="next_nav">
                     <!-- MENU HAUT - PARTIE GAUCHE -->
                     <div class="display_header">
-                        <h4>BANQUE DU PEUPLE <span class="breadcrumb">>> Creation CLient</span></h4>
+                        <h4>BANQUE DU PEUPLE 
+                        <?php
+                                if (isset($_GET['formState']) && !(empty($_GET['formState']))) {
+                                    if ($_GET['formState'] == 'error') {
+                                        echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #dc143c;">>> ERREUR : CLIENT PRECEDENT NON INSERE !</span>';
+                                    } else {
+                                        echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #00FF00;">>> INFO : CLIENT CREE AVEC SUCCES !</span>';
+                                    }
+                                } else {
+                                    echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #29c2d6;">>> Creation Client </span>';
+                                }
+                            ?>
+                        </h4>
                     </div>
                     <!-- MENU HAUT - PARTIE DROITE -->
                     <ul class="nav">
@@ -34,7 +46,9 @@
                     <h1>Informations du Client</h1>
                     <hr />
                 </div>
-                <form method="POST" action="<?= getProjectPath() ?>controller/addClientController.php" id="addClientForm" name="addClientForm">
+
+                <!-- <form method="POST" action="--getProjectPath() ?>controller/addClientController.php" id="addClientForm" name="addClientForm"> -->
+                <form method="POST" action="<?=getProjectRoot()?>newclient/add" id="addClientForm" name="addClientForm">
                     <!-- // BUG -->
                     <!-- STARTING : FORM CHOOSER -->
                     <div class="form-row p-t-10 choices" id="formChooser">

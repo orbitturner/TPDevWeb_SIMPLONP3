@@ -29,6 +29,12 @@
 					$view = new ClientController();
 					$view->index();
 			break;
+			case 'newClient/add':
+					// include "createClient.php";
+					require_once("../controller/ClientController.php");
+					$view = new ClientController();
+					$view->addPhysique();
+			break;
 
 			
 			default:

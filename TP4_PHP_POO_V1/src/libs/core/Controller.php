@@ -12,8 +12,9 @@ abstract class Controller
     public function __construct()
     {
         if(!empty($this->modelName)) {
-            require_once(dirname(dirname(__DIR__))."/model/". $this->modelName.".php");
+            require_once($_SERVER["DOCUMENT_ROOT"]."/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/model/". $this->modelName.".php");
             $this->model = new $this->modelName;
+            $this-> loader = new Renderer();
         } else {
             
             /* L'OBJET EN COURS */

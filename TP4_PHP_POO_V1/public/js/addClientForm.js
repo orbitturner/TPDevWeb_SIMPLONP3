@@ -1,3 +1,14 @@
+/* === WELCOME TO THE CODE ===
+ *                     
+ *	  By :
+ *
+ *     ██████╗ ██████╗ ██████╗ ██╗████████╗    ████████╗██╗   ██╗██████╗ ███╗   ██╗███████╗██████╗ 
+ *    ██╔═══██╗██╔══██╗██╔══██╗██║╚══██╔══╝    ╚══██╔══╝██║   ██║██╔══██╗████╗  ██║██╔════╝██╔══██╗
+ *    ██║   ██║██████╔╝██████╔╝██║   ██║          ██║   ██║   ██║██████╔╝██╔██╗ ██║█████╗  ██████╔╝
+ *    ██║   ██║██╔══██╗██╔══██╗██║   ██║          ██║   ██║   ██║██╔══██╗██║╚██╗██║██╔══╝  ██╔══██╗
+ *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
+ *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
+ */
 /*
 +======================={PROJECT - PRESENTATION}======================+
 |                                                                     |
@@ -31,6 +42,14 @@ var typeClientForm = 0;
 // TRIGGER THE FORM SETUP WHEN THE PAGE IS FULLY LOADED
 document.addEventListener("DOMContentLoaded", function() {
     initFormClientSetup();
+    var infoPreviousInsert = document.getElementById("breadcrumbInfo");
+    if (typeof infoPreviousInsert !== 'undefined') {
+    setTimeout(function () {
+        // $('.custom-select-sm').val(10).change();
+        infoPreviousInsert.style.color = "#29c2d6";
+        infoPreviousInsert.innerText = ">>> Creation Client ";
+    }, 3500);
+}
 });
 // FIXME
 // PENDING

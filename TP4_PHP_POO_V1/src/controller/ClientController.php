@@ -7,8 +7,11 @@ class ClientController extends Controller
 {
     protected $modelName = "Client";
 
+    
+    
     public function index()
     {
+        // var_dump($this->loader);
         $this->loader->render('CREER UN CLIENT',"createClient");
     }
 
@@ -28,9 +31,9 @@ class ClientController extends Controller
                 // TODO : WILL BE IMPLEMENTED IN THE FORM
                 $features = "1,2,3,4";
                 // TODO: WILL BE GENERATED & TAKEN FROM THE FORM
-                $numIdCli = $clientModel->physiqueNumGen();
+                $numIdCli = $this->model->physiqueNumGen();
 
-                $row = $clientModel->persistPhysique($numIdCli, strtoupper($nomClient), $prenomClient, $email, $cniClient, $adresseClient, $sexeClient, $dateNaiss, $features, $isSalarie);
+                $row = $this->model->persistPhysique($numIdCli, strtoupper($nomClient), $prenomClient, $email, $cniClient, $adresseClient, $sexeClient, $dateNaiss, $features, $isSalarie);
                 if ($row > 0) {
                     // var_dump($row);
                     header('location:' . getProjectRoot() . 'newclientFSS');
