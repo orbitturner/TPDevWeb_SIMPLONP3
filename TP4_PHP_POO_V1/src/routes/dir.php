@@ -1,22 +1,22 @@
 <?php
 // 
 function getProjectRoot(){
-    return "/tpdevweb_simplon_p3/TP4_FRONTBACK_PHP/";
+    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/";
 }
 function getProjectPath(){
-    return "/tpdevweb_simplon_p3/TP4_FRONTBACK_PHP/src/";
+    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/";
 }
 
 function getPublicPath(){
-    return "/tpdevweb_simplon_p3/TP4_FRONTBACK_PHP/public/";
+    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/public/";
 }
 
 function getControllerPath(String $controllerName){
-    return "/tpdevweb_simplon_p3/TP4_FRONTBACK_PHP/src/controller/"+$controllerName;
+    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/controller/"+$controllerName;
 }
 
 function getModelPath(String $modelName){
-    return "/tpdevweb_simplon_p3/TP4_FRONTBACK_PHP/src/controller/"+$modelName;
+    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/controller/"+$modelName;
 }
 
 ?>

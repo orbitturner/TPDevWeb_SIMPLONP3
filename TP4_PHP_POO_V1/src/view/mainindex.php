@@ -1,7 +1,8 @@
 <?php
 // session_start();
 // if ($_SESSION!=null) {
-	include "main/header.php";
+	
+	
 	//afficher le contenu de la page
 	// echo '<div class="content">';
 	if (isset($_GET['page'])) {
@@ -9,32 +10,26 @@
 		switch ($_GET['page']) {
 			case 'accueil':
 				//contenu de la page accueil
-				include_once 'home.php';
-			break;
-			
-			case 'gCompte':
-				//contenue de la page gestion de compte
-				include 'maincompte.php';
-			break;
-			
-			case 'gClient':
-					include "gestClient.php";
-			break;
-			case 'gOperation':
-					include "gestOperation.php";
+				// include_once 'home.php';
+				require_once("../controller/WelcomeController.php");
+				$view = new WelcomeController();
+				$view->index();
 			break;
 
 			case 'newAccount':
-					include "createAccount.php";
+					// include "createAccount.php";
+					require_once("../controller/CompteController.php");
+					$view = new CompteController();
+					$view->index();
 			break;
 
 			case 'newClient':
-					include "createClient.php";
+					// include "createClient.php";
+					require_once("../controller/ClientController.php");
+					$view = new ClientController();
+					$view->index();
 			break;
 
-			case 'newOperation':
-					include "newOperation.php";
-			break;
 			
 			default:
 				$useragent=$_SERVER['HTTP_USER_AGENT'];//Recuperation du Type de DEVICE du Client
@@ -55,10 +50,6 @@
 	}else{
 		include_once 'accueil.php?page=accueil';
 	}
-	// echo('</div>');
-	include "main/footer.php";
-// }else{
-// 	header("location:".getProjectRoot()."login");
-// }
+	
 
 ?>

@@ -1,45 +1,69 @@
-<?php 
-session_start();
-    require_once '../routes/dir.php';
-    require_once('../Model/modelCompte.php');
-    // var_dump($_POST);
-    // extract($_POST);
-    // if ($numeroClient == "") {
-    //     echo '<h1>HELLO THERE</h1>';
-    // }
-        // ===================[NOUVEAU COMPTE & NEW CLIENT]===================
-    if (isset($_POST['ajoutCompte']) && ($_POST['solde']!="" && $_POST['nom']!=NULL && $_POST['prenom']!="" && $_POST['cni']!="")) {
-        extract($_POST);
+<?php
+// session_start();
+// // require_once '../routes/dir.php';
+require_once('../libs/core/Controller.php');
+// $model = new Compte();
+class CompteController extends Controller
+{
 
-        $idCli = insererClient($cni,strtoupper($nom), $prenom, $adresse, $tel);
-        $idUser = $_SESSION['idUser'];
-        $row = ajouterCompte($solde, $idCli, $idUser);
-        
-        header('location:'.getProjectRoot().'comptes');
-        // ===================[NOUVEAU COMPTE POUR CLIENT EXISTANT]===================
-    }elseif (isset($_POST['newAccount']) && ($_POST['SoldCliNew']!="" && $_POST['idCliNew']!=NULL)) {
-        extract($_POST);
-        var_dump($_POST);
+    protected $modelName = "Compte";
 
-        $idUser = $_SESSION['idUser'];
-        $row = ajouterCompte($SoldCliNew, $idCliNew, $idUser);
 
-        header('location:'.getProjectRoot().'comptes');
-    }else {
-        echo "<h1 align='center'>ERREUR FORMULAIRE! </h1>";
-        echo "<h1 align='center'>ACCES REFUSE! </h1>";
-        echo "<h2 align='center'>Contactez Votre ADMIN </h2>";
-        echo '<script>window.setTimeout("location=(\'http://localhost'.getProjectRoot().'home\');",5000);</script>';
-        echo '<p align="center">Vous serez redirigé dans 5s...</p>';
+    public function index()
+    {
+        // var_dump($this->loader);
+        $this->loader->render('CREER UN COMPTE', "createAccount");
     }
 
-    // array (size=8)
-    // 'solde' => string '520000' (length=6)
-    // 'cni' => string '4764514367' (length=10)
-    // 'nom' => string 'Ertyuj' (length=6)
-    // 'prenom' => string 'sfghyujkl' (length=9)
-    // 'adresse' => string 'edfolpmù' (length=9)
-    // 'tel' => string '85258258' (length=8)
-    // 'clientPremium' => string 'on' (length=2)
-    // 'ajoutCompte' => string '' (length=0)
-?>
+    public function add()
+    {
+        // ===================[ NOUVEAU COMPTE EPARGNE XEEWEUL SIMPLE ]===================
+        if (isset($_POST['FormAddAccountVALIDATOR']) && !(empty($_POST['typeAccount'])) && in_array($_POST['typeAccount'], $accountTypesValidate) == true && $_POST['typeAccount'] == 'cesp') {
+
+            extract($_POST);
+            // WILL BE AN SESSION
+            $idOwnerCompte = 1;
+            // CONNECTED EMPLOYEE
+            $idConnectedUser = 1;
+            $accountCreationFee = 1;
+            $numAgency = 'BP-TEST-DK-1010-001';
+            $idActualAgency = 1;
+            $accountNumber = $model->generateAccNumber($idActualAgency);
+            $state = 1;
+            $typeClientOwner = 1;
+            // var_dump($accountNumber);
+            // INSERTING
+            $row = $model->persistEPSX($accountNumber, $cleRIB, $idOwnerCompte, $soldeAccount, $state, $idConnectedUser, $numAgency, $accountCreationFee, $nextRemunDate, $typeClientOwner);
+
+            if ($row > 0) {
+                // var_dump($row);
+                header('location:' . getProjectRoot() . 'newaccountFSS');
+            } else {
+                // echo "ERROR IN THE FORM";
+                header('location:' . getProjectRoot() . 'newaccountFSE');
+            }
+        } else {
+            echo "<h1 align='center'>ERREUR FORMULAIRE! </h1>";
+            echo "<h1 align='center'>ACCES REFUSE! </h1>";
+            echo "<h2 align='center'>Contactez Votre ADMIN </h2>";
+            echo '<script>window.setTimeout("location=(\'http://localhost' . getProjectRoot() . 'home\');",5000);</script>';
+            echo '<p align="center">Vous serez redirigé dans 5s...</p>';
+        }
+    }
+}
+    
+    // TEST
+        // var_dump($_POST);
+        /*
+            array(10) { 
+                ["typeAccount"]=> string(4) "cesp" 
+                ["ownerCompte"]=> string(1) "1" 
+                ["cleRIB"]=> string(8) "10" 
+                ["soldeAccount"]=> string(8) "78522.22" 
+                ["accountNumber"]=> string(14) "CSB-856-DK-655" 
+                ["accountCreationFee"]=> string(7) "5200.00" 
+                ["nextRemunDate"]=> string(10) "2020-12-12" 
+                ["agios"]=> string(7) "8700.00" 
+                ["echeanceDateCptB"]=> string(10) "2005-10-10" }
+                ["FormAddAccountVALIDATOR"]=> string(4) "true" }
+                $accountTypesValidate = array("cesp", "cc", "cb");*/

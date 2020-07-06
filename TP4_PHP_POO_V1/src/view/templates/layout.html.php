@@ -22,9 +22,9 @@
 
 <head>
   <meta charset="UTF-8"/>
-  <title>TEST | BANQUE DU PEUPLE | IN SYSTEM</title>
-  <link rel="stylesheet" href="public/css/main.css"/>
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+  <title>BDP | <?=$pageTitle;?></title>
+  <link rel="stylesheet" href="<?=getProjectRoot()?>public/css/main.css"/>
+  <link rel="shortcut icon" href="<?=getProjectRoot()?>favicon.ico" type="image/x-icon"/>
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 
@@ -33,7 +33,7 @@
   <div class="wrapper">
     <!-- STARTING : SIDEBAR -->
     <div class="sidebar">
-      <h2><img class="sidebar_logo" src="public/img/BP-LOGO-SVG-WHITE.svg" alt="LOGO BANQUE DU PEUPLE" title="Vous d'Abord"/></h2>
+      <h2><img class="sidebar_logo" src="<?=getProjectRoot()?>public/img/BP-LOGO-SVG-WHITE.svg" alt="LOGO BANQUE DU PEUPLE" title="Vous d'Abord"/></h2>
       <ul>
         <li class="<?php if($_GET['page'] == 'accueil') echo 'active'?>"><a href="home"><i class="fas fa-home"></i>Accueil</a></li>
         <li class="<?php if($_GET['page'] == 'newClient') echo 'active'?>"><a href="newclient"><i class="fas fa-user-tie"></i>Creer un Client</a></li>
@@ -47,3 +47,25 @@
       </div>
     </div>
     <!-- ENDING : SIDEBAR -->
+
+    <?= $pageContent?>
+
+    </div>
+  <!-- ENDING CONTAINER GENERAL -->
+      <?php
+        // var_dump($_GET['page']);
+        if ($_GET['page'] == 'newClient') {
+          // echo '<script> alert("CLIENT")</script>';
+          echo '<script src="'.getProjectRoot().'public/js/addClientForm.js"></script>';
+          
+        }elseif ($_GET['page'] == 'newAccount') {
+          echo '<script src="'.getProjectRoot().'public/js/addAccountForm.js"></script>';
+          // echo '<script> alert("COMPTE")</script>';
+        }
+      ?>
+    <!-- Main JS -->
+    <script src="<?=getProjectRoot()?>public/js/global.js"></script>
+    
+</body>
+
+</html>

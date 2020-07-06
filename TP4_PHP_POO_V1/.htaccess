@@ -1,4 +1,4 @@
-ErrorDocument 404 /tpdevweb_simplon_p3/TP4_FRONTBACK_PHP/src/view/errors/error404-mobile.php
+ErrorDocument 404 /TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/view/errors/error404-mobile.php
 
 RewriteEngine On
 
@@ -13,6 +13,7 @@ RewriteRule ^notFoundusingMobile$ src/view/errors/error404-mobile.php
 
 # OTHER ERRORS URL
 RewriteRule ^dbAccessError$ src/view/errors/db_error.php
+RewriteRule ^test$ src/controller/test.php
 
 # =============|MENU URL MANAGING|=============
 # Main HomePage When User Logs In
