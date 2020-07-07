@@ -10,26 +10,38 @@
  *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
  *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
  */
-namespace src\routes;
-//
-function getProjectRoot(){
-    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/";
-}
-function getProjectPath(){
-    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/";
-}
+namespace Orbit\libs\core;
 
-function getPublicPath(){
-    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/public/";
-}
+class Renderer {
+    // private $pageTitle;
+    // private $viewPath;
 
-function getControllerPath(String $controllerName){
-    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/controller/"+$controllerName;
-}
+    
+    // public function __construct()
+    // {
+    //     $this->pageTitle = $pageTitle;
+    //     $this->viewPath = $viewPath;
 
-function getModelPath(String $modelName){
-    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/controller/"+$modelName;
+    // }
+
+    /**
+     * Fonction permettant de faire l'affichage selon le rendu 
+     *
+     * @param string $pageTitle
+     * @param string $viewPath
+     * @return void
+     */
+    public static function render(string $pageTitle, string $viewPath): void
+    {
+        // extract($variables);
+        var_dump($viewPath);
+        // ob_start();
+        // require('../view/' . $viewPath . '.php');
+        // $pageContent = ob_get_clean();
+        // $_GET['page'] = 'accueil';
+        
+        require($_SERVER["DOCUMENT_ROOT"].'/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V2/src/view/templates/layout.html.php');
+    }
 }
 
 ?>
-

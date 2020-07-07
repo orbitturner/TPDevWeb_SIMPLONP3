@@ -10,26 +10,29 @@
  *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
  *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
  */
-namespace src\routes;
-//
-function getProjectRoot(){
-    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/";
-}
-function getProjectPath(){
-    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/";
-}
+namespace Orbit;
 
-function getPublicPath(){
-    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/public/";
-}
+class Autoloader{
+    static function register(){
+        /**
+         * JE RECUPERE LA CLASSE INSTANCIEE ET J'LA PASSE A LA FONCTION OAL
+         */
+        spl_autoload_register([
+            __CLASS__,'orbitautoload'
+        ]);
+    }
+    //CHARGEUR AUTOMATIQUE DES CLASSES INSTANCIEES DEPUIS
+     // UN NAMEPACE`
+    static function orbitautoload($actualClass){
+        /*ON RECUPERE LE CHEMIN ET ON ENLEVE LE ORBIT */
+        $actualClass = str_replace(__NAMESPACE__. '\\', '', $actualClass);
 
-function getControllerPath(String $controllerName){
-    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/controller/"+$controllerName;
-}
+        // ON CONVERTIT LES \ EN / 
+        $actualClass = str_replace('\\','/', $actualClass);
 
-function getModelPath(String $modelName){
-    return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/controller/"+$modelName;
+        //LOADING 
+        require_once __DIR__ .'/'. $actualClass . '.php';
+    }
 }
 
 ?>
-
