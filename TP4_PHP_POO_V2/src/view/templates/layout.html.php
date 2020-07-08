@@ -15,9 +15,11 @@
 */ -->
 <?php 
     // require_once '../routes/dir.php';
-    use Orbit\src\routes;
+    // use Orbit\src\routes;
     echo "VIEEEEEEW";
     // var_dump($_GET);
+    // echo getProjectRoot();
+
  ?>
 <html lang="en">
 

@@ -21,6 +21,7 @@ class Autoloader{
             __CLASS__,'orbitautoload'
         ]);
     }
+    
     //CHARGEUR AUTOMATIQUE DES CLASSES INSTANCIEES DEPUIS
      // UN NAMEPACE`
     static function orbitautoload($actualClass){
@@ -30,8 +31,16 @@ class Autoloader{
         // ON CONVERTIT LES \ EN / 
         $actualClass = str_replace('\\','/', $actualClass);
 
-        //LOADING 
-        require_once __DIR__ .'/'. $actualClass . '.php';
+        //LOAD FILE 
+        $file = __DIR__ .'/'. $actualClass . '.php';
+        
+        //VERIFICATION
+        if(file_exists($file)){
+            require_once $file;
+        }else {
+			header('location:'.getProjectRoot().'notFound');
+        }
+
     }
 }
 

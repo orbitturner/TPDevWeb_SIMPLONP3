@@ -48,7 +48,7 @@
           <h1>Informations du Compte</h1>
           <hr />
         </div>
-        <form method="POST" action="<?= getProjectPath() ?>controller/addCompteController.php" id="addAccountForm">
+        <form method="POST" action="" id="addAccountForm">
           <div class="form-row">
             <div class="name">Type & Owner</div>
             <div class="value">

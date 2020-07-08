@@ -35,12 +35,14 @@ class Renderer {
     {
         // extract($variables);
         var_dump($viewPath);
-        // ob_start();
+        ob_start();
         // require('../view/' . $viewPath . '.php');
-        // $pageContent = ob_get_clean();
+        require($viewPath . '.php');
+        $pageContent = ob_get_clean();
         // $_GET['page'] = 'accueil';
         
-        require($_SERVER["DOCUMENT_ROOT"].'/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V2/src/view/templates/layout.html.php');
+        // require($_SERVER["DOCUMENT_ROOT"].'/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V2/src/view/templates/layout.html.php');
+        require('templates/layout.html.php');
     }
 }
 

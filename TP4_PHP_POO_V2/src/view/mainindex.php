@@ -11,7 +11,7 @@ use Orbit\src\controller\CompteController;
 use Orbit\src\controller\WelcomeController;
 
 if (isset($_GET['page'])) {
-		// require_once('../routes/dir.php');
+		require_once('../routes/dir.php');
 		require_once('../../Autoloader.php');
 		Autoloader::register();
 
