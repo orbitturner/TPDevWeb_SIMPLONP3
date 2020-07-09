@@ -10,7 +10,7 @@
  *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
  *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
  */
-namespace Orbit\src\routes;
+// namespace Orbit\src\routes;
 // 
 function getProjectRoot(){
     return "/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V2/";

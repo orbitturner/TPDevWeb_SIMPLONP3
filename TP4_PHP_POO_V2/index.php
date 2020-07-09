@@ -10,10 +10,17 @@
  *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
  *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
  */
-use Orbit\src\controller\WelcomeController;
+// === INCLUDE BASIC CORE's FILES ===
+require_once 'src/routes/dir.php';
+require_once 'libs/Autoloader.php';
 
- require_once 'libs/Autoloader.php';
- $view =  new WelcomeController();
- var_dump($view);
- $view->index();
+
+
+
+// DIRECT TESTING PURPOSE
+// use Orbit\src\controller\WelcomeController;
+
+//  $view =  new WelcomeController();
+// //  var_dump($view);
+//  $view->index();
 ?>
