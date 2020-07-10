@@ -2,7 +2,6 @@
 // session_start();
 namespace Orbit\src\controller;
 use Orbit\libs\core\Controller;
-// require_once('../libs/core/Controller.php');
 
 class ClientController extends Controller
 {
@@ -36,28 +35,25 @@ class ClientController extends Controller
 
                 $row = $this->model->persistPhysique($numIdCli, strtoupper($nomClient), $prenomClient, $email, $cniClient, $adresseClient, $sexeClient, $dateNaiss, $features, $isSalarie);
                 if ($row > 0) {
-                    // var_dump($row);
-                    header('location:' . getProjectRoot() . 'newclientFSS');
+                    header('location:' . getProjectRoot() . 'client?formState="succeed"');
                 } else {
-                    // var_dump($row);
-                    // echo "ERROR IN THE FORM";
-                    header('location:' . getProjectRoot() . 'newclientFSE');
+                    header('location:' . getProjectRoot() . 'client?formState="error"');
                 }
             } elseif ($formChooser == "moral") {
                 // CAS D'UN CLIENT MORAL
 
 
             } else {
-                header('location:' . getProjectRoot() . 'newclient?formForced=1');
+                header('location:' . getProjectRoot() . 'client?formForced=1');
             }
 
             // persistClient
         }
     }
 
-    public function addMoral(){
+    public function addMoral($a){
         // ===================[ NOUVEAU CLIENT MORAL ]===================
-        
+        echo "NOT DONE";
     }
 }
 // TEST

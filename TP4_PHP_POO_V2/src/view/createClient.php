@@ -48,7 +48,7 @@
                 </div>
 
                 <!-- <form method="POST" action="--getProjectPath() ?>controller/addClientController.php" id="addClientForm" name="addClientForm"> -->
-                <form method="POST" action="<?=getProjectRoot()?>newclient/add" id="addClientForm" name="addClientForm">
+                <form method="POST" action="client/addPhysique" id="addClientForm" name="addClientForm">
                     <!-- // BUG -->
                     <!-- STARTING : FORM CHOOSER -->
                     <div class="form-row p-t-10 choices" id="formChooser">

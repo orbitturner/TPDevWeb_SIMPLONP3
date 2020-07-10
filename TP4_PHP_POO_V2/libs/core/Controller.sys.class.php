@@ -9,33 +9,36 @@
  *    ██║   ██║██╔══██╗██╔══██╗██║   ██║          ██║   ██║   ██║██╔══██╗██║╚██╗██║██╔══╝  ██╔══██╗
  *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
  *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
+ *          
+ *  AUTHOR : MOHAMED GUEYE [Orbit Turner] - Email: orbitturner@gmail.com - Country: Senegal
  */
+namespace Orbit\libs\core;
 
-//===================================================================
-// # DEFINES YOUR ROUTES SHORTCUTS
-//===================================================================
-function getProjectName(){
-    // GIVE YOUR PROJECT NAME and NOT THE PATH
-    return "YOUR PROJECT NAME";
-}
-function getProjectRoot(){
-    return project_url();
-}
-function getProjectPath(){
-    return project_url()."src/";
+
+abstract class Controller 
+{
+    protected $loader;
+    protected $modelName;
+    protected $model;
+    
+    public function __construct()
+    {
+        if(!empty($this->modelName)) {
+            // require_once($_SERVER["DOCUMENT_ROOT"]."/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/model/". $this->modelName.".php");
+            // require_once("src/model/". $this->modelName.".php");
+            $classModel = "Orbit\\src\\model\\".$this->modelName;
+            $this->model = new $classModel;
+            $this-> loader = new Renderer();
+        } else {
+            
+            /* L'OBJET EN COURS */
+            $this-> loader = new Renderer();
+        }
+        // echo "CONTROLLER LIBS";
+    }
+    
+    
 }
 
-function getPublicPath(){
-    return  project_url()."public/";
-}
-
-function getControllerPath(String $controllerName){
-    return  project_url()."src/controller/"+$controllerName;
-}
-
-function getModelPath(String $modelName){
-    return  project_url()."src/model/"+$modelName;
-}
-//===================================================================
 
 ?>

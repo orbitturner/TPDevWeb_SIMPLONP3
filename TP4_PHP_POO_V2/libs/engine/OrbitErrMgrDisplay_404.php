@@ -20,14 +20,12 @@ DESIGNED BY: http://salehriaz.com/404Page/404.html
 
 DRIBBBLE: https://dribbble.com/shots/4330167-404-Page-Lost-In-Space
 -->
-
-<?php require_once '../../routes/dir.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" >
 
 <head>
   <meta charset="UTF-8">
-  <title>BANQUE DU PEUPLE | 404 PAGE NOT FOUND</title>
+  <title><?=getProjectName()?> | 404 PAGE NOT FOUND</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 		<link href="<?= getProjectRoot() ?>favicon.ico" rel="shortcut icon"/>
@@ -118,8 +116,7 @@ html, body{
     float: right;
     margin-right: 15px;
     text-transform: uppercase;
-    
-    
+    margin-top: 2%;
 }
 
 ul {
@@ -197,11 +194,11 @@ li a:hover {
     color: #fff;
     transform: scale(1.05);
     box-shadow: 0px 20px 20px rgba(0,0,0,0.1);
-}
 
+}
 .central-body{
 /*    width: 100%;*/
-    padding: 17% 5% 10% 5%;
+    padding: 12% 5% 10% 5%;
     text-align: center;
 }
 
@@ -258,6 +255,7 @@ li a:hover {
     position: relative;
     z-index: 100;
     pointer-events: none;
+    margin-bottom: 2%;
 }
 
 .stars{
@@ -294,12 +292,12 @@ li a:hover {
 }
 .glowing_stars .star:nth-child(4){
     top: 75%;
+    left: 50%;
     left: 80%;
     animation: glow-star 2s infinite ease-in-out alternate 7s;
 }
 .glowing_stars .star:nth-child(5){
     top: 90%;
-    left: 50%;
     animation: glow-star 2s infinite ease-in-out alternate 9s;
 }
 
@@ -330,11 +328,11 @@ li a:hover {
         <div class="stars">
             <div class="custom-navbar">
                 <div class="brand-logo">
-                   <a href="<?= getProjectRoot() ?>home"><img src="<?= getPublicPath() ?>img/BP-LOGO-SVG-WHITE.svg" width="150px"></a>
+                   <a href="welcome"><img src="<?= getProjectRoot() ?>libs/engine/ONF_ErrMgrDisplayLG.png" width="120px"></a>
                 </div>
                 <div class="navbar-links">
                     <ul>
-                      <li><a href="<?= getProjectRoot() ?>home">Accueil</a></li>
+                      <li><a href="welcome">Accueil</a></li>
                       <li><a href="http://orbitturner.yj.fr/contact/" class="btn-request">Contacter Admin</a></li>
                     </ul>
                 </div>

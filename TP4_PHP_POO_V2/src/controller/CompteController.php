@@ -2,9 +2,8 @@
 // session_start();
 namespace Orbit\src\controller;
 use Orbit\libs\core\Controller;
-// // require_once '../routes/dir.php';
-// require_once('../libs/core/Controller.php');
-// $model = new Compte();
+
+
 class CompteController extends Controller
 {
 
@@ -40,10 +39,10 @@ class CompteController extends Controller
 
             if ($row > 0) {
                 // var_dump($row);
-                header('location:' . getProjectRoot() . 'newaccountFSS');
+                header('location:' . getProjectRoot() . 'compte?formState="succeed"');
             } else {
                 // echo "ERROR IN THE FORM";
-                header('location:' . getProjectRoot() . 'newaccountFSE');
+                header('location:' . getProjectRoot() . 'compte?formState="error"');
             }
         } else {
             echo "<h1 align='center'>ERREUR FORMULAIRE! </h1>";

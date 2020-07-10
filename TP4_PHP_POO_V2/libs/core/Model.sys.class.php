@@ -9,35 +9,29 @@
  *    ██║   ██║██╔══██╗██╔══██╗██║   ██║          ██║   ██║   ██║██╔══██╗██║╚██╗██║██╔══╝  ██╔══██╗
  *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
  *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
+ *          
+ *  AUTHOR : MOHAMED GUEYE [Orbit Turner] - Email: orbitturner@gmail.com - Country: Senegal
  */
 namespace Orbit\libs\core;
+use Orbit\libs\core\DAO;
 
-// require_once ($_SERVER["DOCUMENT_ROOT"].'/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/routes/dir.php');
-// require_once ($_SERVER["DOCUMENT_ROOT"].'/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/libs/Renderer.php');
-// echo dirname(dirname(__DIR__));
-
-abstract class Controller 
+abstract class Model 
 {
-    protected $loader;
-    protected $modelName;
-    protected $model;
+    protected $db;
+    protected $entity;
     
+    // ========[CONSTRUCTOR SETS]========
     public function __construct()
     {
-        if(!empty($this->modelName)) {
-            require_once($_SERVER["DOCUMENT_ROOT"]."/TPDevWeb_SIMPLONP3/TP4_PHP_POO_V1/src/model/". $this->modelName.".php");
-            $this->model = new $this->modelName;
-            $this-> loader = new Renderer();
-        } else {
-            
-            /* L'OBJET EN COURS */
-            $this-> loader = new Renderer();
-        }
-        // echo "CONTROLLER LIBS";
+        $connection = new DAO();
+        $this->db = $connection->dbConnector();
     }
     
-    
+    // ============[ METHODES ]============
+
+    public function findAll(): array{
+        $query = $this->db->query("SELECT * FROM {$this->entity}");
+
+        return $query->fetchAll();
+    }
 }
-
-
-?>

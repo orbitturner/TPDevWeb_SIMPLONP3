@@ -9,33 +9,13 @@
  *    ██║   ██║██╔══██╗██╔══██╗██║   ██║          ██║   ██║   ██║██╔══██╗██║╚██╗██║██╔══╝  ██╔══██╗
  *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
  *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
+ *          
+ *  AUTHOR : MOHAMED GUEYE [Orbit Turner] - Email: orbitturner@gmail.com - Country: Senegal
  */
 
-//===================================================================
-// # DEFINES YOUR ROUTES SHORTCUTS
-//===================================================================
-function getProjectName(){
-    // GIVE YOUR PROJECT NAME and NOT THE PATH
-    return "YOUR PROJECT NAME";
+function default_launcher_settings(){
+    return array(
+                'default_controller' => 'WelcomeController'
+                );
 }
-function getProjectRoot(){
-    return project_url();
-}
-function getProjectPath(){
-    return project_url()."src/";
-}
-
-function getPublicPath(){
-    return  project_url()."public/";
-}
-
-function getControllerPath(String $controllerName){
-    return  project_url()."src/controller/"+$controllerName;
-}
-
-function getModelPath(String $modelName){
-    return  project_url()."src/model/"+$modelName;
-}
-//===================================================================
-
 ?>

@@ -1,7 +1,6 @@
 <?php
 namespace Orbit\src\controller;
 use Orbit\libs\core\Controller;
-    // require_once('../libs/core/Controller.php');
 
 class WelcomeController extends Controller{
 

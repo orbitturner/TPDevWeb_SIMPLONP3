@@ -20,14 +20,12 @@ DESIGNED BY: http://salehriaz.com/404Page/404.html
 
 DRIBBBLE: https://dribbble.com/shots/4330167-404-Page-Lost-In-Space
 -->
-
-<?php require_once '../../routes/dir.php'; ?>
 <!DOCTYPE html>
 <html lang="fr" >
 
 <head>
   <meta charset="UTF-8">
-  <title>BANQUE DU PEUPLE | 404 PAGE NOT FOUND</title>
+  <title><?=getProjectName()?> | ERROR MANAGER</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 		<link href="<?= getProjectRoot() ?>favicon.ico" rel="shortcut icon"/>
@@ -35,6 +33,7 @@ DRIBBBLE: https://dribbble.com/shots/4330167-404-Page-Lost-In-Space
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500');
+@import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
 
 @-moz-keyframes rocket-movement { 100% {-moz-transform: translate(1200px,-600px);} }
 @-webkit-keyframes rocket-movement {100% {-webkit-transform: translate(1200px,-600px); } }
@@ -93,6 +92,23 @@ html, body{
     user-select: none; /* Standard syntax */
 }
 
+.orbit_err_title{
+    font-family: 'Galada', cursive;
+    font-weight: 400;
+    color: #fff;
+    font-size: 4em;
+    margin-bottom: 5%;
+    margin-top: 0;
+}
+.orbit_err_message{
+    font-family: 'Galada', cursive;
+    font-weight: 400;
+    color: #fff;
+    font-size: 3em;
+    margin-bottom: 6%;
+}
+
+
 .bg-purple{
     background: url(http://salehriaz.com/404Page/img/bg_purple.png);
     background-repeat: repeat-x;
@@ -118,8 +134,7 @@ html, body{
     float: right;
     margin-right: 15px;
     text-transform: uppercase;
-    
-    
+    margin-top: 2%;
 }
 
 ul {
@@ -201,7 +216,7 @@ li a:hover {
 
 .central-body{
 /*    width: 100%;*/
-    padding: 17% 5% 10% 5%;
+    padding: 8% 5% 10% 5%;
     text-align: center;
 }
 
@@ -294,12 +309,12 @@ li a:hover {
 }
 .glowing_stars .star:nth-child(4){
     top: 75%;
+    left: 50%;
     left: 80%;
     animation: glow-star 2s infinite ease-in-out alternate 7s;
 }
 .glowing_stars .star:nth-child(5){
     top: 90%;
-    left: 50%;
     animation: glow-star 2s infinite ease-in-out alternate 9s;
 }
 
@@ -330,17 +345,23 @@ li a:hover {
         <div class="stars">
             <div class="custom-navbar">
                 <div class="brand-logo">
-                   <a href="<?= getProjectRoot() ?>home"><img src="<?= getPublicPath() ?>img/BP-LOGO-SVG-WHITE.svg" width="150px"></a>
+                   <a href="welcome"><img src="<?= getProjectRoot() ?>libs/engine/ONF_ErrMgrDisplayLG.png" width="120px"></a>
                 </div>
                 <div class="navbar-links">
                     <ul>
-                      <li><a href="<?= getProjectRoot() ?>home">Accueil</a></li>
-                      <li><a href="http://orbitturner.yj.fr/contact/" class="btn-request">Contacter Admin</a></li>
+                      <li><a href="welcome">Home</a></li>
+                      <li><a href="https://github.com/orbitturner/orbitnextframework/issues/new" class="btn-request">Create an Issue</a></li>
+                      <li><a href="http://orbitturner.yj.fr/contact/" class="btn-request">Contact Admin</a></li>
                     </ul>
                 </div>
             </div>
             <div class="central-body">
-                <img class="image-404" src="http://salehriaz.com/404Page/img/404.svg" width="300px">
+                <!-- <img class="image-404" src="http://salehriaz.com/404Page/img/404.svg" width="300px"> -->
+                <!-- //  =======================================================================|
+                //  📜# SHOWS THE ERROR📜
+                //  ======================================================================| -->
+                <h1 class="orbit_err_title">😢 Ouups !</h1>
+                <?='<h1 class="orbit_err_message">'.$message.'</h1>'?>
                 <a href="javascript:history.go(-1)" title="Retournez à la Page Précédente" class="btn-go-home">RETOUR</a>
             </div>
             <div class="objects">

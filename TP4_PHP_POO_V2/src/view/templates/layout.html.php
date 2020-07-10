@@ -13,8 +13,9 @@
 |LANGAGE UTILISE : ANGLAIS - FRANCAIS                                 |
 +=====================================================================+
 */ -->
-<?php 
-/* === WELCOME TO ORBIT NEXT FRAMEWORK  ===
+
+<html lang="en">
+<!-- /* === WELCOME TO ORBIT NEXT FRAMEWORK  ===
  *                     
  *	  By :
  *
@@ -24,13 +25,7 @@
  *    ██║   ██║██╔══██╗██╔══██╗██║   ██║          ██║   ██║   ██║██╔══██╗██║╚██╗██║██╔══╝  ██╔══██╗
  *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
  *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
- */
-
-    // echo "VIEEEEEEW";
-    // echo getProjectPath();
-
- ?>
-<html lang="en">
+ */ -->
 
 <head>
   <meta charset="UTF-8"/>
@@ -47,9 +42,9 @@
     <div class="sidebar">
       <h2><img class="sidebar_logo" src="public/img/BP-LOGO-SVG-WHITE.svg" alt="LOGO BANQUE DU PEUPLE" title="Vous d'Abord"/></h2>
       <ul>
-        <li class="<?php if($viewPath == 'home') echo 'active'?>"><a href="home"><i class="fas fa-home"></i>Accueil</a></li>
-        <li class="<?php if($viewPath == 'newClient') echo 'active'?>"><a href="newclient"><i class="fas fa-user-tie"></i>Creer un Client</a></li>
-        <li class="<?php if($viewPath == 'newAccount') echo 'active'?>"><a href="newaccount"><i class="fas fa-address-card"></i>Creer un Compte</a></li>
+        <li class="<?php if($viewPath == 'home') echo 'active'?>"><a href="welcome"><i class="fas fa-home"></i>Accueil</a></li>
+        <li class="<?php if($viewPath == 'createClient') echo 'active'?>"><a href="client"><i class="fas fa-user-tie"></i>Creer un Client</a></li>
+        <li class="<?php if($viewPath == 'createAccount') echo 'active'?>"><a href="compte"><i class="fas fa-address-card"></i>Creer un Compte</a></li>
         <li class="<?php if($viewPath == 'newVirement') echo 'active'?>"><a href="javascript:return false;" onclick="alert('<h1>COMMING SOON</h1>');"><i class="fas fa-exchange-alt"></i>Faire un Virement</a></li>
       </ul>
       <div class="extra_option">
@@ -66,11 +61,11 @@
   <!-- ENDING CONTAINER GENERAL -->
       <?php
         // var_dump($viewPath);
-        if ($viewPath == 'newClient') {
+        if ($viewPath == 'createClient') {
           // echo '<script> alert("CLIENT")</script>';
           echo '<script src="public/js/addClientForm.js"></script>';
           
-        }elseif ($viewPath == 'newAccount') {
+        }elseif ($viewPath == 'createAccount') {
           echo '<script src="public/js/addAccountForm.js"></script>';
           // echo '<script> alert("COMPTE")</script>';
         }
