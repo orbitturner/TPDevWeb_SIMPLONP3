@@ -17,6 +17,7 @@
 // 🔩🧱⚒=== INCLUDE BASIC CORE's FILES ===⚒🧱🔩
 // ----------------------------------------------
 require_once 'libs/Autoloader.php';
+require_once 'vendor/autoload.php';
 
 use Orbit\libs\core\OrbitLauncher;
 // --------------------------------------------

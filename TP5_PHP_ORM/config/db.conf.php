@@ -12,19 +12,19 @@
  */
 
 /**
- * ORM
+ * SPECIFY IF YOU WANNA USE ORM OR NOT ["ORM" -- "PDO"]
  */
 $choix = "ORM"; 
 /** 
  * Turn to on or off your database
  */
-$etat = 'off'; //on or off
-
+// $etat = 'off'; //on or off
+//Change Your DATABASE Connection Params
 $orm = array(
-              'dbname' => 'samanemvcorm_test',//change your database name
-              'user'     => 'root',
-              'password' => '',
+              'dbname' => 'tp5_orm_doctrine',
               'host' => '127.0.0.1',
+              'user'     => 'root',
+              'password' => '@webmaster1',
               'driver' => 'pdo_mysql',
 );
 ?>
