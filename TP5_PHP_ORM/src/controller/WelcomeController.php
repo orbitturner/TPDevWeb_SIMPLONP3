@@ -8,6 +8,7 @@ class WelcomeController extends Controller{
     public function index(){
 
         $this->loader->render('ACCUEIL',"home");
+
     }
 
     

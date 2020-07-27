@@ -1,4 +1,16 @@
 <?php
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Annotation as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
+/**
+ * @Entity @Table(name="test")
+ **/
+class Client{
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    private $id;
+    /** @Column(type="string") **/
+    private $valeur1;
+    /** @Column(type="string") **/
+    private $valeur2;
+}
 ?>

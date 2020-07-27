@@ -12,6 +12,7 @@ class ClientController extends Controller
     public function index()
     {
         // var_dump($this->loader);
+        // var_dump($this->entity);
         $this->loader->render('CREER UN CLIENT',"createClient");
     }
 
@@ -27,6 +28,7 @@ class ClientController extends Controller
                 } else {
                     $isSalarie = 1;
                 }
+                // $this->entity->
                 // CAS D'UN CLIENT PHYSIQUE
                 // TODO : WILL BE IMPLEMENTED IN THE FORM
                 $features = "1,2,3,4";
