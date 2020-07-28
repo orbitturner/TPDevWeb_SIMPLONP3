@@ -1,20 +1,39 @@
 <?php
+
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Annotation as ORM;
 
 /**
  * @Entity @Table(name="Profile")
  **/
 class Profile{
+    /** @Id @Column(type="integer") @GeneratedValue **/
     private $id;
-
+    /** @Column(type="string", unique=true) **/
     private $nom;
-
+    /** @Column(type="string") **/
     private $description;
-
+    /**
+     * @ManyToOne(targetEntity="State", inversedBy="profiles")
+     * @JoinColumn(name="idState", referencedColumnName="id")
+     */
     private $state;
+    /**
+     * @OneToMany(targetEntity="User", mappedBy="profil")
+     **/
+    private $users;
 
+    /*======================================
+    # 🚀🧱🧰 CONSTRUCTOR 🧰🧱🚀
+    ======================================*/
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
     
-
+    /*======================================
+    # 🧿📥 GETTERS & SETTERS 📥🧿
+    ======================================*/
     /**
      * Get the value of id
      */ 

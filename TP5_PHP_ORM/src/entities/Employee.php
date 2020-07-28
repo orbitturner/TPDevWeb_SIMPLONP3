@@ -5,29 +5,40 @@ use Doctrine\ORM\Annotation as ORM;
  * @Entity @Table(name="Employee")
  **/
 class Employee{
-
+    /** @Id @Column(type="integer") @GeneratedValue **/
     private $id;
-
+    /** @Column(type="string", unique=true, nullable=false) **/
     private $numEmployee;
-
+    /**
+     * @ManyToOne(targetEntity="User", inversedBy="employees")
+     * @JoinColumn(name="idUser", referencedColumnName="id")
+     */
     private $userAccount;
-
+    /** @Column(type="string", unique=true, nullable=false) **/
     private $telephone;
-
+    /** @Column(type="string", unique=true, nullable=false) **/
     private $email;
-
+    /** @Column(type="string", unique=true, nullable=false) **/
     private $cni;
-
+    /** @Column(type="string") **/
     private $adresse;
-
-    private $sexe;
-
+    /** @Column(type="string") **/
+    private $sexe;    
+    /** @Column(type="string") **/
     private $service;
 
-    private $agence;
-
+    /**
+     * @ManyToOne(targetEntity="Agency", inversedBy="employees")
+     * @JoinColumn(name="numAgency", referencedColumnName="numAgency")
+     */
+    private $agencyNumber;
+    /** @Column(type="string") **/
     private $dateNaiss;
 
+
+    /*======================================
+    # 🧿📥 GETTERS & SETTERS 📥🧿
+    ======================================*/
     /**
      * Get the value of id
      */ 

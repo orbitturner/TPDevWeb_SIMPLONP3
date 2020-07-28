@@ -1,20 +1,50 @@
 <?php
+
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Annotation as ORM;
 
 /**
  * @Entity @Table(name="State")
  **/
 class State{
+    /** @Id @Column(type="integer") @GeneratedValue **/
     private $id;
-
+    /** @Column(type="string", unique=true) **/
     private $nom;
-
+    /** @Column(type="string") **/
     private $description;
     /**
-     * @orm\OneToMany(targetEntity="CompteEPSX", mappedBy="state")
+     * @oOneToMany(targetEntity="CompteEPSX", mappedBy="state")
      **/
     private $accounts;
+    /**
+     * @OneToMany(targetEntity="Agency", mappedBy="state")
+     **/
+    private $agencies;
+    /**
+     * @OneToMany(targetEntity="Profile", mappedBy="state")
+     **/
+    private $profiles;
+    /**
+     * @OneToMany(targetEntity="User", mappedBy="state")
+     **/
+    private $users;
 
+    /*======================================
+    # 🚀🧱🧰 CONSTRUCTOR 🧰🧱🚀
+    ======================================*/
+    public function __construct()
+    {
+        $this->accounts = new ArrayCollection();
+        $this->agencies = new ArrayCollection();
+        $this->profiles = new ArrayCollection();
+        $this->users = new ArrayCollection();
+    }
+
+
+    /*======================================
+    # 🧿📥 GETTERS & SETTERS 📥🧿
+    ======================================*/
     /**
      * Get the value of id
      */ 
@@ -74,4 +104,6 @@ class State{
 
         return $this;
     }
+    // ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+
 }

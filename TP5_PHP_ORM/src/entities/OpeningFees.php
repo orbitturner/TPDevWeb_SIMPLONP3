@@ -1,18 +1,33 @@
 <?php
+
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Annotation as ORM;
 
 /**
  * @Entity @Table(name="OpeningFees")
  **/
 class OpeningFees{
+    /** @Id @Column(type="integer") @GeneratedValue **/
     private $id;
-
+    /** @Column(type="string", unique=true) **/
     private $libelle;
-
+    /** @Column(type="decimal") **/
     private $montant;
+    /** @Column(type="string") **/
+    private $accounts;
 
+    /*======================================
+    # 🚀🧱🧰 CONSTRUCTOR 🧰🧱🚀
+    ======================================*/
+    public function __construct()
+    {
+        $this->accounts = new ArrayCollection();
+    }
     
 
+    /*======================================
+    # 🧿📥 GETTERS & SETTERS 📥🧿
+    ======================================*/
     /**
      * Get the value of id
      */ 

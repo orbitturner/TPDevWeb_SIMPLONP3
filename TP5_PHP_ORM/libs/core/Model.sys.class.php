@@ -32,6 +32,7 @@ abstract class Model
             require "bootstrap.php";
             try {
                 $this->db = $entityManager;
+                // var_dump($this->db);
             } catch (PDOException $th) {
                 $this->db = null;
             }  

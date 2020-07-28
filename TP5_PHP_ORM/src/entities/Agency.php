@@ -1,25 +1,47 @@
 <?php
 use Doctrine\ORM\Annotation as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @Entity @Table(name="Agency")
  **/
 class Agency{
-    
+    /** @Id @Column(type="integer") @GeneratedValue **/
     private $id;
-
+    /** @Column(type="string") **/
     private $nom;
-
-    private $creationDate;
-
+    /** @Column(type="string") **/
+    private $creationDate;    
+    /** @Column(type="string") **/
     private $lieu;
-
+    /**
+     * @ManyToOne(targetEntity="State", inversedBy="agency")
+     * @JoinColumn(name="idState", referencedColumnName="id")
+     */
     private $state;
-
+    /** @Column(type="string", unique=true) **/
     private $numAgency;
+    /**
+     * @OneToMany(targetEntity="CompteEPSX", mappedBy="agencyNumber")
+     **/
+    private $accounts;
+    /**
+     * @OneToMany(targetEntity="CompteEPSX", mappedBy="agencyNumber")
+     **/
+    private $employees;
 
+    /*======================================
+    # 🚀🧱🧰 CONSTRUCTOR 🧰🧱🚀
+    ======================================*/
+    public function __construct()
+    {
+        $this->accounts = new ArrayCollection();
+        $this->employees = new ArrayCollection();
+    }
 
-
+    /*======================================
+    # 🧿📥 GETTERS & SETTERS 📥🧿
+    ======================================*/
     /**
      * Get the value of numAgency
      */ 
@@ -139,6 +161,7 @@ class Agency{
 
         return $this;
     }
+    // ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
 }
 
 ?>

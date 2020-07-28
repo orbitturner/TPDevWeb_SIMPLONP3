@@ -10,13 +10,13 @@ class ClientPhysique{
     private $id;
     /** @Column(type="string") **/
     private $numId;
-    /** @Column(type="string") **/
+    /** @Column(type="string", unique=true) **/
     private $nom;
     /** @Column(type="string") **/
     private $prenom;
     /** @Column(type="string") **/
     private $email;
-    /** @Column(type="string") **/
+    /** @Column(type="string", unique=true) **/
     private $cni;
     /** @Column(type="string") **/
     private $adresse;
@@ -31,7 +31,7 @@ class ClientPhysique{
     /** @Column(type="string") **/
     private $isSalarie;
     /**
-     * @orm\OneToMany(targetEntity="CompteEPSX", mappedBy="idCliOwner_physique")
+     * @OneToMany(targetEntity="CompteEPSX", mappedBy="idCliOwner_physique")
      **/
     private $accounts;
 
@@ -43,6 +43,10 @@ class ClientPhysique{
         $this->accounts = new ArrayCollection();
     }
     
+
+    /*======================================
+    # 🧿📥 GETTERS & SETTERS 📥🧿
+    ======================================*/
     /**
      * Get the value of id
      */ 
@@ -282,5 +286,7 @@ class ClientPhysique{
 
         return $this;
     }
+    // ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+
 }
 ?>

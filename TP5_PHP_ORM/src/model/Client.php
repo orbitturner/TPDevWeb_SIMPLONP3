@@ -1,30 +1,45 @@
 <?php
 namespace Orbit\src\model;
 use Orbit\libs\core\Model;
-    // require_once('../libs/core/Model.php');
+
 
     class Client extends Model{
+
+        
+        public function __construct()
+        {
+            parent::__construct();
+            // var_dump($this->db->persist());
+        }
         
         //==================|CREATION D'UN CLIENT PHYSIQUE|==================  
         /**
          * Insert un client physique par requete preparee
          * @return integer
          *  */  
-        public function persistPhysique($numIdCli,$nomClient, $prenomClient, $email, $cniClient, $adresseClient, $sexeClient, $dateNaiss, $features, $isSalarie){
-            $date = Date('Y-m-d'); //2020-07-01
-            
-            // PREPARED QUERY
-            $request = "INSERT INTO client_physique Values (?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?)";
-            
-            // SQL INJECTION PREVENT
-            $this->db->prepare($request)->execute(array(null, $numIdCli, $nomClient, $prenomClient, $email, $cniClient, $adresseClient, $sexeClient, $dateNaiss,$date, $features, $isSalarie));
-            
-            // OLD TESTING : $this->db->exec($request);
-            //Exec renvoi le nombre de ligne inseré
-            return $this->db->lastInsertId();
-            //Renvoi le dernier Identifiant Insérer au niveau de la table specifie
+        public function addPhysique($client){
+            if($this->db != null)
+            {
+                $this->db->persist($client);
+                $this->db->flush();
+
+                return $client->getId();
+            }
         }
 
+        //==================| SUPPRESSION |==================  
+        public function deletePhysique($id){
+            if($this->db != null)
+            {
+                $ClientPhysique = $this->db->find('ClientPhysique', $id);
+                if($ClientPhysique != null)
+                {
+                    $this->db->remove($ClientPhysique);
+                    $this->db->flush();
+                }else {
+                    die("Objet ".$id." does not existe!");
+                }
+            }
         //==================|GENERATION NUMERO CLIENT PHYSIQUE|==================  
         /**
          * Generer un Numero de compte 

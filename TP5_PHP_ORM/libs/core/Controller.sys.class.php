@@ -34,7 +34,7 @@ abstract class Controller
                 $this->entity = new $classEntity;
             } catch (\Throwable $th) {
                 $error = new Err_Manager();
-                $message = $th->getMessage().'<br/> Merci de créer l\'Entité et/ou le Modèle: '.$this->modelName;
+                $message = $th->getMessage().'<br/> Merci de vérifier ou de créer l\'Entité et/ou le Modèle: '.$this->modelName;
                 $error->messageError($message);
             }
             $this-> loader = new Renderer();

@@ -1,4 +1,6 @@
 <?php
+
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Annotation as ORM;
 
 /**
@@ -13,14 +15,14 @@ class CompteEPSX{
     private $cleRIB;
     /**
      * Many CompteEPSX have one ClientPhysique. This is the owning side.
-     * @ManyToOne(targetEntity="ClientPhysique", inversedBy="accounts",cascade={"persist"}, nullable=true)
+     * @ManyToOne(targetEntity="ClientPhysique", inversedBy="accounts",cascade={"persist"})
      * @JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $idCliOwner_physique;
     /** @Column(type="decimal") **/
     private $solde;
     /**
-     * @ManyToOne(targetEntity="State", inversedBy="accounts", nullable=true)
+     * @ManyToOne(targetEntity="State", inversedBy="accounts")
      * @JoinColumn(name="idState", referencedColumnName="id")
      */
     private $state;
@@ -29,13 +31,19 @@ class CompteEPSX{
     /** @Column(type="string", nullable=true) **/
     private $activeDate;
      /**
-     * @ManyToOne(targetEntity="User", inversedBy="accounts", nullable=true)
-     * @JoinColumn(name="idState", referencedColumnName="id")
+     * @ManyToOne(targetEntity="User", inversedBy="accounts")
+     * @JoinColumn(name="idUser", referencedColumnName="id")
      */
     private $idUserCreator;
-    /** @Column(type="string") **/
+    /**
+     * @ManyToOne(targetEntity="Agency", inversedBy="accounts")
+     * @JoinColumn(name="numAgency", referencedColumnName="numAgency")
+     */
     private $agencyNumber;
-    /** @Column(type="string") **/
+    /**
+     * @ManyToOne(targetEntity="OpeningFees", inversedBy="accounts")
+     * @JoinColumn(name="idOpeningFees", referencedColumnName="id")
+     */
     private $openingFees;
     /** @Column(type="string") **/
     private $nextRemunDate;
@@ -43,7 +51,17 @@ class CompteEPSX{
     private $closeDate;
 
     
+    /*======================================
+    # 🚀🧱🧰 CONSTRUCTOR 🧰🧱🚀
+    ======================================*/
+    /*public function __construct()
+    {
+        // $this->accounts = new ArrayCollection();
+    }*/
 
+    /*======================================
+    # 🧿📥 GETTERS & SETTERS 📥🧿
+    ======================================*/
     /**
      * Get the value of id
      */ 
@@ -323,5 +341,7 @@ class CompteEPSX{
 
         return $this;
     }
+    // ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+
 }
 ?>

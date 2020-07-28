@@ -1,28 +1,57 @@
 <?php
+
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Annotation as ORM;
 
 /**
  * @Entity @Table(name="User")
  **/
 class User{
-
+    /** @Id @Column(type="integer") @GeneratedValue **/
     private $id;
-
+    /** @Column(type="string") **/
     private $nom;
-
+    /** @Column(type="string") **/
     private $prenom;
-
+    /** @Column(type="string", unique=true) **/
     private $login;
-
+    /** @Column(type="string") **/
     private $password;
-
+    /**
+     * @ManyToOne(targetEntity="Profile", inversedBy="users")
+     * @JoinColumn(name="idProfil", referencedColumnName="id")
+     */
     private $profil;
-
+    /**
+     * @ManyToOne(targetEntity="State", inversedBy="users")
+     * @JoinColumn(name="idState", referencedColumnName="id")
+     */
     private $state;
-
+    /** @Column(type="string") **/
     private $dateCreation;
+    /**
+     * @OneToMany(targetEntity="CompteEPSX", mappedBy="idUserCreator")
+     **/
+    private $accounts;
+    /**
+     * @OneToMany(targetEntity="Employee", mappedBy="userAccount")
+     **/
+    private $employees;
+
+    /*======================================
+    # 🚀🧱🧰 CONSTRUCTOR 🧰🧱🚀
+    ======================================*/
+    public function __construct()
+    {
+        $this->accounts = new ArrayCollection();
+        $this->employees = new ArrayCollection();
+    }
     
 
+
+    /*======================================
+    # 🧿📥 GETTERS & SETTERS 📥🧿
+    ======================================*/
     /**
      * Get the value of id
      */ 
