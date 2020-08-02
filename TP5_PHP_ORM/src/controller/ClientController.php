@@ -1,6 +1,8 @@
 <?php
 // session_start();
 namespace Orbit\src\controller;
+
+use ClientPhysique;
 use Orbit\libs\core\Controller;
 
 class ClientController extends Controller
@@ -34,8 +36,25 @@ class ClientController extends Controller
                 $features = "1,2,3,4";
                 // TODO: WILL BE GENERATED & TAKEN FROM THE FORM
                 $numIdCli = $this->model->physiqueNumGen();
+                $dateCreate = Date('Ymd');
+                // $this->entity = new ClientPhysique();
+                $this->entity = new ClientPhysique();
 
-                $row = $this->model->persistPhysique($numIdCli, strtoupper($nomClient), $prenomClient, $email, $cniClient, $adresseClient, $sexeClient, $dateNaiss, $features, $isSalarie);
+                $this->entity->setNumId($numIdCli);
+                $this->entity->setNom(strtoupper($nomClient));
+                $this->entity->setPrenom($prenomClient);
+                $this->entity->setEmail($email);
+                $this->entity->setCni($cniClient);
+                $this->entity->setTelephone($telClient);
+                $this->entity->setAdresse($adresseClient);
+                $this->entity->setSexe($sexeClient);
+                $this->entity->setDateNaiss($dateNaiss);
+                $this->entity->setDateCreation($dateCreate);
+                $this->entity->setFeatures($features);
+                $this->entity->setIsSalarie($isSalarie);
+
+                // $row = $this->model->addPhysique($numIdCli, strtoupper($nomClient), $prenomClient, $email, $cniClient, $adresseClient, $sexeClient, $dateNaiss, $features, $isSalarie);
+                $row = $this->model->addPhysique($this->entity);
                 if ($row > 0) {
                     header('location:' . getProjectRoot() . 'client?formState="succeed"');
                 } else {

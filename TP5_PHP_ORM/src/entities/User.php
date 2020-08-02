@@ -23,8 +23,8 @@ class User{
      */
     private $profil;
     /**
-     * @ManyToOne(targetEntity="State", inversedBy="users")
-     * @JoinColumn(name="idState", referencedColumnName="id")
+     * @ManyToMany(targetEntity="State", inversedBy="users")
+     * @JoinTable(name="user_state")
      */
     private $state;
     /** @Column(type="string") **/
@@ -45,6 +45,7 @@ class User{
     {
         $this->accounts = new ArrayCollection();
         $this->employees = new ArrayCollection();
+        $this->state = new ArrayCollection();
     }
     
 
@@ -208,6 +209,46 @@ class User{
     public function setDateCreation($dateCreation)
     {
         $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of accounts
+     */ 
+    public function getAccounts()
+    {
+        return $this->accounts;
+    }
+
+    /**
+     * Set the value of accounts
+     *
+     * @return  self
+     */ 
+    public function setAccounts($accounts)
+    {
+        $this->accounts = $accounts;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of employees
+     */ 
+    public function getEmployees()
+    {
+        return $this->employees;
+    }
+
+    /**
+     * Set the value of employees
+     *
+     * @return  self
+     */ 
+    public function setEmployees($employees)
+    {
+        $this->employees = $employees;
 
         return $this;
     }

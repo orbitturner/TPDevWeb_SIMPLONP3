@@ -13,7 +13,9 @@ class OpeningFees{
     private $libelle;
     /** @Column(type="decimal") **/
     private $montant;
-    /** @Column(type="string") **/
+    /**
+     * @OneToMany(targetEntity="CompteEPSX", mappedBy="openingFees")
+     **/
     private $accounts;
 
     /*======================================
@@ -84,6 +86,26 @@ class OpeningFees{
     public function setMontant($montant)
     {
         $this->montant = $montant;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of accounts
+     */ 
+    public function getAccounts()
+    {
+        return $this->accounts;
+    }
+
+    /**
+     * Set the value of accounts
+     *
+     * @return  self
+     */ 
+    public function setAccounts($accounts)
+    {
+        $this->accounts = $accounts;
 
         return $this;
     }

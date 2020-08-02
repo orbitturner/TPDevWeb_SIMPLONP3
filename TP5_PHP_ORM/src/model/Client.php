@@ -9,7 +9,7 @@ use Orbit\libs\core\Model;
         public function __construct()
         {
             parent::__construct();
-            // var_dump($this->db->persist());
+            // var_dump($this->findPhysiqueByNum('BP-TEST-DEV-001'));
         }
         
         //==================|CREATION D'UN CLIENT PHYSIQUE|==================  
@@ -40,18 +40,22 @@ use Orbit\libs\core\Model;
                     die("Objet ".$id." does not existe!");
                 }
             }
+        }
         //==================|GENERATION NUMERO CLIENT PHYSIQUE|==================  
         /**
          * Generer un Numero de compte 
          * @return string
          *  */  
         public function physiqueNumGen(): string{
-
+            $highest_id = $this->db->createQueryBuilder()
+            ->select('MAX(c.id)')
+            ->from('ClientPhysique', 'c')
+            ->getQuery()
+            ->getSingleScalarResult();
             $date = Date('Ymd'); //2020-07-01
-            $req = $this->db ->query ('SELECT max(id_client) FROM client_physique')->fetchColumn();
 
             //Generate an Client Number as "TDTSB-MoisAnnee-lastIdCompte[select max(id) from compte]+1"
-            $numIdClient = sprintf("BP-CP-%s-%d", $date, $req+1);
+            $numIdClient = sprintf("BP-CP-%s-%d", $date, $highest_id+1);
             return $numIdClient;
         }
 
@@ -59,14 +63,31 @@ use Orbit\libs\core\Model;
 
         //==================|TROUVER UN CLIENT PAR SON NUM|==================    
         /**
-         * return array
+         * @return object
          */
         public function findPhysiqueByNum($numero){
-            $sql = $this->db->prepare("SELECT * FROM client_physique WHERE numIdentification=:numero");
-
-            $sql ->execute(['numero' => $numero]);
-
-            return $sql->fetch();
+            return $this->db->createQueryBuilder()->select('c')
+            ->from('ClientPhysique', 'c')
+            ->where('c.numId = :numeroClient')
+            // ->orderBy('c.name', 'ASC')
+            ->setParameter('numeroClient', $numero)
+            ->getQuery()
+            ->getSingleResult();
+            
+        }
+        //==================|TROUVER UN CLIENT PAR SON ID|==================    
+        /**
+         * @return object
+         */
+        public function findPhysiqueById($id){
+            return $this->db->createQueryBuilder()->select('c')
+            ->from('ClientPhysique', 'c')
+            ->where('c.id = :identifier')
+            // ->orderBy('c.name', 'ASC')
+            ->setParameter('identifier', $id)
+            ->getQuery()
+            ->getSingleResult();
+            
         }
     }
 

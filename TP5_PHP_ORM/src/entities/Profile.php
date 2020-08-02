@@ -14,8 +14,8 @@ class Profile{
     /** @Column(type="string") **/
     private $description;
     /**
-     * @ManyToOne(targetEntity="State", inversedBy="profiles")
-     * @JoinColumn(name="idState", referencedColumnName="id")
+     * @ManyToMany(targetEntity="State", inversedBy="profiles", cascade={"persist"})
+     * @JoinTable(name="profile_state")
      */
     private $state;
     /**
@@ -29,6 +29,7 @@ class Profile{
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->state = new ArrayCollection();
     }
     
     /*======================================
@@ -110,6 +111,26 @@ class Profile{
     public function setState($state)
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of users
+     */ 
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Set the value of users
+     *
+     * @return  self
+     */ 
+    public function setUsers($users)
+    {
+        $this->users = $users;
 
         return $this;
     }

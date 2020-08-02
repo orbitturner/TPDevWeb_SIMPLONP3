@@ -18,6 +18,8 @@ class ClientPhysique{
     private $email;
     /** @Column(type="string", unique=true) **/
     private $cni;
+    /** @Column(type="string", unique=true) **/
+    private $telephone;
     /** @Column(type="string") **/
     private $adresse;
     /** @Column(type="string") **/
@@ -31,7 +33,7 @@ class ClientPhysique{
     /** @Column(type="string") **/
     private $isSalarie;
     /**
-     * @OneToMany(targetEntity="CompteEPSX", mappedBy="idCliOwner_physique")
+     * @OneToMany(targetEntity="CompteEPSX", mappedBy="CliOwner_physique")
      **/
     private $accounts;
 
@@ -286,7 +288,47 @@ class ClientPhysique{
 
         return $this;
     }
-    // ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
 
+    
+    /**
+     * Get the value of accounts
+     */ 
+    public function getAccounts()
+    {
+        return $this->accounts;
+    }
+    
+    /**
+     * Set the value of accounts
+     *
+     * @return  self
+     */ 
+    public function setAccounts($accounts)
+    {
+        $this->accounts = $accounts;
+        
+        return $this;
+    }
+    
+    /**
+     * Get the value of telephone
+     */ 
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+    
+    /**
+     * Set the value of telephone
+     *
+     * @return  self
+     */ 
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+        
+        return $this;
+    }
+    // ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
 }
 ?>

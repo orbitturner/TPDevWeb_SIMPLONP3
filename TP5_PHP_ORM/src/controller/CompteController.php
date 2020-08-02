@@ -1,8 +1,14 @@
 <?php
 // session_start();
 namespace Orbit\src\controller;
-use Orbit\libs\core\Controller;
 
+use CompteEPSX;
+use Orbit\libs\core\Controller;
+use Orbit\src\model\Agency;
+use Orbit\src\model\Client as ModelClient;
+use Orbit\src\model\State;
+use Orbit\src\model\OpeningFees as ModelFees;
+use Orbit\src\model\User as ModelUser;
 
 class CompteController extends Controller
 {
@@ -23,19 +29,55 @@ class CompteController extends Controller
         if (isset($_POST['FormAddAccountVALIDATOR']) && !(empty($_POST['typeAccount'])) && in_array($_POST['typeAccount'], $accountTypesValidate) == true && $_POST['typeAccount'] == 'cesp') {
 
             extract($_POST);
-            // WILL BE AN SESSION
-            $idOwnerCompte = 1;
-            // CONNECTED EMPLOYEE
-            $idConnectedUser = 1;
-            $accountCreationFee = 1;
-            $numAgency = 'BP-TEST-DK-1010-001';
-            $idActualAgency = 1;
-            $accountNumber = $model->generateAccNumber($idActualAgency);
+            // WILL BE IN AN SESSION
+            $ownerCompte = 1;
             $state = 1;
-            $typeClientOwner = 1;
-            // var_dump($accountNumber);
-            // INSERTING
-            $row = $model->persistEPSX($accountNumber, $cleRIB, $idOwnerCompte, $soldeAccount, $state, $idConnectedUser, $numAgency, $accountCreationFee, $nextRemunDate, $typeClientOwner);
+            $idConnectedUser = 1;
+            $idCreationFee = 1;
+            $idActualAgency = 1;
+            // $typeClientOwner = 1;
+
+            // INSTANCE OF OBJECTS FOR FOREIGN KEYS
+            $clientOwner = new ModelClient();
+            $accountState = new State();
+            $userCreator = new ModelUser();
+            $creationFees = new ModelFees();
+            $actualAgency = new Agency();
+
+            
+            
+            // FINDING OBJECTS
+            $accountState = $accountState->findStateById($state);
+            // var_dump($accountState);
+            // die();
+            $clientOwner = $clientOwner->findPhysiqueById($ownerCompte);
+            $creationFees = $creationFees->findOpFeesById($idCreationFee);
+            $actualAgency = $actualAgency->findAgencyById($idActualAgency);
+            $userCreator = $userCreator->findUserById($idConnectedUser);
+            $accountNumber = $this->model->generateAccNumber($idActualAgency);
+            
+
+            $dateCreate = Date('Y-m-d'); //2020-07-01
+            // var_dump($accountNumber); To Add Client Moral Managing
+            
+
+            // INSTANTIATION
+            $this->entity = new CompteEPSX();
+            $this->entity->setAccountNumber($accountNumber);
+            $this->entity->setCleRIB($cleRIB);
+            $this->entity->setCliOwner_physique($clientOwner);
+            $this->entity->setSolde($soldeAccount);
+            $this->entity->setState($accountState);
+            $this->entity->setDateCreation($dateCreate);
+            $this->entity->setActiveDate($dateCreate);
+            $this->entity->setIdUserCreator($userCreator);
+            $this->entity->setAgencyNumber($actualAgency);
+            $this->entity->setOpeningFees($creationFees);
+            $this->entity->setNextRemunDate($nextRemunDate);
+            // PERSISTING
+            // var_dump($this->entity->getAgencyNumber());
+            die();
+            $row = $this->model->addEPSX($this->entity);
 
             if ($row > 0) {
                 // var_dump($row);

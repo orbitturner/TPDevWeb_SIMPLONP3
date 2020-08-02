@@ -6,53 +6,64 @@ use Orbit\libs\core\Model;
 
     class Compte extends Model{
 
-        /*null,$accountNumber,$cleRIB,$ownerCompte, $soldeAccount, $state, null,$idConnectedUser,$numAgency, $accountCreationFee, $nextRemunDate*/
-        //==================| CREATION D'UN EPARGNE XEEWEUL SIMPLE |==================    
-        public function persistEPSX($accountNumber,$cleRIB,$idOwnerCompte, $soldeAccount, $state, $idConnectedUser,$numAgency, $accountCreationFee, $nextRemunDate,$typeClientOwner){
-            
-            $date = Date('Y-m-d'); //2020-07-01
+        public function __construct()
+        {
+            parent::__construct();
+            // var_dump($this->findPhysiqueByNum('BP-TEST-DEV-001'));
+        }
+        
+        //==================|CREATION D'UN CLIENT PHYSIQUE|==================  
+        /**
+         * Insert un client physique par requete preparee
+         * @return integer
+         *  */  
+        public function addEPSX($account){
+            if($this->db != null)
+            {
+                $this->db->persist($account);
+                $this->db->flush();
 
-            // PREPARED QUERY
-            $req = "INSERT into compte_epargne_sx VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            
-                    
-            // SQL INJECTION PREVENT
-            if($typeClientOwner == 1) {
-                $this->db->prepare($req)->execute(array(null,$accountNumber,$cleRIB,$idOwnerCompte,null, $soldeAccount, $state, $date, null,$idConnectedUser,$numAgency, $accountCreationFee, $nextRemunDate,null));
-            }else {
-                $this->db->prepare($req)->execute(array(null,$accountNumber,$cleRIB,null, $idOwnerCompte,$soldeAccount, $state, $date, null,$idConnectedUser,$numAgency, $accountCreationFee, $nextRemunDate,null));
+                return $account->getId();
             }
+        }
 
-
-            return $idCompte = $this->db->lastInsertId();
-
-            //test if the request has been executed 
-            // if ($idCompte > 0) {
-            //    return depot($soldeAccount, 'DEPOT',$idCompte, $idUser);
-            // }
-            /*null,$accountNumber,$cleRIB,$ownerCompte, $soldeAccount, $state, null,$idConnectedUser,$numAgency, $accountCreationFee, $nextRemunDate*/
-        } 
-
+         //==================| SUPPRESSION |==================  
+         public function deletePhysique($id){
+            if($this->db != null)
+            {
+                $compteEpsx = $this->db->find('CompteEPSX', $id);
+                if($compteEpsx != null)
+                {
+                    $this->db->remove($compteEpsx);
+                    $this->db->flush();
+                }else {
+                    die("Objet ".$id." does not existe!");
+                }
+            }
+        }
 
         //==================|GENERATION NUMERO COMPTE|==================    
-        public function generateAccNumber ($idActualAgency):string{
-
+        public function generateAccNumber($idActualAgency): string{
+            $highest_id = $this->db->createQueryBuilder()
+            ->select('MAX(a.id)')
+            ->from('CompteEPSX', 'a')
+            ->getQuery()
+            ->getSingleScalarResult();
             $date = Date('Ymd'); //2020-07-01
-            $req = $this->db->query ('SELECT max(id_compte_ep) FROM compte_epargne_sx')->fetchColumn();
 
             //Generate an AccountNumber as "TDTSB-MoisAnnee-lastIdCompte[select max(id) from compte]+1"
-            $codeAccount = sprintf("BP-SN-%s-%d-%d", $date, $req+1, $idActualAgency);
+            $codeAccount = sprintf("BP-SN-%s-%d-%d", $date, $highest_id+1, $idActualAgency);
             return $codeAccount;
         }
 
-        //IL EST PAS POSSIBLE DE METTRE LA RECUPERATION DE LA LISTE ICI CAR UNE SESSION EST DEJA STARTED!
-
         //==================|TROUVER UN COMPTE PAR SON NUM|==================    
-        public function findByNum($numero){
-            $sql = $this->db->prepare("SELECT * FROM compte_epargne_sx WHERE accountNumber = :numero");
-
-            $sql ->execute(['numero' => $numero]);
-
-            return $sql->fetch();
+        public function findAccByNum($numero){
+            return $this->db->createQueryBuilder()->select('a')
+            ->from('CompteEPSX', 'a')
+            ->where('a.numId = :numeroCompte')
+            // ->orderBy('c.name', 'ASC')
+            ->setParameter('numeroCompte', $numero)
+            ->getQuery()
+            ->getSingleResult();
         }
     }

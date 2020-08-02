@@ -15,15 +15,15 @@ class CompteEPSX{
     private $cleRIB;
     /**
      * Many CompteEPSX have one ClientPhysique. This is the owning side.
-     * @ManyToOne(targetEntity="ClientPhysique", inversedBy="accounts",cascade={"persist"})
-     * @JoinColumn(name="user_id", referencedColumnName="id")
+     * @ManyToOne(targetEntity="ClientPhysique", inversedBy="accounts")
+     * @JoinColumn(name="owner_id", referencedColumnName="id")
      */
-    private $idCliOwner_physique;
+    private $CliOwner_physique;
     /** @Column(type="decimal") **/
     private $solde;
     /**
-     * @ManyToOne(targetEntity="State", inversedBy="accounts")
-     * @JoinColumn(name="idState", referencedColumnName="id")
+     * @ManyToMany(targetEntity="State", inversedBy="accounts")
+     * @JoinTable(name="compteEpsx_etats")
      */
     private $state;
     /** @Column(type="string") **/
@@ -54,10 +54,10 @@ class CompteEPSX{
     /*======================================
     # 🚀🧱🧰 CONSTRUCTOR 🧰🧱🚀
     ======================================*/
-    /*public function __construct()
+    public function __construct()
     {
-        // $this->accounts = new ArrayCollection();
-    }*/
+        // $this->state = new ArrayCollection();
+    }
 
     /*======================================
     # 🧿📥 GETTERS & SETTERS 📥🧿
@@ -125,9 +125,9 @@ class CompteEPSX{
     /**
      * Get the value of idCliOwner_physique
      */ 
-    public function getIdCliOwner_physique()
+    public function getCliOwner_physique()
     {
-        return $this->idCliOwner_physique;
+        return $this->CliOwner_physique;
     }
 
     /**
@@ -135,9 +135,9 @@ class CompteEPSX{
      *
      * @return  self
      */ 
-    public function setIdCliOwner_physique($idCliOwner_physique)
+    public function setCliOwner_physique($CliOwner_physique)
     {
-        $this->idCliOwner_physique = $idCliOwner_physique;
+        $this->CliOwner_physique = $CliOwner_physique;
 
         return $this;
     }
@@ -197,7 +197,7 @@ class CompteEPSX{
      */ 
     public function setState($state)
     {
-        $this->state = $state;
+        $this->state[] = $state;
 
         return $this;
     }

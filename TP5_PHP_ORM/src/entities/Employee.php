@@ -10,7 +10,7 @@ class Employee{
     /** @Column(type="string", unique=true, nullable=false) **/
     private $numEmployee;
     /**
-     * @ManyToOne(targetEntity="User", inversedBy="employees")
+     * @ManyToOne(targetEntity="User", inversedBy="employees", cascade={"persist"})
      * @JoinColumn(name="idUser", referencedColumnName="id")
      */
     private $userAccount;
@@ -255,6 +255,26 @@ class Employee{
     public function setDateNaiss($dateNaiss)
     {
         $this->dateNaiss = $dateNaiss;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of agencyNumber
+     */ 
+    public function getAgencyNumber()
+    {
+        return $this->agencyNumber;
+    }
+
+    /**
+     * Set the value of agencyNumber
+     *
+     * @return  self
+     */ 
+    public function setAgencyNumber($agencyNumber)
+    {
+        $this->agencyNumber = $agencyNumber;
 
         return $this;
     }

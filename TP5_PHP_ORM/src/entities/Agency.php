@@ -15,8 +15,8 @@ class Agency{
     /** @Column(type="string") **/
     private $lieu;
     /**
-     * @ManyToOne(targetEntity="State", inversedBy="agency")
-     * @JoinColumn(name="idState", referencedColumnName="id")
+     * @ManyToMany(targetEntity="State", inversedBy="agency")
+     * @JoinTable(name="agency_state")
      */
     private $state;
     /** @Column(type="string", unique=true) **/
@@ -37,6 +37,7 @@ class Agency{
     {
         $this->accounts = new ArrayCollection();
         $this->employees = new ArrayCollection();
+        $this->state = new ArrayCollection();
     }
 
     /*======================================
