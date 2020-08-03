@@ -26,7 +26,7 @@ class Agency{
      **/
     private $accounts;
     /**
-     * @OneToMany(targetEntity="CompteEPSX", mappedBy="agencyNumber")
+     * @OneToMany(targetEntity="Employee", mappedBy="agencyNumber")
      **/
     private $employees;
 
@@ -37,7 +37,7 @@ class Agency{
     {
         $this->accounts = new ArrayCollection();
         $this->employees = new ArrayCollection();
-        $this->state = new ArrayCollection();
+        // $this->state = new ArrayCollection();
     }
 
     /*======================================
@@ -162,7 +162,50 @@ class Agency{
 
         return $this;
     }
+
+
+
     // ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+
+    /**
+     * Get the value of accounts
+     */ 
+    public function getAccounts()
+    {
+        return $this->accounts;
+    }
+
+    /**
+     * Set the value of accounts
+     *
+     * @return  self
+     */ 
+    public function setAccounts($accounts)
+    {
+        $this->accounts = $accounts;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of employees
+     */ 
+    public function getEmployees()
+    {
+        return $this->employees;
+    }
+
+    /**
+     * Set the value of employees
+     *
+     * @return  self
+     */ 
+    public function setEmployees($employees)
+    {
+        $this->employees = $employees;
+
+        return $this;
+    }
 }
 
 ?>

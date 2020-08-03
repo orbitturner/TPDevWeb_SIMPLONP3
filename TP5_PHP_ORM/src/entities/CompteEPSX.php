@@ -37,7 +37,7 @@ class CompteEPSX{
     private $idUserCreator;
     /**
      * @ManyToOne(targetEntity="Agency", inversedBy="accounts")
-     * @JoinColumn(name="numAgency", referencedColumnName="numAgency")
+     * @JoinColumn(name="agencyNumber", referencedColumnName="numAgency")
      */
     private $agencyNumber;
     /**

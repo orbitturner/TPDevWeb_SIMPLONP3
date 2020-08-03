@@ -1,7 +1,6 @@
 <?php
 namespace Orbit\src\model;
 use Orbit\libs\core\Model;
-    // require_once('../libs/core/Model.php');
     
 
     class Compte extends Model{
@@ -65,5 +64,68 @@ use Orbit\libs\core\Model;
             ->setParameter('numeroCompte', $numero)
             ->getQuery()
             ->getSingleResult();
+        }
+
+        //==================|TROUVER UN ETAT PAR SON ID|==================    
+        public function findStateById($id){
+            return $this->db->createQueryBuilder()->select('s')
+            ->from('State', 's')
+            ->where('s.id = :identifier')
+            // ->orderBy('c.name', 'ASC')
+            ->setParameter('identifier', $id)
+            ->getQuery()
+            ->getSingleResult();
+            
+        }
+
+        //==================|TROUVER UN CLIENT PAR SON ID|==================    
+        /**
+         * @return object
+         */
+        public function findPhysiqueById($id){
+            return $this->db->createQueryBuilder()->select('c')
+            ->from('ClientPhysique', 'c')
+            ->where('c.id = :identifier')
+            // ->orderBy('c.name', 'ASC')
+            ->setParameter('identifier', $id)
+            ->getQuery()
+            ->getSingleResult();
+            
+        }
+
+        //==================|TROUVER UN FRAIS PAR SON ID|==================    
+        public function findOpFeesById($id){
+            return $this->db->createQueryBuilder()->select('f')
+            ->from('OpeningFees', 'f')
+            ->where('f.id = :identifier')
+            // ->orderBy('c.name', 'ASC')
+            ->setParameter('identifier', $id)
+            ->getQuery()
+            ->getSingleResult();
+            
+        }
+
+        //==================|TROUVER UNE AGENCE PAR SON ID|==================    
+        public function findAgencyById($id){
+            return $this->db->createQueryBuilder()->select('ag')
+            ->from('Agency', 'ag')
+            ->where('ag.id = :identifier')
+            // ->orderBy('c.name', 'ASC')
+            ->setParameter('identifier', $id)
+            ->getQuery()
+            ->getSingleResult();
+            
+        }
+
+        //==================|TROUVER UN ETAT PAR SON ID|==================    
+        public function findUserById($id){
+            return $this->db->createQueryBuilder()->select('u')
+            ->from('User', 'u')
+            ->where('u.id = :identifier')
+            // ->orderBy('c.name', 'ASC')
+            ->setParameter('identifier', $id)
+            ->getQuery()
+            ->getSingleResult();
+            
         }
     }
