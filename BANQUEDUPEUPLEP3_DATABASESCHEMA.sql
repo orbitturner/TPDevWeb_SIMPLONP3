@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `agency` (
   UNIQUE KEY `numAgency` (`numAgency`),
   KEY `state` (`state`),
   CONSTRAINT `agency_ibfk_1` FOREIGN KEY (`state`) REFERENCES `etats` (`id_etat`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Les données exportées n'étaient pas sélectionnées.
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `client_physique` (
   PRIMARY KEY (`id_client`),
   UNIQUE KEY `cni` (`cni`),
   UNIQUE KEY `numIdentification` (`numIdentification`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- Les données exportées n'étaient pas sélectionnées.
 
@@ -169,10 +169,10 @@ CREATE TABLE IF NOT EXISTS `compte_epargne_sx` (
   `id_compte_ep` int(11) NOT NULL AUTO_INCREMENT,
   `accountNumber` varchar(50) NOT NULL,
   `cleRib` int(11) NOT NULL,
-  `idClientOwner_moral` int(11) DEFAULT NULL,
-  `idClientOwner_physique` int(11) DEFAULT NULL,
+  `idCliOwner_physique` int(11) DEFAULT NULL,
+  `idCliOwner_moral` int(11) DEFAULT NULL,
   `solde` float NOT NULL DEFAULT '0',
-  `state` int(11) NOT NULL,
+  `state` int(11) NOT NULL DEFAULT '1',
   `dateCreation` date NOT NULL,
   `activedate` date DEFAULT NULL,
   `idUserCreator` int(11) NOT NULL,
@@ -182,19 +182,19 @@ CREATE TABLE IF NOT EXISTS `compte_epargne_sx` (
   `closeDate` date DEFAULT NULL,
   PRIMARY KEY (`id_compte_ep`),
   UNIQUE KEY `accountNumber` (`accountNumber`),
-  KEY `compte_ibfk_6` (`idClientOwner_moral`),
-  KEY `compte_ibfk_1` (`idClientOwner_physique`),
   KEY `compte_ibfk_2` (`state`),
   KEY `compte_ibfk_3` (`idUserCreator`),
   KEY `compte_ibfk_4` (`agencyNumber`),
   KEY `compte_ibfk_5` (`openingFees`),
-  CONSTRAINT `compte_ibfk_1` FOREIGN KEY (`idClientOwner_physique`) REFERENCES `client_physique` (`id_client`),
+  KEY `compte_ep_ibfk_6` (`idCliOwner_physique`),
+  KEY `compte_ep_ibfk_7` (`idCliOwner_moral`),
+  CONSTRAINT `compte_ep_ibfk_6` FOREIGN KEY (`idCliOwner_physique`) REFERENCES `client_physique` (`id_client`),
+  CONSTRAINT `compte_ep_ibfk_7` FOREIGN KEY (`idCliOwner_moral`) REFERENCES `client_moral` (`id_client`),
   CONSTRAINT `compte_ibfk_2` FOREIGN KEY (`state`) REFERENCES `etats` (`id_etat`),
   CONSTRAINT `compte_ibfk_3` FOREIGN KEY (`idUserCreator`) REFERENCES `employee` (`id_employee`),
   CONSTRAINT `compte_ibfk_4` FOREIGN KEY (`agencyNumber`) REFERENCES `agency` (`numAgency`),
-  CONSTRAINT `compte_ibfk_5` FOREIGN KEY (`openingFees`) REFERENCES `opening_fees` (`id_fee`),
-  CONSTRAINT `compte_ibfk_6` FOREIGN KEY (`idClientOwner_moral`) REFERENCES `client_moral` (`id_client`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `compte_ibfk_5` FOREIGN KEY (`openingFees`) REFERENCES `opening_fees` (`id_fee`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- Les données exportées n'étaient pas sélectionnées.
 
@@ -220,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `employee` (
   KEY `employee_ibfk_2` (`userAccount`),
   CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`agence`) REFERENCES `agency` (`id_agency`),
   CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`userAccount`) REFERENCES `user` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Les données exportées n'étaient pas sélectionnées.
 
@@ -231,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `etats` (
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_etat`),
   UNIQUE KEY `nom` (`nom`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Les données exportées n'étaient pas sélectionnées.
 
@@ -287,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `opening_fees` (
   `libelle` varchar(50) NOT NULL,
   `montant` varchar(50) NOT NULL,
   PRIMARY KEY (`id_fee`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Les données exportées n'étaient pas sélectionnées.
 
@@ -384,7 +384,7 @@ CREATE TABLE IF NOT EXISTS `profil` (
   UNIQUE KEY `nom` (`nom`),
   KEY `state` (`state`),
   CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`state`) REFERENCES `etats` (`id_etat`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Les données exportées n'étaient pas sélectionnées.
 
@@ -425,7 +425,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   KEY `state` (`state`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`profil`) REFERENCES `profil` (`id_profil`),
   CONSTRAINT `user_ibfk_2` FOREIGN KEY (`state`) REFERENCES `etats` (`id_etat`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Les données exportées n'étaient pas sélectionnées.
 
