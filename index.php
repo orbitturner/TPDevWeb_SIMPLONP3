@@ -1,5 +1,5 @@
 <?php
-/* === 🌌 WELCOME TO ORBIT NEXT FRAMEWORK 🌌  ===
+/* === 🌌 WELCOME TO ORBIT PROJECTS SPATIUM 🌌  ===
 *                     
 *	  By :
 *
@@ -13,7 +13,7 @@
 *  AUTHOR : MOHAMED GUEYE [Orbit Turner] - Email: orbitturner@gmail.com - Country: Senegal
 */
 // THIS PROGRAM WILL COUNT ALL FOLDERS IN A REPOSITORY AND RETURNS AN ARRAY WITH DIR NAMES
-$total_items  = count( glob("C:/laragon/www/TPDEVWEB_SIMPLON_P3/*", GLOB_ONLYDIR) );
+$total_items  = count( glob("*", GLOB_ONLYDIR) );
 // $total_items+=100;
 $dirs = array_filter(glob('*'), 'is_dir');
 // var_dump($total_items);
@@ -25,6 +25,8 @@ $dirs = array_filter(glob('*'), 'is_dir');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ORBIT REPOSITORY</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.ico">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
     <link rel="stylesheet" href="ORBIT_HOME/dist/css/style.css">
@@ -40,7 +42,7 @@ $dirs = array_filter(glob('*'), 'is_dir');
                     <div class="brand header-brand">
                         <h1 class="m-0">
 							<a href="#">
-								<img class="header-logo-image" src="ORBIT_HOME/dist/images/logo.svg" alt="Logo">
+								<img class="header-logo-image" src="ORBIT_HOME/dist/images/logo.svg" width="30px" alt="Logo">
                             </a>
                         </h1>
                     </div>
@@ -53,7 +55,7 @@ $dirs = array_filter(glob('*'), 'is_dir');
                 <div class="container">
                     <div class="hero-inner">
 						<div class="hero-copy">
-	                        <h1 class="hero-title mt-0">Bienvenue a l'Accueil de ce Repository</h1>
+	                        <h1 class="hero-title mt-0">Bienvenue à l'Accueil de ce Repository.<br/>Il y'a <?=$total_items?> Dossiers</h1>
 	                        <p class="hero-paragraph">Vous trouverez dans cette page tout les projets qui sont contenu dans ce dossier. Vous pourrez y acceder en cliquant sur leur lien.</p>
 	                        <div class="hero-cta"><a class="button button-primary" href="http://orbitturner.yj.fr/portfolio/">Voir Mon Portfolio</a><a class="button" href="http://orbitturner.yj.fr/contact/">Me Contacter</a></div>
 						</div>
@@ -88,7 +90,7 @@ $dirs = array_filter(glob('*'), 'is_dir');
                                     <div class="feature text-center is-revealing">
                                         <div class="feature-inner">
                                             <div class="feature-icon">
-                                                <a class="project_title" href="'.$project.'"><img src="ORBIT_HOME/dist/images/feature-icon-'.$i.'.svg" alt="Feature '.$i.'"></a>
+                                                <a class="project_title" href="'.$project.'"><img src="ORBIT_HOME/dist/images/feature-icon-'.$i.'.svg" width="115px" alt="Feature '.$i.'"></a>
                                             </div>
                                             <h4 class="feature-title mt-24"><a class="project_title" href="'.$project.'">'.$project.'</a></h4>
                                             <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
@@ -97,62 +99,20 @@ $dirs = array_filter(glob('*'), 'is_dir');
                                     ';
                                     $i+=1;
                                 }
+                            }else{
+                                echo '
+                                    <div class="feature text-center is-revealing">
+                                        <div class="feature-inner">
+                                            <div class="feature-icon">
+                                                <a class="project_title" href=""><img src="ORBIT_HOME/dist/images/feature-icon-77.svg" width="115px" alt="Feature NO PROJECT"></a>
+                                            </div>
+                                            <h4 class="feature-title mt-24"><a class="project_title" href="">!! OUPPS PAS DE PROJETS !!</a></h4>
+                                            <p class="text-sm mb-0">N\'hesitez pas creer un projet !</p>
+                                        </div>
+                                    </div>';
                             }
                             ?>
-                            <!-- <div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-										<img src="ORBIT_HOME/dist/images/feature-icon-01.svg" alt="Feature 01">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Be Productive</h4>
-                                    <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
-                                </div>
-                            </div>
-							<div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-										<img src="ORBIT_HOME/dist/images/feature-icon-02.svg" alt="Feature 02">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Be Productive</h4>
-                                    <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
-                                </div>
-                            </div>
-                            <div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-										<img src="ORBIT_HOME/dist/images/feature-icon-03.svg" alt="Feature 03">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Be Productive</h4>
-                                    <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
-                                </div>
-                            </div>
-                            <div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-										<img src="ORBIT_HOME/dist/images/feature-icon-04.svg" alt="Feature 04">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Be Productive</h4>
-                                    <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
-                                </div>
-                            </div>
-							<div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-										<img src="ORBIT_HOME/dist/images/feature-icon-05.svg" alt="Feature 05">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Be Productive</h4>
-                                    <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
-                                </div>
-                            </div>
-                            <div class="feature text-center is-revealing">
-                                <div class="feature-inner">
-                                    <div class="feature-icon">
-										<img src="ORBIT_HOME/dist/images/feature-icon-06.svg" alt="Feature 06">
-                                    </div>
-                                    <h4 class="feature-title mt-24">Be Productive</h4>
-                                    <p class="text-sm mb-0">Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.</p>
-                                </div>
-                            </div> -->
+                            
                         </div>
                     </div>
                 </div>
@@ -203,7 +163,7 @@ $dirs = array_filter(glob('*'), 'is_dir');
 					<div class="cta-inner section-inner">
 						<h3 class="section-title mt-0">Vous avez un projet en tête?</h3>
 						<div class="cta-cta">
-							<a class="button button-primary button-wide-mobile" href="#">Entrer en Contact</a>
+							<a class="button button-primary button-wide-mobile" href="#">Créez-en Un !</a>
 						</div>
 					</div>
 				</div>
@@ -215,7 +175,7 @@ $dirs = array_filter(glob('*'), 'is_dir');
                 <div class="site-footer-inner">
                     <div class="brand footer-brand">
 						<a href="#">
-							<img class="header-logo-image" src="ORBIT_HOME/dist/images/logo.svg" alt="Logo">
+							<img class="header-logo-image" src="ORBIT_HOME/dist/images/logo.svg" width="30px" alt="Logo">
 						</a>
                     </div>
                     <ul class="footer-links list-reset">
