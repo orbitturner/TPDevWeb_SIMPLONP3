@@ -18,7 +18,7 @@ $choix = "ORM";
 
 //Change Your DATABASE Connection Params
 $orm = array(
-              'dbname' => 'tp5_orm_doctrine',
+              'dbname' => 'tp5_orm_doc',
               'host' => '127.0.0.1',
               'user'     => 'root',
               'password' => '@webmaster1',

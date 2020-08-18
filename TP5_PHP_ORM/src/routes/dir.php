@@ -30,11 +30,11 @@ function getPublicPath(){
 }
 
 function getControllerPath(String $controllerName){
-    return  project_url()."src/controller/"+$controllerName;
+    return  project_url()."src/controller/".$controllerName;
 }
 
 function getModelPath(String $modelName){
-    return  project_url()."src/model/"+$modelName;
+    return  project_url()."src/model/".$modelName;
 }
 //===================================================================
 
