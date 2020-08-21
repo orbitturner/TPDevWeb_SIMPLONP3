@@ -36,7 +36,7 @@ class ClientController extends Controller
                 $features = "1,2,3,4";
                 // TODO: WILL BE GENERATED & TAKEN FROM THE FORM
                 $numIdCli = $this->model->physiqueNumGen();
-                $dateCreate = Date('Ymd');
+                $dateCreate = Date('Y-m-d H:i');
                 // $this->entity = new ClientPhysique();
                 $this->entity = new ClientPhysique();
 

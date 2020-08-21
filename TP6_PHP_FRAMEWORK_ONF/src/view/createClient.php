@@ -4,17 +4,17 @@
                 <div class="next_nav">
                     <!-- MENU HAUT - PARTIE GAUCHE -->
                     <div class="display_header">
-                        <h4>BANQUE DU PEUPLE 
-                        <?php
-                                if (isset($_GET['formState']) && !(empty($_GET['formState']))) {
-                                    if ($_GET['formState'] == 'error') {
-                                        echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #dc143c;">>> ERREUR : CLIENT PRECEDENT NON INSERE !</span>';
-                                    } else {
-                                        echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #00FF00;">>> INFO : CLIENT CREE AVEC SUCCES !</span>';
-                                    }
+                        <h4>BANQUE DU PEUPLE
+                            <?php
+                            if (isset($_GET['formState']) && !(empty($_GET['formState']))) {
+                                if ($_GET['formState'] == 'error') {
+                                    echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #dc143c;">>> ERREUR : CLIENT PRECEDENT NON INSERE !</span>';
                                 } else {
-                                    echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #29c2d6;">>> Creation Client </span>';
+                                    echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #00FF00;">>> INFO : CLIENT CREE AVEC SUCCES !</span>';
                                 }
+                            } else {
+                                echo '<span class="breadcrumb" id="breadcrumbInfo" style="color: #29c2d6;">>> Creation Client </span>';
+                            }
                             ?>
                         </h4>
                     </div>
@@ -49,7 +49,6 @@
 
                 <!-- <form method="POST" action="--getProjectPath() ?>controller/addClientController.php" id="addClientForm" name="addClientForm"> -->
                 <form method="POST" action="client/addPhysique" id="addClientForm" name="addClientForm">
-                    <!-- // BUG -->
                     <!-- STARTING : FORM CHOOSER -->
                     <div class="form-row p-t-10 choices" id="formChooser">
                         <label class="label label--block">QUEL TYPE DE CLIENT VOULEZ-VOUS CREER ?</label>
@@ -92,7 +91,7 @@
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                        <input class="input--style-5" type="email" name="email">
+                                            <input class="input--style-5" type="email" name="email">
                                             <label class="label--desc">Email</label>
                                         </div>
                                     </div>
@@ -105,7 +104,7 @@
                                 </div>
                             </div>
                         </div>
-<!-- TODO : IMPLEMENT OPTIONS -->
+                        <!-- TODO : IMPLEMENT OPTIONS -->
                         <div class="form-row" id="sexeClient">
                             <div class="name" style="padding-right: 8px;">SEXE</div>
                             <div class="value" style="display: flex;">
@@ -115,8 +114,8 @@
                                             <option disabled="disabled" selected="selected">CHOISISSEZ UNE OPTION
                                             </option>
                                             <option value="M">Masculin</option>
-                                            <option  value="F">Feminin</option>
-                                            <option  value="A">Autre</option>
+                                            <option value="F">Feminin</option>
+                                            <option value="A">Autre</option>
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
@@ -212,38 +211,38 @@
                         </div>
                         <!-- STARTING : CREATE EMPLOYEUR -->
                         <!-- <form action="" method="post" id="createEmployeur"> -->
-                            <div class="form-row m-b-90" id="creerEmployeur">
-                                <div class="name">Créer Employeur</div>
-                                <div class="value">
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <div class="input-group-desc">
-                                                <input class="input--style-5" id="nomEmployeur" type="tel" name="nomEmployeur">
-                                                <label class="label--desc">Nom Employeur</label>
-                                            </div>
+                        <div class="form-row m-b-90" id="creerEmployeur">
+                            <div class="name">Créer Employeur</div>
+                            <div class="value">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" id="nomEmployeur" type="tel" name="nomEmployeur">
+                                            <label class="label--desc">Nom Employeur</label>
                                         </div>
-                                        <div class="col-3">
-                                            <div class="input-group-desc">
-                                                <input class="input--style-5" id="raisonSocial" type="text" name="raisonSocial">
-                                                <label class="label--desc">Raison Social</label>
-                                            </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" id="raisonSocial" type="text" name="raisonSocial">
+                                            <label class="label--desc">Raison Social</label>
                                         </div>
-                                        <div class="col-3">
-                                            <div class="input-group-desc">
-                                                <input class="input--style-5" id="adresseEmployeur" type="tel" name="adresseEmployeur">
-                                                <label class="label--desc">Adresse de l'Employeur</label>
-                                            </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" id="adresseEmployeur" type="tel" name="adresseEmployeur">
+                                            <label class="label--desc">Adresse de l'Employeur</label>
                                         </div>
-                                        <div class="col-3">
-                                            <div class="input-group-desc">
-                                                <input class="input--style-5" id="numIdentEmp" type="tel" name="numIdentEmp">
-                                                <label class="label--desc">Numero d'Identification</label>
-                                            </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" id="numIdentEmp" type="tel" name="numIdentEmp">
+                                            <label class="label--desc">Numero d'Identification</label>
                                         </div>
                                     </div>
                                 </div>
-                                <button class="btn btn--pill btn--green m-t-55" id="submitNewEmployeur">Ajouter</button>
                             </div>
+                            <button class="btn btn--pill btn--green m-t-55" id="submitNewEmployeur">Ajouter</button>
+                        </div>
                         <!-- </form> -->
                     </div>
                     <!-- ENDING : FORM CLIENT -->
