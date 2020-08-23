@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<!-- /* === WELCOME TO ORBIT NEXT FRAMEWORK  ===
+ *                     
+ *	  By :
+ *
+ *     ██████╗ ██████╗ ██████╗ ██╗████████╗    ████████╗██╗   ██╗██████╗ ███╗   ██╗███████╗██████╗ 
+ *    ██╔═══██╗██╔══██╗██╔══██╗██║╚══██╔══╝    ╚══██╔══╝██║   ██║██╔══██╗████╗  ██║██╔════╝██╔══██╗
+ *    ██║   ██║██████╔╝██████╔╝██║   ██║          ██║   ██║   ██║██████╔╝██╔██╗ ██║█████╗  ██████╔╝
+ *    ██║   ██║██╔══██╗██╔══██╗██║   ██║          ██║   ██║   ██║██╔══██╗██║╚██╗██║██╔══╝  ██╔══██╗
+ *    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
+ *     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
+ */ -->
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="alternate icon" href="{{ asset('favicon.ico') }}">
+            <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon"/>
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}"/>
+            <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <div class="wrapper">
+                {% block sidebar %}
+                <div class="sidebar">
+                    <h2><img class="sidebar_logo" src="{{ asset('img/BP-LOGO-SVG-WHITE.svg') }}" alt="LOGO BANQUE DU PEUPLE" title="Vous d'Abord"/></h2>
+                    <ul>
+                        <li {% if active == 'welcome' %}class="active"{% endif %}><a href="{{ path('welcome') }}"><i class="fas fa-home"></i>Accueil</a></li>
+                        <li {% if active == 'clientphysique_index' %}class="active"{% endif %}><a href="{{ path('clientphysique_index') }}"><i class="fas fa-user-tie"></i>Liste des Clients</a></li>
+                        <li {% if active == 'clientphysique_new' %}class="active"{% endif %}><a href="{{ path('clientphysique_new') }}"><i class="fas fa-user-tie"></i>Creer un Client</a></li>
+                        <li {% if active == 'compteepsx_index' %}class="active"{% endif %}><a href="{{ path('compteepsx_index') }}"><i class="fas fa-address-card"></i>Liste des Comptes</a></li>
+                        <li {% if active == 'compteepsx_new' %}class="active"{% endif %}><a href="{{ path('compteepsx_new') }}"><i class="fas fa-address-card"></i>Creer un Compte</a></li>
+                        <li {% if active == 'comming' %}class="active"{% endif %}><a href="javascript:return false;" onclick="alert('<h1>COMMING SOON</h1>');"><i class="fas fa-exchange-alt"></i>Faire un Virement</a></li>
+                    </ul>
+                    <div class="extra_option">
+                        <a href="javascript:return false;" title="Changer de Langue"><i class="fas fa-language"></i></a>
+                        <a href="javascript:return false;" title="Afficher Aide"><i class="fas fa-question-circle"></i></a>
+                        <a href="javascript:return false;" title="Se Déconnecter"><i class="fas fa-power-off"></i></a>
+                    </div>
+                </div>
+                {% endblock %}
+                {% block content %}{% endblock %}
+            </div>
+        {% endblock %}
+        
+        {% block javascripts %}
+            <script src="{{ asset('js/global.js') }}"></script>
+            {% block pageScripts %}{% endblock %}
+        {% endblock %}
+    </body>
+</html>

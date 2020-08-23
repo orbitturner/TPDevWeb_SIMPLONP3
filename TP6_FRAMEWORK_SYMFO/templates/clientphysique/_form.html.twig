@@ -1,0 +1,229 @@
+{{ form_start(form) }}
+<div class="my-custom-class-for-errors">
+	{{ form_errors(form) }}
+</div>
+
+
+<!-- STARTING : FORM CHOOSER -->
+	<div class="form-row p-t-10 choices" id="formChooser"> <label class="label label--block">QUEL TYPE DE CLIENT VOULEZ-VOUS CREER ?</label>
+	<div class="p-t-15">
+		<label class="radio-container m-r-55">CLIENT PHYSIQUE
+			<input type="radio" checked="checked" name="formChooser" value="physique">
+			<span class="checkmark"></span>
+		</label>
+		<label class="radio-container">CLIENT MORAL
+			<input type="radio" name="formChooser" value="moral">
+			<span class="checkmark"></span>
+		</label>
+	</div>
+</div>
+<!-- STARTING : CLIENT FORM  -->
+<div id="clientForm">
+	<div class="form-row m-b-55">
+		<div class="name">Nom du Client</div>
+		<div class="value">
+			<div class="row row-space">
+				<div class="col-2">
+					<div class="input-group-desc">
+						{{ form_widget(form.prenom, {'attr': {'class': 'input--style-5', 'id': 'prenomClient'}}) }}
+						<label class="label--desc">Prenom {{ form_errors(form.prenom) }}</label>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="input-group-desc">
+						{{ form_widget(form.nom, {'attr': {'class': 'input--style-5', 'id': 'nomClient', 'style': 'text-transform:uppercase'}}) }}
+						<label class="label--desc">Nom de Famille {{ form_errors(form.nom) }}</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="name">Plus d'Infos</div>
+		<div class="value">
+			<div class="row row-space">
+				<div class="col-2">
+					<div class="input-group-desc">
+						{{ form_widget(form.email, {'type':'email','attr': {'class': 'input--style-5'}}) }}
+						<label class="label--desc">Email</label>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="input-group-desc">
+						{{ form_help(form.datenaiss) }}
+						{{ form_widget(form.datenaiss, {'attr': {'class': 'input--style-5', 'id': 'dateNaiss'}}) }}
+						<label class="label--desc">Date de Naissance</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- TODO : IMPLEMENT OPTIONS -->
+	<div class="form-row" id="sexeClient">
+		<div class="name" style="padding-right: 8px;">SEXE</div>
+		<div class="value" style="display: flex;">
+			<div class="input-group" style="width: 100% !important;">
+				<div class="rs-select2 js-select-simple select--no-search orbit-select">
+					{# {{ dump(form.sexe.vars.placeholder) }} #}
+					{{ form_widget(form.sexe) }}
+					<div class="select-dropdown"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="name">Autre Infos</div>
+		<div class="value">
+			<div class="row">
+				<div class="col-3">
+					<div class="input-group-desc">
+						{{ form_widget(form.cni, {'type':'number','attr': {'class': 'input--style-5', 'id': 'cniClient'}}) }}
+						<label class="label--desc">CNI</label>
+					</div>
+				</div>
+				<div class="col-3">
+					<div class="input-group-desc">
+						{{ form_widget(form.telephone, {'type':'tel','attr': {'class': 'input--style-5', 'id': 'telClient'}}) }}
+						<label class="label--desc">Numero de Téléphone</label>
+					</div>
+				</div>
+				<div class="col-3">
+					<div class="input-group-desc">
+						{{ form_widget(form.adresse, {'attr': {'class': 'input--style-5', 'id': 'adresseClient'}}) }}
+						<label class="label--desc">Adresse</label>
+					</div>
+				</div>
+				<div class="col-3">
+					<div class="input-group-desc">
+						<input class="input--style-5 prefilled" value="{{ numClient }}" id="numeroIdClient" type="text" name="numeroIdClient" disabled required>
+						<label class="label--desc">Numero d'Identification Client</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-row p-t-20 choices">
+		<label class="label label--block">statut professionnel</label>
+		<div class="p-t-15">
+			<label class="radio-container m-r-55">Salarié
+				{{ form_widget(form.issalarie.children[0]) }}
+				<span class="checkmark"></span>
+			</label>
+			<label class="radio-container">Non Salarié
+				{{ form_widget(form.issalarie.children[1]) }}
+				<span class="checkmark"></span>
+			</label>
+		</div>
+	</div>
+	<!-- STARTING : INFO PROFESSIONNES -->
+	<div class="form-row" id="infoPro">
+		<div class="name">Infos professionnel</div>
+		<div class="value">
+			<div class="row">
+				<div class="col-3">
+					<div class="input-group-desc">
+						<input class="input--style-5" id="salaireClient" type="text" name="salaireClient">
+						<label class="label--desc">Salaire Actuel</label>
+					</div>
+				</div>
+				<div class="col-9">
+					<div class="input-group-desc">
+						<input class="input--style-5" id="profession" type="tel" name="profession">
+						<label class="label--desc">Profession</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- STARTING : INFOS EMPLOYEUR -->
+	<div class="form-row" id="infoEmployeur">
+		<div class="name" style="padding-right: 8px;">Infos Employeur</div>
+		<div class="value" style="display: flex;">
+			<div class="input-group" style="width: 90% !important;">
+				<div class="rs-select2 js-select-simple select--no-search orbit-select">
+					<select name="employeur">
+						<option disabled="disabled" selected="selected">CHOISISSEZ UN EMPLOYEUR
+						</option>
+						<option value="employeur1">SIMPLON.CO</option>
+						<option value="employeur2">AUF - DAKAR</option>
+						<option value="employeur3">Next Cyber Vision</option>
+						<option value="employeur4">Orbit Law Tech</option>
+					</select>
+					<div class="select-dropdown"></div>
+				</div>
+			</div>
+			<i class="fa fa-plus-circle optionIcon" id="addEmpBtn" title="AJOUTER UN EMPLOYEUR" aria-hidden="true"></i>
+		</div>
+	</div>
+	<!-- STARTING : CREATE EMPLOYEUR -->
+	{% block infoEmployeur %}
+		<!-- <form action="" method="post" id="createEmployeur"> -->
+		<div class="form-row m-b-90" id="creerEmployeur">
+			<div class="name">Créer Employeur</div>
+			<div class="value">
+				<div class="row">
+					<div class="col-3">
+						<div class="input-group-desc">
+							<input class="input--style-5" id="nomEmployeur" type="tel" name="nomEmployeur">
+							<label class="label--desc">Nom Employeur</label>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="input-group-desc">
+							<input class="input--style-5" id="raisonSocial" type="text" name="raisonSocial">
+							<label class="label--desc">Raison Social</label>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="input-group-desc">
+							<input class="input--style-5" id="adresseEmployeur" type="tel" name="adresseEmployeur">
+							<label class="label--desc">Adresse de l'Employeur</label>
+						</div>
+					</div>
+					<div class="col-3">
+						<div class="input-group-desc">
+							<input class="input--style-5" id="numIdentEmp" type="tel" name="numIdentEmp">
+							<label class="label--desc">Numero d'Identification</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="btn btn--pill btn--green m-t-55" id="submitNewEmployeur">Ajouter</button>
+		</div>
+		<!-- </form> -->
+	{% endblock %}
+
+	<div class="form-row p-t-20 choices">
+		<label class="label label--block">Fonctionnalités Supplémentaires</label>
+		<div class="p-t-15">
+			<label class="radio-container m-r-55">Alert SMS
+				{{ form_widget(form.features.children[0]) }}
+				<span class="checkmark"></span>
+			</label>
+			<label class="radio-container m-r-55">Alert E-Mail
+				{{ form_widget(form.features.children[1]) }}
+				<span class="checkmark"></span>
+			</label>
+			<label class="radio-container m-r-55">Option 3
+				{{ form_widget(form.features.children[2]) }}
+				<span class="checkmark"></span>
+			</label>
+			<label class="radio-container m-r-55">Option 4
+				{{ form_widget(form.features.children[3]) }}
+				<span class="checkmark"></span>
+			</label>
+		</div>
+	</div>
+</div>
+<!-- ENDING : FORM CLIENT -->
+<input type="hidden" name="FormAddClientVALIDATOR" value="true">
+<div class="btn--centered" id="submitCreateClient" name="submitCreateClient">
+	<button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
+	{# <button class="btn">{{ button_label|default('Save') }}</button> #}
+</div>
+{# </form> #}
+{{ form_end(form) }}

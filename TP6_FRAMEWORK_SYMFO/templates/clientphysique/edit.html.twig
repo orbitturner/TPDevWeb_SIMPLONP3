@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Clientphysique{% endblock %}
+
+{% block body %}
+    <h1>Edit Clientphysique</h1>
+
+    {{ include('clientphysique/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('clientphysique_index') }}">back to list</a>
+
+    {{ include('clientphysique/_delete_form.html.twig') }}
+{% endblock %}

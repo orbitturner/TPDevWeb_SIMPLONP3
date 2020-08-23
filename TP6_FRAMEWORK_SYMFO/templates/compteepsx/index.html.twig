@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compteepsx index{% endblock %}
+
+{% block body %}
+    <h1>Compteepsx index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Accountnumber</th>
+                <th>Clerib</th>
+                <th>Solde</th>
+                <th>Datecreation</th>
+                <th>Activedate</th>
+                <th>Nextremundate</th>
+                <th>Closedate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compteepsx in compteepsxes %}
+            <tr>
+                <td>{{ compteepsx.id }}</td>
+                <td>{{ compteepsx.accountnumber }}</td>
+                <td>{{ compteepsx.clerib }}</td>
+                <td>{{ compteepsx.solde }}</td>
+                <td>{{ compteepsx.datecreation }}</td>
+                <td>{{ compteepsx.activedate }}</td>
+                <td>{{ compteepsx.nextremundate }}</td>
+                <td>{{ compteepsx.closedate }}</td>
+                <td>
+                    <a href="{{ path('compteepsx_show', {'id': compteepsx.id}) }}">show</a>
+                    <a href="{{ path('compteepsx_edit', {'id': compteepsx.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('compteepsx_new') }}">Create new</a>
+{% endblock %}

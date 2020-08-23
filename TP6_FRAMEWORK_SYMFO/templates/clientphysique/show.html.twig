@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clientphysique{% endblock %}
+
+{% block body %}
+    <h1>Clientphysique</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ clientphysique.id }}</td>
+            </tr>
+            <tr>
+                <th>Numid</th>
+                <td>{{ clientphysique.numid }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ clientphysique.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ clientphysique.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ clientphysique.email }}</td>
+            </tr>
+            <tr>
+                <th>Cni</th>
+                <td>{{ clientphysique.cni }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ clientphysique.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ clientphysique.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ clientphysique.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Datenaiss</th>
+                <td>{{ clientphysique.datenaiss }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ clientphysique.datecreation }}</td>
+            </tr>
+            <tr>
+                <th>Features</th>
+                <td>{{ clientphysique.features }}</td>
+            </tr>
+            <tr>
+                <th>Issalarie</th>
+                <td>{{ clientphysique.issalarie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('clientphysique_index') }}">back to list</a>
+
+    <a href="{{ path('clientphysique_edit', {'id': clientphysique.id}) }}">edit</a>
+
+    {{ include('clientphysique/_delete_form.html.twig') }}
+{% endblock %}

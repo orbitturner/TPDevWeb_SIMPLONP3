@@ -1,0 +1,4 @@
+{% macro is_active(segment,actualPage) %}{% if craft.request.segment(segment) == actualPage %}active{% endif %}{% endmacro %}
+{# {% if craft.request.firstSegment == "sale" %}class="active"{% endif %}
+{% if craft.request.segment(2) == "products" %}class="active"{% endif %}
+{% if craft.request.lastSegment == "shirts" %}class="active"{% endif %} #}

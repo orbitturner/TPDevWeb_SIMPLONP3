@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clientphysique index{% endblock %}
+
+{% block body %}
+    <h1>Clientphysique index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numid</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Cni</th>
+                <th>Telephone</th>
+                <th>Adresse</th>
+                <th>Sexe</th>
+                <th>Datenaiss</th>
+                <th>Datecreation</th>
+                <th>Features</th>
+                <th>Issalarie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for clientphysique in clientphysiques %}
+            <tr>
+                <td>{{ clientphysique.id }}</td>
+                <td>{{ clientphysique.numid }}</td>
+                <td>{{ clientphysique.nom }}</td>
+                <td>{{ clientphysique.prenom }}</td>
+                <td>{{ clientphysique.email }}</td>
+                <td>{{ clientphysique.cni }}</td>
+                <td>{{ clientphysique.telephone }}</td>
+                <td>{{ clientphysique.adresse }}</td>
+                <td>{{ clientphysique.sexe }}</td>
+                <td>{{ clientphysique.datenaiss }}</td>
+                <td>{{ clientphysique.datecreation }}</td>
+                <td>{{ clientphysique.features }}</td>
+                <td>{{ clientphysique.issalarie }}</td>
+                <td>
+                    <a href="{{ path('clientphysique_show', {'id': clientphysique.id}) }}">show</a>
+                    <a href="{{ path('clientphysique_edit', {'id': clientphysique.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('clientphysique_new') }}">Create new</a>
+{% endblock %}

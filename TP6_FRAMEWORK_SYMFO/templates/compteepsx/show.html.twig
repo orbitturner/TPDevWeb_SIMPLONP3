@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compteepsx{% endblock %}
+
+{% block body %}
+    <h1>Compteepsx</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compteepsx.id }}</td>
+            </tr>
+            <tr>
+                <th>Accountnumber</th>
+                <td>{{ compteepsx.accountnumber }}</td>
+            </tr>
+            <tr>
+                <th>Clerib</th>
+                <td>{{ compteepsx.clerib }}</td>
+            </tr>
+            <tr>
+                <th>Solde</th>
+                <td>{{ compteepsx.solde }}</td>
+            </tr>
+            <tr>
+                <th>Datecreation</th>
+                <td>{{ compteepsx.datecreation }}</td>
+            </tr>
+            <tr>
+                <th>Activedate</th>
+                <td>{{ compteepsx.activedate }}</td>
+            </tr>
+            <tr>
+                <th>Nextremundate</th>
+                <td>{{ compteepsx.nextremundate }}</td>
+            </tr>
+            <tr>
+                <th>Closedate</th>
+                <td>{{ compteepsx.closedate }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('compteepsx_index') }}">back to list</a>
+
+    <a href="{{ path('compteepsx_edit', {'id': compteepsx.id}) }}">edit</a>
+
+    {{ include('compteepsx/_delete_form.html.twig') }}
+{% endblock %}

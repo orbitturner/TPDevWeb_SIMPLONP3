@@ -1,0 +1,30 @@
+{# ACTUAL PAGE #}
+{% set active = 'compteepsx_new' %}
+
+{% extends 'layout.html.twig' %}
+
+{# DOCUMENT TITLE #}
+{% block title %}CREER UN COMPTE / BDP{% endblock %}
+
+{# BREADCRUMB #}
+{% block breadcrumb %}
+    {% if formState == 1 %}<span class="breadcrumb" id="breadcrumbInfo" style="color: #00FF00;">>> INFO : COMPTE CREE AVEC SUCCES !</span>
+    {% elseif formState == 0 %}<span class="breadcrumb" id="breadcrumbInfo" style="color: #29c2d6;">>> Creation Compte </span>
+    {% else %}<span class="breadcrumb" id="breadcrumbInfo" style="color: #dc143c;">>> ERREUR : COMPTE PRECEDENT NON INSERE !</span>
+    {% endif %}
+{% endblock %}
+
+{# Definition of The Content  #}
+{% block viewTitle %}Creation de Compte{% endblock %}
+
+{# Page Main Content #}
+{% block page_contents %}
+    {{ include('compteepsx/_form.html.twig') }}
+
+    <a href="{{ path('compteepsx_index') }}">back to list</a>
+{% endblock %}
+
+{# Custom JS for the Actual Page #}
+{% block pageScripts %}
+    <script src="{{ asset('js/addAccountForm.js') }}"></script>
+{% endblock %}

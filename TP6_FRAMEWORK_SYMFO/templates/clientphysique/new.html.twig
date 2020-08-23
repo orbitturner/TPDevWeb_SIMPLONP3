@@ -1,0 +1,30 @@
+{# ACTUAL PAGE #}
+{% set active = 'clientphysique_new' %}
+
+{% extends 'layout.html.twig' %}
+
+{# DOCUMENT TITLE #}
+{% block title %}CREER UN CLIENT / BDP{% endblock %}
+
+{# BREADCRUMB #}
+{% block breadcrumb %}
+    {% if formState == 1 %}<span class="breadcrumb" id="breadcrumbInfo" style="color: #00FF00;">>> INFO : CLIENT CREE AVEC SUCCES !</span>
+    {% elseif formState == 0 %}<span class="breadcrumb" id="breadcrumbInfo" style="color: #29c2d6;">>> Creation Client </span>
+    {% else %}<span class="breadcrumb" id="breadcrumbInfo" style="color: #dc143c;">>> ERREUR : CLIENT PRECEDENT NON INSERE !</span>
+    {% endif %}
+{% endblock %}
+
+{# Definition of The Content  #}
+{% block viewTitle %}Creation de Client{% endblock %}
+
+{# Page Main Content #}
+{% block page_contents %}
+    {{ include('clientphysique/_form.html.twig') }}
+
+    <a href="{{ path('clientphysique_index') }}">back to list</a>
+{% endblock %}
+
+{# Custom JS for the Actual Page #}
+{% block pageScripts %}
+    <script src="{{ asset('js/addClientForm.js') }}"></script>
+{% endblock %}

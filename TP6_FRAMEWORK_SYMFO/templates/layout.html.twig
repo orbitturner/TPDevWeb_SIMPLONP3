@@ -1,0 +1,45 @@
+{# templates/layout.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="main_content" id="pageCreateAccount">
+        <div class="header">
+            <div class="next_nav">
+            <!-- MENU HAUT - PARTIE GAUCHE -->
+            <div class="display_header">
+                <h4>BANQUE DU PEUPLE 
+                {% block breadcrumb %}
+                {% endblock %}
+                </h4>
+            </div>
+            <!-- MENU HAUT - PARTIE DROITE -->
+            <ul class="nav">
+                <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-clock" aria-hidden="true"></i> <span class="">Time / Date</span>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-comments" aria-hidden="true"></i> <span class="">Support</span>
+                </a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link" href="#" id="">
+                    <i class="fas fa-user" aria-hidden="true"></i> <span class="">Account</span>
+                </a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        <!-- // CONTENU CENTRAL :  -->
+        <div class="info">
+            <div class="block-title p-b-30">
+                <h1>{% block viewTitle %}{% endblock %}</h1>
+                <hr />
+            </div>
+            {% block page_contents %}{% endblock %}
+        </div>
+        <!-- FIN CONTENU CENTRAL -->
+    </div>
+{% endblock %}

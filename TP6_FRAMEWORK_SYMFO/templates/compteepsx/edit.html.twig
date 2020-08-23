@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Compteepsx{% endblock %}
+
+{% block body %}
+    <h1>Edit Compteepsx</h1>
+
+    {{ include('compteepsx/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('compteepsx_index') }}">back to list</a>
+
+    {{ include('compteepsx/_delete_form.html.twig') }}
+{% endblock %}
