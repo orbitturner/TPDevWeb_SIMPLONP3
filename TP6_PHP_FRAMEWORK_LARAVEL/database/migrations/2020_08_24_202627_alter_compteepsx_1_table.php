@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Compteepsx extends Migration
+class AlterCompteepsx1Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class Compteepsx extends Migration
      */
     public function up()
     {
-        Schema::create('compteepsx', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nom');
+        Schema::table('compteepsx', function(Blueprint $table)
+        {
             $table->timestamps();
+
         });
     }
 
@@ -27,6 +27,10 @@ class Compteepsx extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('compteepsx', function(Blueprint $table)
+        {
+            $table->dropColumn(['created_at','updated_at']);
+
+        });
     }
 }

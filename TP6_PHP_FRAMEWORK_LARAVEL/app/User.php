@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','state_id'
     ];
 
     /**
@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the UserState for this model.
+     *
+     * @return App\Models\UserState
+     */
+    public function userState()
+    {
+        return $this->hasOne('App\Models\UserState','user_id','id');
+    }
 }
