@@ -49,7 +49,7 @@ class ClientPhysiqueModel {
             ->select('c')
             ->from(ClientPhysique::class, 'c')
             ->where('c.id = :identifier')
-            ->orderBy('c.name', 'ASC')
+            ->orderBy('c.nom', 'ASC')
             ->setParameter('identifier', $id)
             ->getQuery()
             ->getArrayResult();

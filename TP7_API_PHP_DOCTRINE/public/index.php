@@ -20,13 +20,13 @@ if ($uri[1] !== 'client') {
 
 
 // the user id is, of course, optional and must be a number:
-$userId = null;
+$methodParams = null;
 if (isset($uri[2])) {
-    $userId = (int) $uri[2];
+    $methodParams = (int) $uri[2];
 }
 
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 
 // pass the request method and user ID to the ClientServices and process the HTTP request:
-$services = new ClientServices($entityManager, $requestMethod, $userId);
+$services = new ClientServices($entityManager, $requestMethod, $methodParams);
 $services->processRequest();

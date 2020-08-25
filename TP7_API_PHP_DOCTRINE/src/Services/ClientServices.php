@@ -7,15 +7,15 @@ class ClientServices {
 
     private $db;
     private $requestMethod;
-    private $userId;
+    private $methodParams;
 
     private $clientModel;
 
-    public function __construct($entityManager, $requestMethod, $userId)
+    public function __construct($entityManager, $requestMethod, $methodParams)
     {
         $this->db = $entityManager;
         $this->requestMethod = $requestMethod;
-        $this->userId = $userId;
+        $this->methodParams = $methodParams;
 
         $this->clientModel = new ClientPhysiqueModel($entityManager);
     }
@@ -24,20 +24,20 @@ class ClientServices {
     {
         switch ($this->requestMethod) {
             case 'GET':
-                if ($this->userId) {
-                    $response = $this->getUser($this->userId);
+                if ($this->methodParams) {
+                    $response = $this->getEntity($this->methodParams);
                 } else {
-                    $response = $this->getAllUsers();
+                    $response = $this->getAllEntities();
                 };
                 break;
             case 'POST':
-                $response = $this->createUserFromRequest();
+                $response = $this->createEntityFromRequest();
                 break;
             case 'PUT':
-                $response = $this->updateUserFromRequest($this->userId);
+                $response = $this->updateEntityFromRequest($this->methodParams);
                 break;
             case 'DELETE':
-                $response = $this->deleteUser($this->userId);
+                $response = $this->deleteEntity($this->methodParams);
                 break;
             default:
                 $response = $this->notFoundResponse();
@@ -49,7 +49,7 @@ class ClientServices {
         }
     }
 
-    private function getAllUsers()
+    private function getAllEntities()
     {
         $result = $this->clientModel->findAll();
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
@@ -57,7 +57,7 @@ class ClientServices {
         return $response;
     }
 
-    private function getUser($id)
+    private function getEntity($id)
     {
         $result = $this->clientModel->find($id);
         if (! $result) {
@@ -68,7 +68,7 @@ class ClientServices {
         return $response;
     }
 
-    private function createUserFromRequest()
+    private function createEntityFromRequest()
     {
         $input = (array) json_decode(file_get_contents('php://input'), TRUE);
         if (! $this->validateClient($input)) {
@@ -80,7 +80,7 @@ class ClientServices {
         return $response;
     }
 
-    private function updateUserFromRequest($id)
+    private function updateEntityFromRequest($id)
     {
         $result = $this->clientModel->find($id);
         if (! $result) {
@@ -96,7 +96,7 @@ class ClientServices {
         return $response;
     }
 
-    private function deleteUser($id)
+    private function deleteEntity($id)
     {
         $result = $this->clientModel->find($id);
         if (! $result) {

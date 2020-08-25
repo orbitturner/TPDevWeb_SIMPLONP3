@@ -1,5 +1,5 @@
 <?php
-namespace Src\System;
+namespace Orbit\System;
 
 class DatabaseConnector {
 

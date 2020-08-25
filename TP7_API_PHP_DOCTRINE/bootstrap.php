@@ -1,5 +1,5 @@
 <?php
-/* === 🌌 WELCOME TO ORBIT WP REMIX 🌌  ===
+/* === 🌌 WELCOME TO ORBIT API FRAMEWORK 🌌  ===
 *                     
 *	  By :
 *
