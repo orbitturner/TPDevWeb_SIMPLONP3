@@ -1,0 +1,35 @@
+{
+    "name": "orbitturner/orbitapiframework",
+    "description": "A Fun PHP API Framework for NewBies",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed GUEYE",
+            "email": "orbitturner@gmail.com"
+        },
+        {
+            "name": "Orbit Turner",
+            "email": "orbitturner@gmail.com"
+        },
+        {
+            "name": "orbitnextframework",
+            "email": "orbitturner@gmail.com"
+        }
+
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^2.4",
+        "doctrine/orm": "^2.6.2",
+        "symfony/yaml": "2.*"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Orbit\\": "src/"
+        },
+        "psr-0": {
+            "":"src/Entities/"
+        }
+    }
+}

@@ -1,0 +1,347 @@
+<?php
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Annotation as ORM;
+
+/**
+ * @Entity @Table(name="CompteEPSX")
+ **/
+class CompteEPSX{
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    private $id;
+    /** @Column(type="string", length=100, unique=true) **/
+    private $accountNumber;
+    /** @Column(type="integer") **/
+    private $cleRIB;
+    /**
+     * Many CompteEPSX have one ClientPhysique. This is the owning side.
+     * @ManyToOne(targetEntity="ClientPhysique", inversedBy="accounts")
+     * @JoinColumn(name="owner_id", referencedColumnName="id")
+     */
+    private $CliOwner_physique;
+    /** @Column(type="decimal") **/
+    private $solde;
+    /**
+     * @ManyToMany(targetEntity="State", inversedBy="accounts")
+     * @JoinTable(name="compteEpsx_etats")
+     */
+    private $state;
+    /** @Column(type="string") **/
+    private $dateCreation;
+    /** @Column(type="string", nullable=true) **/
+    private $activeDate;
+     /**
+     * @ManyToOne(targetEntity="User", inversedBy="accounts")
+     * @JoinColumn(name="idUser", referencedColumnName="id")
+     */
+    private $idUserCreator;
+    /**
+     * @ManyToOne(targetEntity="Agency", inversedBy="accounts")
+     * @JoinColumn(name="agencyNumber", referencedColumnName="numAgency")
+     */
+    private $agencyNumber;
+    /**
+     * @ManyToOne(targetEntity="OpeningFees", inversedBy="accounts")
+     * @JoinColumn(name="idOpeningFees", referencedColumnName="id")
+     */
+    private $openingFees;
+    /** @Column(type="string") **/
+    private $nextRemunDate;
+    /** @Column(type="string", nullable=true) **/
+    private $closeDate;
+
+    
+    /*======================================
+    # 🚀🧱🧰 CONSTRUCTOR 🧰🧱🚀
+    ======================================*/
+    public function __construct()
+    {
+        // $this->state = new ArrayCollection();
+    }
+
+    /*======================================
+    # 🧿📥 GETTERS & SETTERS 📥🧿
+    ======================================*/
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of accountNumber
+     */ 
+    public function getAccountNumber()
+    {
+        return $this->accountNumber;
+    }
+
+    /**
+     * Set the value of accountNumber
+     *
+     * @return  self
+     */ 
+    public function setAccountNumber($accountNumber)
+    {
+        $this->accountNumber = $accountNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of cleRIB
+     */ 
+    public function getCleRIB()
+    {
+        return $this->cleRIB;
+    }
+
+    /**
+     * Set the value of cleRIB
+     *
+     * @return  self
+     */ 
+    public function setCleRIB($cleRIB)
+    {
+        $this->cleRIB = $cleRIB;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idCliOwner_physique
+     */ 
+    public function getCliOwner_physique()
+    {
+        return $this->CliOwner_physique;
+    }
+
+    /**
+     * Set the value of idCliOwner_physique
+     *
+     * @return  self
+     */ 
+    public function setCliOwner_physique($CliOwner_physique)
+    {
+        $this->CliOwner_physique = $CliOwner_physique;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idCliOwner_moral
+     */ 
+    public function getIdCliOwner_moral()
+    {
+        return $this->idCliOwner_moral;
+    }
+
+    /**
+     * Set the value of idCliOwner_moral
+     *
+     * @return  self
+     */ 
+    public function setIdCliOwner_moral($idCliOwner_moral)
+    {
+        $this->idCliOwner_moral = $idCliOwner_moral;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of solde
+     */ 
+    public function getSolde()
+    {
+        return $this->solde;
+    }
+
+    /**
+     * Set the value of solde
+     *
+     * @return  self
+     */ 
+    public function setSolde($solde)
+    {
+        $this->solde = $solde;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of state
+     */ 
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * Set the value of state
+     *
+     * @return  self
+     */ 
+    public function setState($state)
+    {
+        $this->state[] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dateCreation
+     */ 
+    public function getDateCreation()
+    {
+        return $this->dateCreation;
+    }
+
+    /**
+     * Set the value of dateCreation
+     *
+     * @return  self
+     */ 
+    public function setDateCreation($dateCreation)
+    {
+        $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of activeDate
+     */ 
+    public function getActiveDate()
+    {
+        return $this->activeDate;
+    }
+
+    /**
+     * Set the value of activeDate
+     *
+     * @return  self
+     */ 
+    public function setActiveDate($activeDate)
+    {
+        $this->activeDate = $activeDate;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of idUserCreator
+     */ 
+    public function getIdUserCreator()
+    {
+        return $this->idUserCreator;
+    }
+
+    /**
+     * Set the value of idUserCreator
+     *
+     * @return  self
+     */ 
+    public function setIdUserCreator($idUserCreator)
+    {
+        $this->idUserCreator = $idUserCreator;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of agencyNumber
+     */ 
+    public function getAgencyNumber()
+    {
+        return $this->agencyNumber;
+    }
+
+    /**
+     * Set the value of agencyNumber
+     *
+     * @return  self
+     */ 
+    public function setAgencyNumber($agencyNumber)
+    {
+        $this->agencyNumber = $agencyNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of openingFees
+     */ 
+    public function getOpeningFees()
+    {
+        return $this->openingFees;
+    }
+
+    /**
+     * Set the value of openingFees
+     *
+     * @return  self
+     */ 
+    public function setOpeningFees($openingFees)
+    {
+        $this->openingFees = $openingFees;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of nextRemunDate
+     */ 
+    public function getNextRemunDate()
+    {
+        return $this->nextRemunDate;
+    }
+
+    /**
+     * Set the value of nextRemunDate
+     *
+     * @return  self
+     */ 
+    public function setNextRemunDate($nextRemunDate)
+    {
+        $this->nextRemunDate = $nextRemunDate;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of closeDate
+     */ 
+    public function getCloseDate()
+    {
+        return $this->closeDate;
+    }
+
+    /**
+     * Set the value of closeDate
+     *
+     * @return  self
+     */ 
+    public function setCloseDate($closeDate)
+    {
+        $this->closeDate = $closeDate;
+
+        return $this;
+    }
+    // ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+
+}
+?>

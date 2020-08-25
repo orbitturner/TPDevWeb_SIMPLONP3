@@ -1,5 +1,5 @@
 <?php
-/* === WELCOME TO ORBIT NEXT FRAMEWORK  ===
+/* === WELCOME TO ORBIT API FRAMEWORK  ===
  *                     
  *	  By :
  *

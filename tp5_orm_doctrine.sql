@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  lun. 17 août 2020 à 15:43
+-- Généré le :  mar. 25 août 2020 à 12:56
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.4.7
 
@@ -42,9 +42,6 @@ CREATE TABLE `agency` (
 
 INSERT INTO `agency` (`id`, `nom`, `creationDate`, `lieu`, `numAgency`) VALUES
 (1, 'AGT-DEVAGENCY', '2020-07-29', 'DAKAR', 'BP-TEST-DK-1010-001');
-
-INSERT INTO `agency` (`id`, `nom`, `creationDate`, `lieu`, `numAgency`) VALUES
-(2, 'AGT-TEST-AGENCY', '2020-08-18', 'SPATIUM', 'BP-TEST-DK-1010-002');
 
 -- --------------------------------------------------------
 
@@ -105,7 +102,7 @@ CREATE TABLE `compteepsx` (
   `nextRemunDate` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `closeDate` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `idUser` int(11) DEFAULT NULL,
-  `hostAgency` int(11) NOT NULL,
+  `agencyNumber` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `idOpeningFees` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -113,11 +110,11 @@ CREATE TABLE `compteepsx` (
 -- Déchargement des données de la table `compteepsx`
 --
 
-INSERT INTO `compteepsx` (`id`, `owner_id`, `accountNumber`, `cleRIB`, `solde`, `dateCreation`, `activeDate`, `nextRemunDate`, `closeDate`, `idUser`, `hostAgency`, `idOpeningFees`) VALUES
-(1, 1, 'BP-SN-20200803-1-1', 55, '450001', '2020-08-03', '2020-08-03', '2020-12-12', NULL, 1, 1, 1),
-(2, 1, 'BP-SN-20200803-2-1', 78, '780000', '2020-08-03', '2020-08-03', '2020-12-12', NULL, 1, 2, 1),
-(3, 1, 'BP-SN-20200803-3-1', 88, '10000', '2020-08-03', '2020-08-03', '2020-12-12', NULL, 1, 1, 1),
-(4, 1, 'BP-SN-20200803-4-1', 98, '125000', '2020-08-03', '2020-08-03', '2020-12-12', NULL, 1, 2, 1);
+INSERT INTO `compteepsx` (`id`, `owner_id`, `accountNumber`, `cleRIB`, `solde`, `dateCreation`, `activeDate`, `nextRemunDate`, `closeDate`, `idUser`, `agencyNumber`, `idOpeningFees`) VALUES
+(1, 1, 'BP-SN-20200803-1-1', 55, '450001', '2020-08-03', '2020-08-03', '2020-12-12', NULL, 1, 'BP-TEST-DK-1010-001', 1),
+(2, 1, 'BP-SN-20200803-2-1', 78, '780000', '2020-08-03', '2020-08-03', '2020-12-12', NULL, 1, 'BP-TEST-DK-1010-001', 1),
+(3, 1, 'BP-SN-20200803-3-1', 88, '10000', '2020-08-03', '2020-08-03', '2020-12-12', NULL, 1, NULL, 1),
+(4, 1, 'BP-SN-20200803-4-1', 98, '125000', '2020-08-03', '2020-08-03', '2020-12-12', NULL, 1, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -157,7 +154,7 @@ CREATE TABLE `employee` (
   `service` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `dateNaiss` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `idUser` int(11) DEFAULT NULL,
-  `agencyhost` int(11) NOT NULL
+  `numAgency` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -299,7 +296,7 @@ ALTER TABLE `compteepsx`
   ADD KEY `IDX_476A19E5FE6E88D7` (`idUser`),
   ADD KEY `IDX_476A19E5EB0DA29F` (`idOpeningFees`),
   ADD KEY `IDX_476A19E57E3C61F9` (`owner_id`),
-  ADD KEY `IDX_476A19E515C879D0` (`hostAgency`);
+  ADD KEY `IDX_476A19E515C879D0` (`agencyNumber`);
 
 --
 -- Index pour la table `compteepsx_etats`
@@ -319,7 +316,7 @@ ALTER TABLE `employee`
   ADD UNIQUE KEY `UNIQ_A4E917F7E7927C74` (`email`),
   ADD UNIQUE KEY `UNIQ_A4E917F77AC033BE` (`cni`),
   ADD KEY `IDX_A4E917F7FE6E88D7` (`idUser`),
-  ADD KEY `IDX_A4E917F7BAD79E3A` (`agencyhost`);
+  ADD KEY `IDX_A4E917F7BAD79E3A` (`numAgency`);
 
 --
 -- Index pour la table `openingfees`
@@ -433,7 +430,7 @@ ALTER TABLE `agency_state`
 -- Contraintes pour la table `compteepsx`
 --
 ALTER TABLE `compteepsx`
-  ADD CONSTRAINT `FK_476A19E515C879D0` FOREIGN KEY (`hostAgency`) REFERENCES `agency` (`id`),
+  ADD CONSTRAINT `FK_476A19E515C879D0` FOREIGN KEY (`agencyNumber`) REFERENCES `agency` (`numAgency`),
   ADD CONSTRAINT `FK_476A19E57E3C61F9` FOREIGN KEY (`owner_id`) REFERENCES `clientphysique` (`id`),
   ADD CONSTRAINT `FK_476A19E5EB0DA29F` FOREIGN KEY (`idOpeningFees`) REFERENCES `openingfees` (`id`),
   ADD CONSTRAINT `FK_476A19E5FE6E88D7` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`);
@@ -449,7 +446,7 @@ ALTER TABLE `compteepsx_etats`
 -- Contraintes pour la table `employee`
 --
 ALTER TABLE `employee`
-  ADD CONSTRAINT `FK_A4E917F7BAD79E3A` FOREIGN KEY (`agencyhost`) REFERENCES `agency` (`id`),
+  ADD CONSTRAINT `FK_A4E917F7BAD79E3A` FOREIGN KEY (`numAgency`) REFERENCES `agency` (`numAgency`),
   ADD CONSTRAINT `FK_A4E917F7FE6E88D7` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`);
 
 --
