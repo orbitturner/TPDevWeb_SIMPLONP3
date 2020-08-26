@@ -64,7 +64,7 @@ class ClientPhysiqueModel {
         /**
          * @return object
          */
-        public function findN($numero){
+        public function findN(string $numero){
             return $this->db->createQueryBuilder()->select('c')
             ->from(ClientPhysique::class, 'c')
             ->where('c.numId = :numeroClient')

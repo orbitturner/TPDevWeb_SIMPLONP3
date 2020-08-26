@@ -1,23 +1,9 @@
 <?php
-/* === 🌌 WELCOME TO ORBIT API FRAMEWORK 🌌  ===
-*                     
-*	  By :
-*
-*     ██████╗ ██████╗ ██████╗ ██╗████████╗    ████████╗██╗   ██╗██████╗ ███╗   ██╗███████╗██████╗ 
-*    ██╔═══██╗██╔══██╗██╔══██╗██║╚══██╔══╝    ╚══██╔══╝██║   ██║██╔══██╗████╗  ██║██╔════╝██╔══██╗
-*    ██║   ██║██████╔╝██████╔╝██║   ██║          ██║   ██║   ██║██████╔╝██╔██╗ ██║█████╗  ██████╔╝
-*    ██║   ██║██╔══██╗██╔══██╗██║   ██║          ██║   ██║   ██║██╔══██╗██║╚██╗██║██╔══╝  ██╔══██╗
-*    ╚██████╔╝██║  ██║██████╔╝██║   ██║          ██║   ╚██████╔╝██║  ██║██║ ╚████║███████╗██║  ██║
-*     ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝   ╚═╝          ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝
-*          
-*  AUTHOR : MOHAMED GUEYE [Orbit Turner] - Linkedin: www.linkedin.com/in/orbitturner - Email: orbitturner@orbitturner.com - Country: Senegal
-*                              GITHUB : Orbit Turner    -   Website: http://orbitturner.yj.fr/ 
-*/
-namespace Orbit\System;
+namespace Orbit\Services;
 
 use Orbit\Models\ClientPhysiqueModel;
 
-class Services {
+class ClientServices {
 
     private $db;
     private $requestMethod;
@@ -25,13 +11,13 @@ class Services {
 
     private $entityModel;
 
-    public function __construct($modelClass, $entityManager, $requestMethod, $methodParams)
+    public function __construct($entityManager, $requestMethod, $methodParams)
     {
         $this->db = $entityManager;
         $this->requestMethod = $requestMethod;
         $this->methodParams = $methodParams;
-        // Defining The Current Model
-        $this->entityModel = new $modelClass($entityManager);
+
+        $this->entityModel = new ClientPhysiqueModel($entityManager);
     }
 
     public function processRequest()
@@ -39,11 +25,7 @@ class Services {
         switch ($this->requestMethod) {
             case 'GET':
                 if ($this->methodParams) {
-                    if (is_numeric($this->methodParams)) {
-                        $response = $this->getEntity((int)$this->methodParams);
-                    }else {
-                        $response = $this->getEntityN($this->methodParams);
-                    }
+                    $response = $this->getEntity($this->methodParams);
                 } else {
                     $response = $this->getAllEntities();
                 };
@@ -58,8 +40,7 @@ class Services {
                 $response = $this->deleteEntity($this->methodParams);
                 break;
             default:
-                // $response = $this->notFoundResponse();
-                $response['body'] = 'Humm ';
+                $response = $this->notFoundResponse();
                 break;
         }
         header($response['status_code_header']);
@@ -84,20 +65,6 @@ class Services {
         }
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['body'] = json_encode($result);
-        return $response;
-    }
-
-    private function getEntityN(string $numero)
-    {
-        // var_dump($numero);
-        $result = $this->entityModel->findN($numero);
-        if (! $result) {
-            return $this->notFoundResponse();
-            // die("IN THIS");
-        }
-        $response['status_code_header'] = 'HTTP/1.1 200 OK';
-        $response['body'] = json_encode($result);
-        // $response['orbit'] = $numero;
         return $response;
     }
 
