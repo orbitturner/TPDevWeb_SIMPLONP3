@@ -6,22 +6,74 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Employee
- * @package App\Models
- * @version September 6, 2020, 1:19 pm UTC
- *
- * @property \App\Models\Agency $agencyhost
- * @property \App\Models\User $iduser
- * @property string $numEmployee
- * @property string $telephone
- * @property string $email
- * @property string $cni
- * @property string $adresse
- * @property string $sexe
- * @property string $service
- * @property string $dateNaiss
- * @property integer $idUser
- * @property integer $agencyhost
+ * @SWG\Definition(
+ *      definition="Employee",
+ *      required={"numEmployee", "telephone", "email", "cni", "adresse", "sexe", "service", "dateNaiss", "agencyhost"},
+ *      @SWG\Property(
+ *          property="id",
+ *          description="id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="numEmployee",
+ *          description="numEmployee",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="telephone",
+ *          description="telephone",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="email",
+ *          description="email",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="cni",
+ *          description="cni",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="adresse",
+ *          description="adresse",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="sexe",
+ *          description="sexe",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="service",
+ *          description="service",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="dateNaiss",
+ *          description="dateNaiss",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="idUser",
+ *          description="idUser",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="agencyhost",
+ *          description="agencyhost",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="deleted_at",
+ *          description="deleted_at",
+ *          type="string",
+ *          format="date-time"
+ *      )
+ * )
  */
 class Employee extends Model
 {
@@ -84,7 +136,8 @@ class Employee extends Model
         'service' => 'required|string|max:255',
         'dateNaiss' => 'required|string|max:255',
         'idUser' => 'nullable|integer',
-        'agencyhost' => 'required|integer'
+        'agencyhost' => 'required|integer',
+        'deleted_at' => 'nullable'
     ];
 
     /**

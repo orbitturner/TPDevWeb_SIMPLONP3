@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class CompteepsxRepository
  * @package App\Repositories
- * @version September 6, 2020, 1:17 pm UTC
+ * @version September 6, 2020, 3:22 pm UTC
 */
 
 class CompteepsxRepository extends BaseRepository

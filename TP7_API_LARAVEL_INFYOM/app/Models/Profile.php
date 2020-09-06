@@ -6,14 +6,32 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Profile
- * @package App\Models
- * @version September 6, 2020, 1:20 pm UTC
- *
- * @property \Illuminate\Database\Eloquent\Collection $states
- * @property \Illuminate\Database\Eloquent\Collection $users
- * @property string $nom
- * @property string $description
+ * @SWG\Definition(
+ *      definition="Profile",
+ *      required={"nom", "description"},
+ *      @SWG\Property(
+ *          property="id",
+ *          description="id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="nom",
+ *          description="nom",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="description",
+ *          description="description",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="deleted_at",
+ *          description="deleted_at",
+ *          type="string",
+ *          format="date-time"
+ *      )
+ * )
  */
 class Profile extends Model
 {
@@ -52,7 +70,8 @@ class Profile extends Model
      */
     public static $rules = [
         'nom' => 'required|string|max:255',
-        'description' => 'required|string|max:255'
+        'description' => 'required|string|max:255',
+        'deleted_at' => 'nullable'
     ];
 
     /**

@@ -9,6 +9,7 @@ $factory->define(State::class, function (Faker $faker) {
 
     return [
         'nom' => $faker->word,
-        'description' => $faker->word
+        'description' => $faker->word,
+        'deleted_at' => $faker->date('Y-m-d H:i:s')
     ];
 });

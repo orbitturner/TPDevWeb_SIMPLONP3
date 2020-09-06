@@ -7,7 +7,7 @@
 <!-- Accountnumber Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('accountNumber', 'Accountnumber:') !!}
-    {!! Form::text('accountNumber', null, ['class' => 'form-control','maxlength' => 100,'maxlength' => 100]) !!}
+    {!! Form::text('accountNumber', null, ['class' => 'form-control','maxlength' => 100,'maxlength' => 100,'maxlength' => 100]) !!}
 </div>
 
 <!-- Clerib Field -->
@@ -25,25 +25,25 @@
 <!-- Datecreation Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('dateCreation', 'Datecreation:') !!}
-    {!! Form::text('dateCreation', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::text('dateCreation', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Activedate Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('activeDate', 'Activedate:') !!}
-    {!! Form::text('activeDate', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::text('activeDate', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Nextremundate Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nextRemunDate', 'Nextremundate:') !!}
-    {!! Form::text('nextRemunDate', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::text('nextRemunDate', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Closedate Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('closeDate', 'Closedate:') !!}
-    {!! Form::text('closeDate', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255]) !!}
+    {!! Form::text('closeDate', null, ['class' => 'form-control','maxlength' => 255,'maxlength' => 255,'maxlength' => 255]) !!}
 </div>
 
 <!-- Iduser Field -->

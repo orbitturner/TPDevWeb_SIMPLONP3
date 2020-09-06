@@ -6,13 +6,33 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Openingfee
- * @package App\Models
- * @version September 6, 2020, 1:20 pm UTC
- *
- * @property \Illuminate\Database\Eloquent\Collection $compteepsxes
- * @property string $libelle
- * @property number $montant
+ * @SWG\Definition(
+ *      definition="Openingfee",
+ *      required={"libelle", "montant"},
+ *      @SWG\Property(
+ *          property="id",
+ *          description="id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="libelle",
+ *          description="libelle",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="montant",
+ *          description="montant",
+ *          type="number",
+ *          format="number"
+ *      ),
+ *      @SWG\Property(
+ *          property="deleted_at",
+ *          description="deleted_at",
+ *          type="string",
+ *          format="date-time"
+ *      )
+ * )
  */
 class Openingfee extends Model
 {
@@ -51,7 +71,8 @@ class Openingfee extends Model
      */
     public static $rules = [
         'libelle' => 'required|string|max:255',
-        'montant' => 'required|numeric'
+        'montant' => 'required|numeric',
+        'deleted_at' => 'nullable'
     ];
 
     /**

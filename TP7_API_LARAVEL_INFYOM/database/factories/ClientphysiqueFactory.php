@@ -21,6 +21,7 @@ $factory->define(Clientphysique::class, function (Faker $faker) {
         'features' => $faker->word,
         'isSalarie' => $faker->word,
         'created_at' => $faker->date('Y-m-d H:i:s'),
-        'updated_at' => $faker->date('Y-m-d H:i:s')
+        'updated_at' => $faker->date('Y-m-d H:i:s'),
+        'deleted_at' => $faker->date('Y-m-d H:i:s')
     ];
 });

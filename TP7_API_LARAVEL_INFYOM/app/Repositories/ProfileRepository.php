@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class ProfileRepository
  * @package App\Repositories
- * @version September 6, 2020, 1:20 pm UTC
+ * @version September 6, 2020, 3:18 pm UTC
 */
 
 class ProfileRepository extends BaseRepository

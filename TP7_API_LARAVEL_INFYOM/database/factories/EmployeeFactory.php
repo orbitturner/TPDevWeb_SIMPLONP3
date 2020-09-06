@@ -17,6 +17,7 @@ $factory->define(Employee::class, function (Faker $faker) {
         'service' => $faker->word,
         'dateNaiss' => $faker->word,
         'idUser' => $faker->randomDigitNotNull,
-        'agencyhost' => $faker->randomDigitNotNull
+        'agencyhost' => $faker->randomDigitNotNull,
+        'deleted_at' => $faker->date('Y-m-d H:i:s')
     ];
 });

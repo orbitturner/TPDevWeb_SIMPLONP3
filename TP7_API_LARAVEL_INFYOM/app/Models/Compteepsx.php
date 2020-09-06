@@ -6,26 +6,95 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Compteepsx
- * @package App\Models
- * @version September 6, 2020, 1:17 pm UTC
- *
- * @property \App\Models\Agency $hostagency
- * @property \App\Models\Clientphysique $owner
- * @property \App\Models\Openingfee $idopeningfees
- * @property \App\Models\User $iduser
- * @property \Illuminate\Database\Eloquent\Collection $states
- * @property integer $owner_id
- * @property string $accountNumber
- * @property integer $cleRIB
- * @property number $solde
- * @property string $dateCreation
- * @property string $activeDate
- * @property string $nextRemunDate
- * @property string $closeDate
- * @property integer $idUser
- * @property integer $hostAgency
- * @property integer $idOpeningFees
+ * @SWG\Definition(
+ *      definition="Compteepsx",
+ *      required={"accountNumber", "cleRIB", "solde", "dateCreation", "nextRemunDate", "hostAgency"},
+ *      @SWG\Property(
+ *          property="id",
+ *          description="id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="owner_id",
+ *          description="owner_id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="accountNumber",
+ *          description="accountNumber",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="cleRIB",
+ *          description="cleRIB",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="solde",
+ *          description="solde",
+ *          type="number",
+ *          format="number"
+ *      ),
+ *      @SWG\Property(
+ *          property="dateCreation",
+ *          description="dateCreation",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="activeDate",
+ *          description="activeDate",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="nextRemunDate",
+ *          description="nextRemunDate",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="closeDate",
+ *          description="closeDate",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="idUser",
+ *          description="idUser",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="hostAgency",
+ *          description="hostAgency",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="idOpeningFees",
+ *          description="idOpeningFees",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="created_at",
+ *          description="created_at",
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @SWG\Property(
+ *          property="updated_at",
+ *          description="updated_at",
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @SWG\Property(
+ *          property="deleted_at",
+ *          description="deleted_at",
+ *          type="string",
+ *          format="date-time"
+ *      )
+ * )
  */
 class Compteepsx extends Model
 {
@@ -93,7 +162,8 @@ class Compteepsx extends Model
         'hostAgency' => 'required|integer',
         'idOpeningFees' => 'nullable|integer',
         'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+        'updated_at' => 'nullable',
+        'deleted_at' => 'nullable'
     ];
 
     /**

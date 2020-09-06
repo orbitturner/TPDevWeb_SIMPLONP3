@@ -26,11 +26,36 @@ class agencyAPIController extends AppBaseController
     }
 
     /**
-     * Display a listing of the agency.
-     * GET|HEAD /agencies
-     *
      * @param Request $request
      * @return Response
+     *
+     * @SWG\Get(
+     *      path="/agencies",
+     *      summary="Get a listing of the agencies.",
+     *      tags={"agency"},
+     *      description="Get all agencies",
+     *      produces={"application/json"},
+     *      @SWG\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @SWG\Schema(
+     *              type="object",
+     *              @SWG\Property(
+     *                  property="success",
+     *                  type="boolean"
+     *              ),
+     *              @SWG\Property(
+     *                  property="data",
+     *                  type="array",
+     *                  @SWG\Items(ref="#/definitions/agency")
+     *              ),
+     *              @SWG\Property(
+     *                  property="message",
+     *                  type="string"
+     *              )
+     *          )
+     *      )
+     * )
      */
     public function index(Request $request)
     {
@@ -44,12 +69,42 @@ class agencyAPIController extends AppBaseController
     }
 
     /**
-     * Store a newly created agency in storage.
-     * POST /agencies
-     *
      * @param CreateagencyAPIRequest $request
-     *
      * @return Response
+     *
+     * @SWG\Post(
+     *      path="/agencies",
+     *      summary="Store a newly created agency in storage",
+     *      tags={"agency"},
+     *      description="Store agency",
+     *      produces={"application/json"},
+     *      @SWG\Parameter(
+     *          name="body",
+     *          in="body",
+     *          description="agency that should be stored",
+     *          required=false,
+     *          @SWG\Schema(ref="#/definitions/agency")
+     *      ),
+     *      @SWG\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @SWG\Schema(
+     *              type="object",
+     *              @SWG\Property(
+     *                  property="success",
+     *                  type="boolean"
+     *              ),
+     *              @SWG\Property(
+     *                  property="data",
+     *                  ref="#/definitions/agency"
+     *              ),
+     *              @SWG\Property(
+     *                  property="message",
+     *                  type="string"
+     *              )
+     *          )
+     *      )
+     * )
      */
     public function store(CreateagencyAPIRequest $request)
     {
@@ -61,12 +116,42 @@ class agencyAPIController extends AppBaseController
     }
 
     /**
-     * Display the specified agency.
-     * GET|HEAD /agencies/{id}
-     *
      * @param int $id
-     *
      * @return Response
+     *
+     * @SWG\Get(
+     *      path="/agencies/{id}",
+     *      summary="Display the specified agency",
+     *      tags={"agency"},
+     *      description="Get agency",
+     *      produces={"application/json"},
+     *      @SWG\Parameter(
+     *          name="id",
+     *          description="id of agency",
+     *          type="integer",
+     *          required=true,
+     *          in="path"
+     *      ),
+     *      @SWG\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @SWG\Schema(
+     *              type="object",
+     *              @SWG\Property(
+     *                  property="success",
+     *                  type="boolean"
+     *              ),
+     *              @SWG\Property(
+     *                  property="data",
+     *                  ref="#/definitions/agency"
+     *              ),
+     *              @SWG\Property(
+     *                  property="message",
+     *                  type="string"
+     *              )
+     *          )
+     *      )
+     * )
      */
     public function show($id)
     {
@@ -81,13 +166,50 @@ class agencyAPIController extends AppBaseController
     }
 
     /**
-     * Update the specified agency in storage.
-     * PUT/PATCH /agencies/{id}
-     *
      * @param int $id
      * @param UpdateagencyAPIRequest $request
-     *
      * @return Response
+     *
+     * @SWG\Put(
+     *      path="/agencies/{id}",
+     *      summary="Update the specified agency in storage",
+     *      tags={"agency"},
+     *      description="Update agency",
+     *      produces={"application/json"},
+     *      @SWG\Parameter(
+     *          name="id",
+     *          description="id of agency",
+     *          type="integer",
+     *          required=true,
+     *          in="path"
+     *      ),
+     *      @SWG\Parameter(
+     *          name="body",
+     *          in="body",
+     *          description="agency that should be updated",
+     *          required=false,
+     *          @SWG\Schema(ref="#/definitions/agency")
+     *      ),
+     *      @SWG\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @SWG\Schema(
+     *              type="object",
+     *              @SWG\Property(
+     *                  property="success",
+     *                  type="boolean"
+     *              ),
+     *              @SWG\Property(
+     *                  property="data",
+     *                  ref="#/definitions/agency"
+     *              ),
+     *              @SWG\Property(
+     *                  property="message",
+     *                  type="string"
+     *              )
+     *          )
+     *      )
+     * )
      */
     public function update($id, UpdateagencyAPIRequest $request)
     {
@@ -106,14 +228,42 @@ class agencyAPIController extends AppBaseController
     }
 
     /**
-     * Remove the specified agency from storage.
-     * DELETE /agencies/{id}
-     *
      * @param int $id
-     *
-     * @throws \Exception
-     *
      * @return Response
+     *
+     * @SWG\Delete(
+     *      path="/agencies/{id}",
+     *      summary="Remove the specified agency from storage",
+     *      tags={"agency"},
+     *      description="Delete agency",
+     *      produces={"application/json"},
+     *      @SWG\Parameter(
+     *          name="id",
+     *          description="id of agency",
+     *          type="integer",
+     *          required=true,
+     *          in="path"
+     *      ),
+     *      @SWG\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @SWG\Schema(
+     *              type="object",
+     *              @SWG\Property(
+     *                  property="success",
+     *                  type="boolean"
+     *              ),
+     *              @SWG\Property(
+     *                  property="data",
+     *                  type="string"
+     *              ),
+     *              @SWG\Property(
+     *                  property="message",
+     *                  type="string"
+     *              )
+     *          )
+     *      )
+     * )
      */
     public function destroy($id)
     {

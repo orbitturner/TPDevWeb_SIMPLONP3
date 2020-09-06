@@ -6,23 +6,94 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Clientphysique
- * @package App\Models
- * @version September 6, 2020, 1:16 pm UTC
- *
- * @property \Illuminate\Database\Eloquent\Collection $compteepsxes
- * @property string $numId
- * @property string $nom
- * @property string $prenom
- * @property string $email
- * @property string $cni
- * @property string $telephone
- * @property string $adresse
- * @property string $sexe
- * @property string $dateNaiss
- * @property string $dateCreation
- * @property string $features
- * @property string $isSalarie
+ * @SWG\Definition(
+ *      definition="Clientphysique",
+ *      required={"numId", "nom", "prenom", "email", "cni", "telephone", "adresse", "sexe", "dateNaiss", "dateCreation", "features", "isSalarie"},
+ *      @SWG\Property(
+ *          property="id",
+ *          description="id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="numId",
+ *          description="numId",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="nom",
+ *          description="nom",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="prenom",
+ *          description="prenom",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="email",
+ *          description="email",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="cni",
+ *          description="cni",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="telephone",
+ *          description="telephone",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="adresse",
+ *          description="adresse",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="sexe",
+ *          description="sexe",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="dateNaiss",
+ *          description="dateNaiss",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="dateCreation",
+ *          description="dateCreation",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="features",
+ *          description="features",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="isSalarie",
+ *          description="isSalarie",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="created_at",
+ *          description="created_at",
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @SWG\Property(
+ *          property="updated_at",
+ *          description="updated_at",
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @SWG\Property(
+ *          property="deleted_at",
+ *          description="deleted_at",
+ *          type="string",
+ *          format="date-time"
+ *      )
+ * )
  */
 class Clientphysique extends Model
 {
@@ -93,7 +164,8 @@ class Clientphysique extends Model
         'features' => 'required|string|max:255',
         'isSalarie' => 'required|string|max:255',
         'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+        'updated_at' => 'nullable',
+        'deleted_at' => 'nullable'
     ];
 
     /**

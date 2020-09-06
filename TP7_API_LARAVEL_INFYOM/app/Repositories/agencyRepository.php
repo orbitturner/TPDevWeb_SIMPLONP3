@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class agencyRepository
  * @package App\Repositories
- * @version September 6, 2020, 2:26 pm UTC
+ * @version September 6, 2020, 3:21 pm UTC
 */
 
 class agencyRepository extends BaseRepository
@@ -17,7 +17,10 @@ class agencyRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        
+        'nom',
+        'creationDate',
+        'lieu',
+        'numAgency'
     ];
 
     /**

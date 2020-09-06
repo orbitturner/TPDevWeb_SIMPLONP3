@@ -6,17 +6,54 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class agency
- * @package App\Models
- * @version September 6, 2020, 2:25 pm UTC
- *
- * @property \Illuminate\Database\Eloquent\Collection $states
- * @property \Illuminate\Database\Eloquent\Collection $compteepsxes
- * @property \Illuminate\Database\Eloquent\Collection $employees
- * @property string $nom
- * @property string $creationDate
- * @property string $lieu
- * @property string $numAgency
+ * @SWG\Definition(
+ *      definition="agency",
+ *      required={"nom", "creationDate", "lieu", "numAgency"},
+ *      @SWG\Property(
+ *          property="id",
+ *          description="id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="nom",
+ *          description="nom",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="creationDate",
+ *          description="creationDate",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="lieu",
+ *          description="lieu",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="numAgency",
+ *          description="numAgency",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="created_at",
+ *          description="created_at",
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @SWG\Property(
+ *          property="updated_at",
+ *          description="updated_at",
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @SWG\Property(
+ *          property="deleted_at",
+ *          description="deleted_at",
+ *          type="string",
+ *          format="date-time"
+ *      )
+ * )
  */
 class agency extends Model
 {

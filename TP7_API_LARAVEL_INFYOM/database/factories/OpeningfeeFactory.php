@@ -9,6 +9,7 @@ $factory->define(Openingfee::class, function (Faker $faker) {
 
     return [
         'libelle' => $faker->word,
-        'montant' => $faker->word
+        'montant' => $faker->word,
+        'deleted_at' => $faker->date('Y-m-d H:i:s')
     ];
 });
