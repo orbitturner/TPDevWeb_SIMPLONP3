@@ -8,13 +8,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+// https://api-platform.com/docs/core/filters/
 // @ORM\Entity(repositoryClass="App\Repository\CompteepsxRepository")
-
 /**
  * Compteepsx
  * @ApiResource
  * @ORM\Table(name="compteepsx", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_476A19E52D8B2F8F", columns={"accountNumber"})}, indexes={@ORM\Index(name="IDX_476A19E5FE6E88D7", columns={"idUser"}), @ORM\Index(name="IDX_476A19E57E3C61F9", columns={"owner_id"}), @ORM\Index(name="IDX_476A19E5EB0DA29F", columns={"idOpeningFees"}), @ORM\Index(name="IDX_476A19E515C879D0", columns={"hostAgency"})})
  * @ORM\Entity
+ * @ApiFilter(SearchFilter::class, properties={"accountnumber": "exact"})
  */
 class Compteepsx
 {

@@ -1,0 +1,23 @@
+@extends('layouts.app')
+
+@section('content')
+    <section class="content-header">
+        <h1>
+            Openingfee
+        </h1>
+   </section>
+   <div class="content">
+       @include('adminlte-templates::common.errors')
+       <div class="box box-primary">
+           <div class="box-body">
+               <div class="row">
+                   {!! Form::model($openingfee, ['route' => ['openingfees.update', $openingfee->id], 'method' => 'patch']) !!}
+
+                        @include('openingfees.fields')
+
+                   {!! Form::close() !!}
+               </div>
+           </div>
+       </div>
+   </div>
+@endsection
